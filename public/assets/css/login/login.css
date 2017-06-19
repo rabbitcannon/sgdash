@@ -1,0 +1,81 @@
+/**
+  Table of Contents
+  ------------------------
+  CS01 - General Items
+  CS02 - Form
+
+**/
+
+/** CS01 General Items
+ ===================== **/
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: url(/images/slots.jpg?88da93d2bdd534d905e4f63a44fb17ea);
+}
+
+.button {
+  background-color: #263238;
+  transition-duration: .5s;
+  transition-timing-function: ease-in;
+}
+
+.button:hover {
+  transition-timing-function: ease-out;
+  background-color: #57666D;
+}
+
+#body-overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #8c8c8c;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+}
+
+#login-container {
+  color: #CCC;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 20px 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.shadowbox {
+  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.51);
+}
+
+/** CS02 Form
+ ===================== **/
+
+.data-card-small {
+  background-color: white;
+  margin: 15px 0;
+}
+
+.data-card-small .data-header {
+  background-color: #263238;
+  color: #CDCDCD;
+  font-size: 1.5em;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
+.data-card-small .data-header i {
+  margin-right: -25px;
+  font-size: 1.75em;
+}
+
+.data-card-small .data-content {
+  font-size: 1em;
+  padding: 15px;
+}

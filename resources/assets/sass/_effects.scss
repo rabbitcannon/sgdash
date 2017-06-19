@@ -1,0 +1,83 @@
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* @mixin respond-to
+------------------------------------------------------------------- */
+/* line 6, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene .scene_element {
+  -webkit-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+/* line 17, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene .scene_element--fadein {
+  -webkit-animation-name: pageFadeIn;
+  animation-name: pageFadeIn; }
+/* line 22, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene .scene_element--fadeinup {
+  -webkit-animation-name: pageFadeInUp;
+  animation-name: pageFadeInUp; }
+/* line 27, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene .scene_element--fadeinright {
+  -webkit-animation-name: pageFadeInRight;
+  animation-name: pageFadeInRight; }
+/* line 32, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene .scene_element--delayed {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s; }
+/* line 37, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene.is-exiting .scene_element {
+  -webkit-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse; }
+/* line 42, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene.is-exiting .scene_element--delayed {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s; }
+/* line 47, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+.m-scene.is-exiting .scene_element--noexiting {
+  -webkit-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse; }
+
+@media screen and (min-width: 768px) {
+  /* line 58, /Users/miguelperez/Sites/csstricks/source/stylesheets/pageTransitions.css.scss */
+  .m-scene .scene_element--fadeinright-wide {
+    -webkit-animation-name: pageFadeInRight;
+    animation-name: pageFadeInRight; } }
+
+.is-loading,
+.is-loading a {
+  cursor: progress;
+}
+
+.loading {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 9999;
+}
+
+.project-circle {
+  display: table-cell;
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: $darker-blue;
+  color: lightblue;
+  font-size: 30px;
+}
+
+#ticket-container .ticket{
+  padding:10px;
+  display:none;
+}

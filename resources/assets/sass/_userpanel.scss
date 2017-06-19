@@ -1,0 +1,121 @@
+/**
+  Table of Contents
+  ------------------------
+  CS01 - User Panel Elements
+  CS02 - Notification Elements
+
+**/
+
+/** CS01 User Panel Elements
+ ===================== **/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2D3A40;
+    left: -75px;
+    min-width: 125px;
+    height: 0px;
+    box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.2);
+    /*margin: 12px 15px;*/
+    text-align: right;
+    transition: height 0.2s ease-in;
+    overflow: hidden;
+    z-index: 999;
+
+    ul li {
+      border-bottom: 1px solid #57666D;
+      padding: 5px 0px;
+    }
+  }
+
+  &:hover .dropdown-content {
+    height: 145px;
+    display: block;
+  }
+}
+
+/** CS02 Notification Elements
+ ===================== **/
+#notifications:hover .notifications__items {
+  display: block;
+}
+
+.notifications__items {
+  background-color: $light-gray;
+  color: $black;
+  border-bottom: 1px solid $header-bg-blue;
+  border-left: 1px solid $header-bg-blue;
+  border-right: 1px solid $header-bg-blue;
+  display: none;
+  top: 65px;
+  position: absolute;
+  right: 245px;
+  box-shadow: 0 0 20px $black;
+  width: 350px;
+  z-index: 999;
+
+}
+
+.dialogue-arrow {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: -35px;
+  /*top: 7px;*/
+  height: 0px;
+  width: 0px;
+  border-right: 15px solid transparent;
+  border-left: 35px solid transparent;
+  border-bottom: 35px solid $darkest-blue;
+  //text-shadow: 0 0 20px $black;
+  /*z-index: 996;*/
+}
+
+.data-card-flyout {
+  background-color: white;
+  //margin: 15px 0;
+
+  .data-header {
+    background-color: $darkest-blue;
+    color: $light-gray;
+    font-size: 1.1em;
+    padding: 13px;
+    text-align: left;
+    text-transform: uppercase;
+    i {
+      color: $header-bg-blue;
+      margin-right: -25px;
+      font-size: 1.75em;
+    }
+  }
+
+  .data-alt-header {
+    border-bottom: 1px solid $dark-blue;
+    color: $dark-blue;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  .data-content {
+    font-size: 1em;
+    padding: 15px;
+  }
+
+  .data-footer {
+    background-color: $dark-blue;
+    border-top: 1px solid $dark-blue;
+    font-size: 1em;
+    text-align: center;
+    padding: 7px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $header-bg-blue;
+    }
+  }
+}

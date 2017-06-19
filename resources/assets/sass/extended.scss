@@ -1,0 +1,299 @@
+@import "variables";
+@import "mixins";
+@import "effects";
+@import "projects";
+@import "userpanel";
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:300,400,600);
+
+/**
+  Table of Contents
+  ------------------------
+  CS01 - General Items
+  CS02 - Overrides
+  CS03 - Elements
+  CS04 - Text Elements
+
+**/
+
+/** CS01 General Items
+ ===================== **/
+
+html, body {
+  background-color: $light-gray;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+}
+
+.button {
+  background-color: $dark-blue;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  transition-timing-function: ease-in;
+  &:hover {
+    transition-timing-function: ease-out;
+    background-color: $blue-gray;
+  }
+  &:focus {
+    background-color: $dark-blue;
+  }
+}
+
+.cancel-button {
+  background-color: $failure-red;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+  transition-timing-function: ease-in;
+  &:hover {
+    transition-timing-function: ease-out;
+    background-color: $failure-red-light;
+  }
+  &:focus {
+    border: 0;
+    background-color: $failure-red-light;
+  }
+}
+
+#loader {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+}
+
+.counter {
+  //font-size: .85em;
+  font-style: italic;
+}
+
+/** CS02 Overrides
+ ===================== **/
+a {
+  color: $dark-bg-light-link;
+}
+
+.breadcrumbs {
+  padding-top: 20px;
+}
+
+/** CS03 Elements
+ ===================== **/
+.user-login-bar {
+  background-color: $header-bg-blue;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.48);
+  color: $light-gray;
+  padding: 10px;
+  #admin-header-text {
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+  }
+}
+
+#user-notifications {
+  .n-option {
+    .badge {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      font-size: 0.6rem;
+      margin-left: -35px;
+      margin-top: -5px;
+      position: absolute;
+      text-align: center;
+      z-index: 999;
+    }
+  }
+}
+
+#avatar-holder {
+  background-color: $blue-gray;
+  color: white;
+  padding: 35px 50px 50px 50px;
+  width: 100%;
+  top:50%; left: 50%;
+  #logo-badge {
+    background-color: $header-bg-blue;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+    i {
+      color: $blue-gray;
+      margin-top: 10px;
+    }
+    .clip-avatar {
+      background-color: $header-bg-blue;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      height: 100px;
+      margin: 0 auto;
+      width: 100px;
+    }
+  }
+}
+
+.menu-holder {
+  background-color: $dark-blue;
+  height: 100vh;
+}
+
+#admin-menu {
+  .menu-item {
+    border-bottom: 1px solid $blue-gray;
+    font-size: 18px;
+    padding: 20px 15px;
+    i {
+      margin-right: 5px;
+    }
+    a {
+      color: $light-gray;
+      margin-left: 5px;
+      -webkit-transition-duration: .5s;
+      transition-duration: .5s;
+      &:hover {
+        margin-left: 17px;
+      }
+    }
+  }
+  .active-item:before {
+    content: "\f101";
+    font-family: FontAwesome;
+    margin-right: 10px;
+  }
+}
+.data-hidden {
+  display: none;
+}
+
+.data-btn-toggle {
+  cursor: pointer;
+}
+
+.data-card {
+  background-color: white;
+  padding: 25px;
+  margin: 15px 0;
+  .data-header {
+    font-size: 2em;
+    i {
+      color: $header-bg-blue;
+      margin-right: -25px;
+      font-size: 1.75em;
+    }
+  }
+  .data-content {
+    font-size: 1em;
+  }
+}
+
+.data-card-small {
+  background-color: white;
+  margin: 15px 0;
+
+  .data-header {
+    background-color: $dark-blue;
+    color: $light-gray;
+    font-size: 1.5em;
+    padding: 15px;
+    text-transform: uppercase;
+    i {
+      color: $header-bg-blue;
+      margin-right: -25px;
+      font-size: 1.75em;
+    }
+  }
+
+  .data-alt-header {
+    border-bottom: 1px solid $dark-blue;
+    color: $dark-blue;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  .data-content {
+    font-size: 1em;
+    padding: 15px;
+  }
+}
+
+.data-table {
+  background-color: white;
+  margin: 15px 0;
+  .data-table-header {
+    background-color: $dark-blue;
+    color: $light-gray;
+    font-size: 1.5em;
+    padding: 15px;
+    text-transform: uppercase;
+    i {
+      color: $header-bg-blue;
+      margin-right: -25px;
+      font-size: 1.75em;
+    }
+  }
+  .data-table-content {
+    font-size: 1em;
+    padding: 15px;
+    thead tr th {
+      text-align: center;
+    }
+    tbody tr td {
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .data-table-content table tbody tr {
+    border-bottom: 1px solid $dark-blue;
+  }
+}
+
+
+/** CS04 Text Elements
+ ===================== **/
+
+.green-badge {
+  @extend .badge;
+  background-color: $success-green;
+}
+
+.red-badge {
+  @extend .badge;
+  background-color: $failure-red;
+}
+
+.success-text {
+  color: $success-green;
+}
+
+.warning-text {
+  color: $warning-amber;
+}
+
+.failure-text {
+  color: $failure-red;
+}
+
+.on-track {
+  @extend .success-text;
+}
+
+.caution {
+  @extend .warning-text;
+}
+
+.at-risk {
+  @extend .failure-text;
+}
+
+.disabled-text {
+  font-weight: 500;
+  color: #B8B8B8;
+}
+

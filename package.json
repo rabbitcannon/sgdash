@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^3.2.3",
+    "foundation-sites": "^6.3.1",
+    "jquery": "^3.1.1",
+    "laravel-mix": "0.*",
+    "lodash": "^4.17.4"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "axios": "^0.15.3",
+    "css-loader": "^0.28.4",
+    "moment": "^2.18.1",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-chartjs": "^0.8.0",
+    "react-dom": "^15.5.4"
+  }
+}
