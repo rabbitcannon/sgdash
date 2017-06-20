@@ -1,12 +1,11 @@
 import React from 'react';
 import Moment from 'moment';
-import Axios from 'axios';
 
 const save_url = window.location.origin + '/api/v1/projects/update/';
 
 class ResultItem extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = {
 			editing: false,
@@ -18,46 +17,14 @@ class ResultItem extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		jQuery.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
-		});
-	}
-
-	edit() {
-		this.setState({
-			editing: true,
-		});
-	}
-
-	unEdit() {
-		this.setState({
-			editing: false,
-		});
-	}
-
-
-	dateFormatter(date, full) {
-		if(full) {
-			if(date) {
-				var newDate = Moment(date).format('MM/DD/YY');
-			}
-			else {
-				var newDate = "N/A";
-			}
-			return newDate;
+	dateFormatter(date) {
+		if(date) {
+			var newDate = Moment(date).format('MM/DD');
 		}
 		else {
-			if(date) {
-				var newDate = Moment(date).format('MM/DD');
-			}
-			else {
-				var newDate = "N/A";
-			}
-			return newDate;
+			var newDate = "N/A";
 		}
+		return newDate;
 	}
 
 	classSetter(status_id) {
@@ -77,30 +44,6 @@ class ResultItem extends React.Component {
 		}
 		return status_class;
 	}
-
-	urlCreator(project_id) {
-		let url = '/admin/project/edit/' + project_id;
-		return url;
-	}
-
-	handleSelectChange(status_name, event) {
-		if(status_name === 'req_status') {
-			this.setState({
-				req_status: event.target.value,
-			});
-		}
-		if(status_name === 'dev_status') {
-			this.setState({
-				dev_status: event.target.value,
-			});
-		}
-	}
-
-	// handleStateChange(event) {
-	// 	this.setState({ req_status: event.target.value }, () => {
-	// 		console.log(this.state)
-	// 	});
-	// }
 
 	renderStaticDisplay() {
 		return (

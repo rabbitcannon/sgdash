@@ -1,8 +1,7 @@
-import "babel-polyfill";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
-export default class  extends React.Component {
+export default class Notifications extends React.Component {
 
 
     render() {
@@ -14,4 +13,4 @@ export default class  extends React.Component {
     }
 }
 
-ReactDOM.render(< />, document.getElementById(""));
+ReactDOM.render(<Notifications />, document.getElementById("notifications"));

@@ -9,6 +9,9 @@
                 </div>
             </div>
 
+            {{--React Components--}}
+            <script src="/assets/js/react/app-components.js"></script>
+
         </footer>
 
     </body>

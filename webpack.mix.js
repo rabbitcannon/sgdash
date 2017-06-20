@@ -34,13 +34,14 @@ mix.combine([
     'resources/assets/js/animations.js'
 ], 'public/assets/js/app.js');
 
+
 //--  React Files --//
 // ========================= //
 
 //-- Components --//
-mix.scripts([
-    'resources/assets/js/react/components/notifications.jsx',
-], 'public/assets/js/react/react-app.js');
+mix.react([
+    'resources/assets/js/react/app.jsx',
+], 'public/assets/js/react/app-components.js');
 
 //-- Admin --//
 mix.react('resources/assets/js/react/pages/admin/projects/index.jsx', 'public/assets/js/react/pages/admin/projects.js');

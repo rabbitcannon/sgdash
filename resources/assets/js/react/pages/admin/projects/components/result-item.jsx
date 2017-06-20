@@ -104,7 +104,7 @@ class ResultItem extends React.Component {
 	}
 
 	urlCreator(project_id) {
-		let url = '/admin/project/edit/' + project_id;
+		let url = `/admin/project/edit/${project_id}`;
 		return url;
 	}
 
