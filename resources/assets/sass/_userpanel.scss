@@ -9,6 +9,16 @@
 /** CS01 User Panel Elements
  ===================== **/
 
+#user-notifications {
+  .mark-read {
+    color: $blue-gray;
+    text-decoration: line-through;
+  }
+  .mark-unread {
+
+  }
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

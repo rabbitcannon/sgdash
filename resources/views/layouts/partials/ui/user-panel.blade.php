@@ -1,50 +1,23 @@
 <div class="row">
-    <div id="user-notifications" class="large-9 columns">
+    <div id="user-notifications" class="large-9 columns text-right">
 
         <div class="row">
-            <div class="large-3 large-offset-6 columns">
-                <div class="n-option">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span class="badge green-badge" id="messageCount">1</span>
-                    <span class="n-option-label">Messages</span>
-                </div>
+            <div class="large-2 large-offset-8 columns">
+                <span class="badge green-badge" id="messageCount">1</span>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                {{-- TODO: Hook up messages section --}}
             </div>
 
-            <div class="large-3 columns">
-                <div id="notifications" class="n-option">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span class="badge red-badge" id="messageCount">
-                        {{ count($user->unreadNotifications) }}
-                    </span>
-                    <span class="n-option-label">Notifications</span>
-
-                    <!-- START Notifications -->
-                    <div class="notifications__items">
-                        <div class="dialogue-arrow"></div>
-                        <div class="data-card-flyout">
-                            <div class="data-header">
-                                Notifications
-                            </div>
-                            <div class="data-content">
-                                @foreach ($user->unreadNotifications as $notification)
-                                    @include('layouts.partials.notifications.' . snake_case(class_basename($notification->type)))
-                                @endforeach
-                            </div>
-                            <a href="/notifications/all">
-                                <div class="data-footer">
-                                    All Notifications
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- END Notifications -->
-
-                </div>
+            <div class="large-2 columns">
+                <div id="notifications" data-user="{{ $user->id }}"></div>
+                {{--<div id="notifications-loader" style="display: none;">--}}
+                    {{--<img src="/images/preloaders/preloader_mini.svg">--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
 
-    <div class="large-3 columns">
+    {{--<div class="large-3 columns">--}}
         <div id="user-name-block">
 
             <div class="dropdown">

@@ -1,14 +1,13 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
-export default class Notifications extends React.Component {
+import Results from './components/results.jsx';
 
+export default class Notifications extends React.Component {
 
     render() {
         return (
-            <div>
-                Notifications
-            </div>
+            <Results />
         );
     }
 }

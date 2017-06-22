@@ -9148,6 +9148,11 @@ a.thumbnail image {
 /** CS01 User Panel Elements
  ===================== **/
 
+#user-notifications .mark-read {
+  color: #57666D;
+  text-decoration: line-through;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -9348,18 +9353,6 @@ a {
   font-size: 18px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-}
-
-#user-notifications .n-option .badge,
-#user-notifications .n-option .green-badge,
-#user-notifications .n-option .red-badge {
-  border-radius: 50%;
-  font-size: 0.6rem;
-  margin-left: -35px;
-  margin-top: -5px;
-  position: absolute;
-  text-align: center;
-  z-index: 999;
 }
 
 #avatar-holder {

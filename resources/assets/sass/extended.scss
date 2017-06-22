@@ -93,22 +93,6 @@ a {
   }
 }
 
-#user-notifications {
-  .n-option {
-    .badge {
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      font-size: 0.6rem;
-      margin-left: -35px;
-      margin-top: -5px;
-      position: absolute;
-      text-align: center;
-      z-index: 999;
-    }
-  }
-}
-
 #avatar-holder {
   background-color: $blue-gray;
   color: white;
