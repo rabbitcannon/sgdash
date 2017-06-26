@@ -22,11 +22,9 @@ class ResultItem extends React.Component {
 	}
 
 	markAsReadHover() {
-		// $(document).ready(function () {
-			$('.mark-read i').hover(function () {
-				$(this).toggleClass('fa-envelope-open');
-			});
-		// });
+		$('.mark-read i').hover(function () {
+			$(this).toggleClass('fa-envelope-open');
+		});
 	}
 
 	notificationRead(notification_env, notification_status, notification_url) {
@@ -62,7 +60,7 @@ class ResultItem extends React.Component {
 	}
 
 	render() {
-		let notification_data = JSON.parse(this.props.data);
+		let notification_data = this.props.data;
 		let notification_url = `/users/notifications/${this.state.id}/read`;
 		let notification_env = notification_data.environment_id;
 		let notification_status = notification_data.current_status;
