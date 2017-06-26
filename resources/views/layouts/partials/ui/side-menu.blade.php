@@ -34,10 +34,10 @@
             <a href="/environments">
                 @if($position === 'environments')
                     <span class="active-item">
-                        <i class="fa fa-database"></i> Environments
+                        <i class="fa fa-server"></i> Environments
                     </span>
                 @else
-                    <i class="fa fa-database"></i> Environments
+                    <i class="fa fa-server"></i> Environments
                 @endif
             </a>
         </div>

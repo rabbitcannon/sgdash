@@ -4,7 +4,7 @@
 
         <div class="data-card-small">
             <div class="data-alt-header" style="vertical-align: middle;">
-                <i class="fa fa-database" aria-hidden="true"></i> REQ
+                <i class="fa fa-server" aria-hidden="true"></i> REQ
             </div>
 
             <div class="data-content">

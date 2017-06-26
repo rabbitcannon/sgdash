@@ -1,6 +1,6 @@
 <div class="data-card-small">
     <div class="data-header">
-        <i class="fa fa-database" aria-hidden="true"></i> Environments
+        <i class="fa fa-server" aria-hidden="true"></i> Environments
     </div>
 
     <div class="data-content">
