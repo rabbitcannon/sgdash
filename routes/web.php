@@ -99,6 +99,7 @@ Route::group(['middleware' => 'auth'], function () {
     //-- Notification Routes --//
     //=======================//
     Route::get('/notifications/all', 'NotificationsController@index');
+    Route::get('/notifications/{id}/read/{type}', 'NotificationsController@markAsRead');
 
 
 

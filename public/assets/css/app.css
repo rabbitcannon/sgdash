@@ -9142,6 +9142,7 @@ a.thumbnail image {
   ------------------------
   CS01 - User Panel Elements
   CS02 - Notification Elements
+  CS03 - Notification Page Elements
 
 **/
 
@@ -9150,7 +9151,10 @@ a.thumbnail image {
 
 #user-notifications .mark-read {
   color: #57666D;
-  text-decoration: line-through;
+}
+
+#user-notifications .mark-unread {
+  font-weight: 500;
 }
 
 .dropdown {
@@ -9193,13 +9197,10 @@ a.thumbnail image {
 .notifications__items {
   background-color: #CDCDCD;
   color: #000;
-  border-bottom: 1px solid #2D3A40;
-  border-left: 1px solid #2D3A40;
-  border-right: 1px solid #2D3A40;
   display: none;
   top: 65px;
   position: absolute;
-  right: 245px;
+  right: 265px;
   box-shadow: 0 0 20px #000;
   width: 350px;
   z-index: 999;
@@ -9262,6 +9263,17 @@ a.thumbnail image {
 
 .data-card-flyout .data-footer:hover {
   background-color: #2D3A40;
+}
+
+/** CS03 Notification Page Elements
+ ===================== **/
+
+.mark-read {
+  color: #57666D;
+}
+
+.mark-unread {
+  font-weight: 500;
 }
 
 /**

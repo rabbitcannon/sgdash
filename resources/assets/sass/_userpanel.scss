@@ -3,6 +3,7 @@
   ------------------------
   CS01 - User Panel Elements
   CS02 - Notification Elements
+  CS03 - Notification Page Elements
 
 **/
 
@@ -12,10 +13,9 @@
 #user-notifications {
   .mark-read {
     color: $blue-gray;
-    text-decoration: line-through;
   }
   .mark-unread {
-
+    font-weight: 500;
   }
 }
 
@@ -58,13 +58,10 @@
 .notifications__items {
   background-color: $light-gray;
   color: $black;
-  border-bottom: 1px solid $header-bg-blue;
-  border-left: 1px solid $header-bg-blue;
-  border-right: 1px solid $header-bg-blue;
   display: none;
   top: 65px;
   position: absolute;
-  right: 245px;
+  right: 265px;
   box-shadow: 0 0 20px $black;
   width: 350px;
   z-index: 999;
@@ -128,4 +125,14 @@
       background-color: $header-bg-blue;
     }
   }
+}
+
+/** CS03 Notification Page Elements
+ ===================== **/
+
+.mark-read {
+  color: $blue-gray;
+}
+.mark-unread {
+  font-weight: 500;
 }

@@ -35,6 +35,6 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::post('/users/create', 'UserController@create');
 
-    Route::get('/users/notifications/{id}', 'NotificationsController@getNotifications');
-    Route::get('/users/notifications/{id}/read', 'NotificationsController@getNotifications');
+    Route::get('/users/notifications/{id}', 'NotificationsController@getUnreadNotifications');
+//    Route::get('/users/notifications/{id}/read', 'NotificationsController@getNotifications');
 });
