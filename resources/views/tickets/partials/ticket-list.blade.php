@@ -1,3 +1,20 @@
+<div class="row expanded">
+    <div class="large-12 columns">
+        <div class="data-card-small">
+            <div class="data-header">
+                Open Tickets
+            </div>
+            <div class="data-content">
+                @foreach($tickets as $ticket)
+                    {{ $ticket->id }}
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+-----------------------------------------
+
 <div id="ticket-container">
     <div class="row">
         <div class="small-12 medium-12 large-12 columns ticket">
