@@ -43,7 +43,7 @@
         </div>
 
         <div class="menu-item">
-            <a href="/support">
+            <a href="/tickets">
                 @if($position === 'support')
                     <span class="active-item">
                         <i class="fa fa-support"></i> Support
