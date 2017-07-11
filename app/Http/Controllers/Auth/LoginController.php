@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\AccountLogin;
@@ -45,10 +46,13 @@ class LoginController extends Controller
     public function login(AccountLogin $request) {
         $email = $request->input('login_email');
         $password = $request->input('login_password');
-        $login = \Auth::attempt(['email' => $email, 'password' => $password], true);
+        $login = Auth::attempt(['email' => $email, 'password' => $password], true);
 
         if($login) {
-            return redirect()->to('/admin');
+            if(Auth::user()->role->role_id === 1) {
+                return redirect()->to('/admin');
+            }
+            return redirect()->to('/');
         }
         else {
             return redirect()->back()->withErrors('fail');
@@ -58,7 +62,7 @@ class LoginController extends Controller
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function logout(Request $request) {
+    protected function logout() {
         \Auth::logout();
         return redirect()->to('/login');
     }
