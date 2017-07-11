@@ -24,7 +24,7 @@ Route::get('/login', function () {
 //==========================//
 
 //Route::group(['prefix' => 'admin'], function () {
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
@@ -74,23 +74,22 @@ Route::group(['middleware' => 'auth'], function () {
         return view('environments.index');
     });
 
-    Route::get('/support', function() {
-        return view('support.index');
-    });
+    Route::get('/tickets', 'TicketsController@index');
+    Route::get('/tickets/create', 'TicketsController@createTicket');
 
     //-- Ticket Routes --//
     //=======================//
-    Route::get('/tickets/new', function() {
-        return view('support.tickets.new');
-    });
-
-    Route::get('/tickets/open', function() {
-        return view('tickets.open');
-    });
-
-    Route::get('/tickets/closed', function() {
-        return view('tickets.closed');
-    });
+//    Route::get('/tickets/new', function() {
+//        return view('support.tickets.new');
+//    });
+//
+//    Route::get('/tickets/open', function() {
+//        return view('tickets.open');
+//    });
+//
+//    Route::get('/tickets/closed', function() {
+//        return view('tickets.closed');
+//    });
 
     //-- User Routes --//
     //=======================//
