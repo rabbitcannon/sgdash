@@ -7,21 +7,6 @@ use Closure;
 
 class Admin
 {
-//    /**
-//     * The Guard implementation.
-//     *
-//     * @var Guard
-//     */
-//    protected $auth;
-//
-//    /**
-//     * Authenticate constructor.
-//     *
-//     * @param Guard $auth
-//     */
-//    public function __construct(Guard $auth) {
-//        $this->auth = $auth;
-//    }
 
     /**
      * Handle an incoming request.

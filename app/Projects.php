@@ -17,7 +17,7 @@ class Projects extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'name', 'trend', 'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status',
+    protected $fillable = ['code', 'name', 'acct_manager', 'trend', 'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status',
         'uat_eta', 'prod_status', 'prod_eta'];
 
     /**
@@ -26,6 +26,12 @@ class Projects extends Model
     public function getStatus($id) {
         $status = ProjectStatus::where('id', $id)->first();
         return $status;
-//        return $this->hasOne('App\ProjectStatus');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function accountManager() {
+        return $this->hasOne('App\User');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProject;
 use App\Projects;
 use App\ProjectStatus;
+use App\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class ProjectsController extends Controller
     public function index() {
         $data = [
             'statuses' => ProjectStatus::all(),
+            'account_managers' => User::whereHas('role', function ($query) { $query->where('role_id', '=', 7); })->get()
         ];
 
         return View::make('admin.projects.index', $data);
@@ -45,6 +47,7 @@ class ProjectsController extends Controller
         $project->created_by = Auth::user()->id;
         $project->code = $request->input('project_code');
         $project->name = $request->input('project_name');
+        $project->acct_manager = $request->input('acct_manager');
         $project->trend = $request->input('trend');
         $project->req_status = $request->input('req_status');
         $project->req_eta = Carbon::parse($request->input('req_eta'));

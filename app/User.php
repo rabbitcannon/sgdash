@@ -31,6 +31,21 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function role() {
-        return $this->hasOne('App\UsersRoles');
+        return $this->hasOne('App\UsersRoles', 'user_id', 'id');
+    }
+
+    /**
+     * @return bool
+     */
+    public function adminCheck() {
+        $check = UsersRoles::where('user_id', $this->id)->first();
+
+        if($check->role_id === 1) {
+            $admin = (bool) true;
+        }
+        else {
+            $admin = (bool) false;
+        }
+        return $admin;
     }
 }

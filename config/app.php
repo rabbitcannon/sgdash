@@ -181,6 +181,7 @@ return [
          * Add-on providers
          */
         Collective\Html\HtmlServiceProvider::class,
+        Huddle\Zendesk\Providers\ZendeskServiceProvider::class,
 
     ],
 
@@ -230,8 +231,13 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*
+         * Add-on aliases
+         */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Zendesk' => Huddle\Zendesk\Facades\Zendesk::class,
 
     ],
 

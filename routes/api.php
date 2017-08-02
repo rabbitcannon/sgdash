@@ -37,4 +37,7 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::get('/users/notifications/{id}', 'NotificationsController@getUnreadNotifications');
 //    Route::get('/users/notifications/{id}/read', 'NotificationsController@getNotifications');
+
+    //-- Tickets --//
+    Route::get('/tickets/view/all', 'TicketsController@viewTickets');
 });

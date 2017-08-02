@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateProject extends FormRequest
 {
@@ -26,8 +27,7 @@ class CreateProject extends FormRequest
         return [
             'project_code' => 'required',
             'project_name' => 'required',
-//            'status_req' => 'sometimes|required|status_req',
-//            'status_req' => 'required_with,status_req'
+            'acct_manager' => 'required|not_in:-- Select One --',
         ];
     }
 
@@ -38,7 +38,8 @@ class CreateProject extends FormRequest
         return [
             'project_code.required' => 'Please enter a code for the project.',
             'project_name.required' => 'Please enter a name for the project.',
-//            'status_req.required' => 'Please enter status for this date.',
+            'acct_manager.required' => 'You must add an Account Manager to the project.',
+            'acct_manager.not_in' => 'You must add an Account Manager to the project.'
         ];
     }
 }
