@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Axios from 'axios';
 
 import ResultItem from './result-item.jsx';

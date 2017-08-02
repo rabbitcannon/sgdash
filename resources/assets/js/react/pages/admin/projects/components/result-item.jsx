@@ -58,10 +58,12 @@ class ResultItem extends React.Component {
 			self.setState({
 				editing: false
 			});
-			// window.location = "/admin/projects"
+
 		}).catch(function (error) {
 			console.log(error);
 		});
+
+		location.reload();
 	}
 
 	dateFormatter(date, full) {
@@ -135,12 +137,6 @@ class ResultItem extends React.Component {
 			});
 		}
 	}
-
-	// handleStateChange(event) {
-	// 	this.setState({ req_status: event.target.value }, () => {
-	// 		console.log(this.state)
-	// 	});
-	// }
 
 	renderStaticDisplay() {
 		return (
@@ -258,7 +254,7 @@ class ResultItem extends React.Component {
 						</div>
 						<div>
 							<label>Status
-								<select name="qa_status" value={this.props.qa_status} onChange={this.handleSelectChange.bind(this, 'qa_status')}>
+								<select name="qa_status" defaultValue={this.props.qa_status} onChange={this.handleSelectChange.bind(this, 'qa_status')}>
 									<option style={styles.onTrack} value="1">On-Track</option>
 									<option style={styles.caution} value="2">Caution</option>
 									<option style={styles.risk} value="3">At-Risk</option>
@@ -274,7 +270,7 @@ class ResultItem extends React.Component {
 						</div>
 						<div>
 							<label>Status
-								<select name="uat_status" value={this.props.uat_status} onChange={this.handleSelectChange.bind(this, 'uat_status')}>
+								<select name="uat_status" defaultValue={this.props.uat_status} onChange={this.handleSelectChange.bind(this, 'uat_status')}>
 									<option style={styles.onTrack} value="1">On-Track</option>
 									<option style={styles.caution} value="2">Caution</option>
 									<option style={styles.risk} value="3">At-Risk</option>
@@ -290,7 +286,7 @@ class ResultItem extends React.Component {
 						</div>
 						<div>
 							<label>Status
-								<select name="prod_status" value={this.props.prod_status} onChange={this.handleSelectChange.bind(this, 'prod_status')}>
+								<select name="prod_status" defaultValue={this.props.prod_status} onChange={this.handleSelectChange.bind(this, 'prod_status')}>
 									<option style={styles.onTrack} value="1">On-Track</option>
 									<option style={styles.caution} value="2">Caution</option>
 									<option style={styles.risk} value="3">At-Risk</option>

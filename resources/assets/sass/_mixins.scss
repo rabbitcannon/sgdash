@@ -9,3 +9,9 @@
 @mixin pad-top-bottom($val) {
   padding: $val 0;
 }
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;
+}

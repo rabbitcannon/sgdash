@@ -27,7 +27,30 @@
 
                     <div>
                         @if($errors->has('project_name'))
-                            {!!  $errors->first('project_name', '<span class="failure-text is-visible">:message</span>') !!}
+                            {!! $errors->first('project_name', '<span class="failure-text is-visible">:message</span>') !!}
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>
+                        Account Manager
+                    </label>
+
+                    <select name="acct_manager" >
+                        <option selected>-- Select One --</option>
+                        @foreach($account_managers as $account_manager)
+                            <option value="{!! $account_manager->id !!}">
+                                {!! $account_manager->first_name !!} {!! $account_manager->last_name !!}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <div>
+                        @if($errors->has('acct_manager'))
+                            {!! $errors->first('acct_manager', '<span class="failure-text is-visible">:message</span>') !!}
                         @endif
                     </div>
                 </div>
@@ -159,6 +182,14 @@
                     </button>
                 </div>
             </div>
+
+            @if($errors->any())
+                <script>
+                    $(document).ready(function() {
+                        $('#add-project-reveal').foundation('toggle');
+                    });
+                </script>
+            @endif
 
         </form>
 

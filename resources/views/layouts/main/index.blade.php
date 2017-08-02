@@ -28,28 +28,50 @@
     </div>
 </section>
 
-<section>
-    <div class="row expanded">
-        <div class="large-2 columns">
-            @include('layouts.partials.ui.side-menu', ['position' => $path])
-        </div>
-        <div class="large-10 columns">
-            {{-- START Content --}}
-            {{--</div>--}}
-            <div class="m-scene pad-box" id="main">
-                <div class="m-header scene_element scene_element--fadein">
-                    <div id="content-container">
-                        <div>
-                            @include('layouts.partials.ui.breadcrumb', ['position' => $path])
+
+{{-- START Normal Content --}}
+@if($user->role->role_id === 5)
+    <section>
+        <div class="row">
+            <div class="large-12 columns">
+
+                <div class="m-scene pad-box" id="main">
+                    <div class="m-header scene_element scene_element--fadein">
+                        <div id="content-container">
+                            <div>
+                                @include('projects.partials.exec-project-list')
+                            </div>
                         </div>
-                        @yield('content')
                     </div>
                 </div>
+
             </div>
-            {{-- END Content --}}
         </div>
-    </div>
-</section>
+    </section>
+@else
+    <section>
+        <div class="row expanded">
+            <div class="large-2 columns">
+                @include('layouts.partials.ui.side-menu', ['position' => $path])
+            </div>
+            <div class="large-10 columns">
+
+                <div class="m-scene pad-box" id="main">
+                    <div class="m-header scene_element scene_element--fadein">
+                        <div id="content-container">
+                            <div>
+                                @include('layouts.partials.ui.breadcrumb', ['position' => $path])
+                            </div>
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+@endif
+{{-- END Normal Content --}}
 
 @include('layouts.partials.ui.footer')
 
