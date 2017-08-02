@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
-export default class ResultsFilter extends React.Component {
+class ResultFilter extends React.Component {
     
 
     render() {
@@ -11,4 +11,5 @@ export default class ResultsFilter extends React.Component {
     }
 }
 
-ReactDOM.render(<ResultsFilter />, document.getElementById("filter-results"));
+// ReactDOM.render(<ResultsFilter />, document.getElementById("filter-results"));
+export default ResultFilter;
