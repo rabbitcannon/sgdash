@@ -13,6 +13,7 @@ class RoleSeeder extends Seeder
     {
         $data = [
             ['name' => 'Super Administrator', 'description' => 'Full-Access to application.'],
+            ['name' => 'Development Manager', 'description' => 'Development Manager level access.'],
             ['name' => 'Project Manager', 'description' => 'Project Manager level access.'],
             ['name' => 'Developer', 'description' => 'Developer level access.'],
             ['name' => 'Customer', 'description' => 'Customer level access.'],

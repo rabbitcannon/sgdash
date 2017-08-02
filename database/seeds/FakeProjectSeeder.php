@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use App\User;
 
 class FakeProjectSeeder extends Seeder
 {
@@ -14,13 +15,15 @@ class FakeProjectSeeder extends Seeder
     {
         $faker = Faker::create();
         $status = \App\ProjectStatus::all()->pluck('id');
-        $user = \App\User::all()->pluck('id');
+        $user = User::all()->pluck('id');
+        $acct_manager = User::whereHas('role', function ($query) { $query->where('role_id', '=', 7); })->pluck('id');
 
         foreach(range(1,30) as $index) {
             App\Projects::create([
                 'created_by' => $faker->randomElement($user->toArray()),
                 'code' => $faker->numberBetween($min = 100, $max = 99999),
                 'name' => $faker->words($nb = 3, $asText = true),
+                'acct_manager' => $faker->randomElement($acct_manager->toArray()),
                 'req_eta' => $faker->randomElement($status->toArray()),
                 'req_status' => $faker->randomElement($status->toArray()),
                 'dev_eta' => $faker->dateTime($max = 'now'),
