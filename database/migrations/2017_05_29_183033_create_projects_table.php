@@ -8,7 +8,7 @@ class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *s
      * @return void
      */
     public function up()
@@ -37,11 +37,11 @@ class CreateProjectsTable extends Migration
         Schema::table('projects', function (Blueprint $table) {
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('acct_manager')->references('id')->on('users');
-            $table->foreign('req_status')->references('id')->on('project_status');
-            $table->foreign('dev_status')->references('id')->on('project_status');
-            $table->foreign('qa_status')->references('id')->on('project_status');
-            $table->foreign('uat_status')->references('id')->on('project_status');
-            $table->foreign('prod_status')->references('id')->on('project_status');
+            $table->foreign('req_status')->references('id')->on('project_statuses');
+            $table->foreign('dev_status')->references('id')->on('project_statuses');
+            $table->foreign('qa_status')->references('id')->on('project_statuses');
+            $table->foreign('uat_status')->references('id')->on('project_statuses');
+            $table->foreign('prod_status')->references('id')->on('project_statuses');
         });
     }
 

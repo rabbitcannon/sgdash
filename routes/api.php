@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function(){
     //-- Projects --//
     Route::get('/projects', function() {
-        return App\Projects::orderBy('created_at', 'desc')->get();
+        return App\Project::orderBy('created_at', 'desc')->get();
     });
 
     Route::put('/projects/update/{id}', 'ProjectsController@update');

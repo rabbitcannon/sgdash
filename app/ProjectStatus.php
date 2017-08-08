@@ -9,7 +9,7 @@ class ProjectStatus extends Model
     /**
      * @var string
      */
-    protected $table = 'project_status';
+    protected $table = 'project_statuses';
 
     /**
      * @var bool

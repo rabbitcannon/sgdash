@@ -19,7 +19,7 @@ class FakeProjectSeeder extends Seeder
         $acct_manager = User::whereHas('role', function ($query) { $query->where('role_id', '=', 7); })->pluck('id');
 
         foreach(range(1,30) as $index) {
-            App\Projects::create([
+            App\Project::create([
                 'created_by' => $faker->randomElement($user->toArray()),
                 'code' => $faker->numberBetween($min = 100, $max = 99999),
                 'name' => $faker->words($nb = 3, $asText = true),

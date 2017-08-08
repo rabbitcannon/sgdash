@@ -22,6 +22,6 @@ class RoleSeeder extends Seeder
             ['name' => 'Vendor', 'description' => 'Vendor level access.'],
         ];
 
-        \App\Roles::insert($data);
+        \App\Role::insert($data);
     }
 }

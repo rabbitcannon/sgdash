@@ -31,7 +31,7 @@ class ProjectsController extends Controller
      */
     public function show() {
         $data = [
-            'projects' => Projects::all(),
+            'projects' => Project::all(),
         ];
 
         return View::make('projects.index', $data);
@@ -42,7 +42,7 @@ class ProjectsController extends Controller
      * @return mixed
      */
     public function create(CreateProject $request) {
-        $project = new Projects();
+        $project = new Project();
 
         $project->created_by = Auth::user()->id;
         $project->code = $request->input('project_code');
@@ -76,7 +76,7 @@ class ProjectsController extends Controller
             $req = Carbon::parse($request->req_eta);
         }
 
-        Projects::where('id', $id)->update([
+        Project::where('id', $id)->update([
             'code' => $request->code,
             'name' => $request->name,
             'req_eta' => $req,

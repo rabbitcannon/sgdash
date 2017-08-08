@@ -14,7 +14,7 @@ class FakeUserSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        $role = \App\Roles::all()->pluck('id');
+        $role = \App\Role::all()->pluck('id');
 
         foreach(range(1,100) as $index) {
             $user = App\User::create([
