@@ -42,22 +42,32 @@ class RegisterController extends Controller
     }
 
     /**
-     * @param RegisterAccount $request
+     * @param AccountRegister $request
      * @return $this|\Illuminate\Database\Eloquent\Model
      */
     protected function create(AccountRegister $request)
     {
-        $user = User::create([
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('register_email'),
-            'password' => bcrypt($request->input('password')),
-        ]);
 
-        UsersRoles::create([
-            'user_id' => $user->id,
-            'role_id' => 2
-        ]);
+        \DB::beginTransaction();
+
+        try {
+            $user = User::create([
+                'first_name' => $request->input('first_name'),
+                'last_name' => $request->input('last_name'),
+                'email' => $request->input('register_email'),
+                'password' => bcrypt($request->input('password')),
+            ]);
+
+            UsersRoles::create([
+                'user_id' => $user->id,
+                'role_id' => 2
+            ]);
+
+            \DB::commit();
+        }
+        catch (\Exception $exception) {
+            \DB::rollback();
+        }
 
         return redirect('/register/success');
     }
