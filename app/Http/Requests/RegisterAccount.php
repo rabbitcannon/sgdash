@@ -4,8 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterAccount extends FormRequest
+class AccountRegister extends FormRequest
 {
+    protected $errorBag = 'register';
+
     /**
      * Determine if the user is authorized to make this request.
      *

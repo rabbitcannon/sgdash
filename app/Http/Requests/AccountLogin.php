@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AccountLogin extends FormRequest
 {
+    protected $errorBag = 'login';
+
     /**
      * Determine if the user is authorized to make this request.
      *

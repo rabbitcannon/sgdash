@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\RegisterAccount;
+use App\Http\Requests\AccountRegister;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\UsersRoles;
@@ -45,7 +45,7 @@ class RegisterController extends Controller
      * @param RegisterAccount $request
      * @return $this|\Illuminate\Database\Eloquent\Model
      */
-    protected function create(RegisterAccount $request)
+    protected function create(AccountRegister $request)
     {
         $user = User::create([
             'first_name' => $request->input('first_name'),

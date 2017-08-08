@@ -43,8 +43,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         {!! Form::text('login_email', null, ['type' => 'text', 'id' => 'login_email', 'placeholder' => 'Email address']) !!}
-                                        @if($errors->has('login_email'))
-                                        {!!  $errors->first('login_email', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->login->has('login_email'))
+                                        {!!  $errors->login->first('login_email', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -52,8 +52,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         <input id="login_password" name="login_password" type="password" placeholder="Password" />
-                                        @if($errors->has('login_password'))
-                                        {!!  $errors->first('login_password', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->login->has('login_password'))
+                                        {!!  $errors->login->first('login_password', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -103,8 +103,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         {!! Form::text('first_name', null, ['type' => 'text', 'id' => 'first_name', 'placeholder' => 'First Name']) !!}
-                                        @if($errors->has('first_name'))
-                                            {!!  $errors->first('first_name', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->register->has('first_name'))
+                                            {!! $errors->register->first('first_name', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -112,8 +112,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         {!! Form::text('last_name', null, ['type' => 'text', 'id' => 'last_name', 'placeholder' => 'Last Name']) !!}
-                                        @if($errors->has('last_name'))
-                                            {!!  $errors->first('last_name', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->register->has('last_name'))
+                                            {!! $errors->register->first('last_name', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -121,8 +121,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         {!! Form::text('register_email', null, ['type' => 'text', 'id' => 'register_email', 'placeholder' => 'Email address']) !!}
-                                        @if($errors->has('register_email'))
-                                            {!!  $errors->first('register_email', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->register->has('register_email'))
+                                            {!!  $errors->register->first('register_email', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -130,8 +130,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         <input id="register_password" name="register_password" type="password" placeholder="Password" />
-                                        @if($errors->has('register_password'))
-                                            {!!  $errors->first('register_password', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->register->has('register_password'))
+                                            {!! $errors->register->first('register_password', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -139,8 +139,8 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns">
                                         <input id="register_password_confirmation" name="register_password_confirmation" type="password" placeholder="Confirm" />
-                                        @if($errors->has('register_password_confirmation'))
-                                            {!!  $errors->first('register_password', '<span class="failure-text is-visible">:message</span>') !!}
+                                        @if($errors->register->has('register_password_confirmation'))
+                                            {!! $errors->register->first('register_password', '<span class="failure-text is-visible">:message</span>') !!}
                                         @endif
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@
                                     </div>
                                 </div>
 
-                                @if($errors->any())
+                                @if($errors->register->any())
                                     <script>
                                         $(document).ready(function() {
                                             $('#register-frame').show();
