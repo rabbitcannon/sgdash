@@ -15,6 +15,11 @@
 //==========================//
 Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
+Route::post('/register', 'Auth\RegisterController@create');
+
+Route::get('/register/success', function () {
+    return view('layouts.auth.registered');
+})->name('registered');
 
 Route::get('/login', function () {
     return view('layouts.auth.login');
@@ -29,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
         return view('admin.index');
     });
 
-    Route::get('projects', 'ProjectsController@index');
+    Route::get('projects', 'ProjectController@index');
 
     Route::get('promotions', function() {
         return view('admin.promotions.index');
@@ -50,7 +55,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
 
     //-- Project Routes --//
     //==========================//
-    Route::get('project/create', 'ProjectsController@create');
+    Route::get('project/create', 'ProjectController@create');
 
     Route::get('project/edit/{id}', function() {
 
@@ -64,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('environments.index');
     });
 
-    Route::get('/projects', 'ProjectsController@show');
+    Route::get('/projects', 'ProjectController@show');
 
     Route::get('/promotions', function() {
         return view('promotions.index');

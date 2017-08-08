@@ -26,7 +26,7 @@ Route::group(['prefix' => 'v1'], function(){
         return App\Project::orderBy('created_at', 'desc')->get();
     });
 
-    Route::put('/projects/update/{id}', 'ProjectsController@update');
+    Route::put('/projects/update/{id}', 'ProjectController@update');
 
     //-- Users --//
     Route::get('/users', function() {

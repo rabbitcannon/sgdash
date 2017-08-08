@@ -17,7 +17,7 @@ class ProjectStatusSeeder extends Seeder
             ['name' => 'At-Risk', 'description' => 'Project possibly at risk for stall.'],
         ];
 
-        DB::table('project_status')->insert($data);
+        DB::table('project_statuses')->insert($data);
 //        \App\ProjectStatus::insert($data);
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use View;
 use Illuminate\Support\Facades\Redirect;
 
-class ProjectsController extends Controller
+class ProjectController extends Controller
 {
     /**
      * @return mixed
