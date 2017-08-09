@@ -133,7 +133,6 @@ task('deploy', [
     'artisan:optimize',
     'artisan:migrate',
     'vendor:publish',
-    'swagger:generate',
     'deploy:symlink',
     'opcache:reset',
     'deploy:unlock',
