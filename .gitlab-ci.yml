@@ -1,0 +1,92 @@
+stages:
+  - build
+  - deploy_dev
+
+before_script:
+  - eval $(ssh-agent -s)
+  - echo $SSH_AGENT_PID > /tmp/SSH_AGENT_PID_FILE
+  - ssh-add <(echo "$DEPLOYER_KEY")
+after_script:
+  - export SSH_AGENT_PID=$(cat /tmp/SSH_AGENT_PID_FILE)
+  - ssh-agent -k
+
+variables:
+  DEPLOY_RUN: MRB
+
+build:
+  stage: build
+  tags:
+    - unittest
+    - laravel
+  script:
+    #- mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create rundb
+    #- mysqladmin -uroot -p$UNITTEST_MYSQL_ROOT_PW create rundb_test
+    #- composer install
+    #- mv .env.example .env
+    #- mv .env.testing.example .env.testing
+    #- mkdir -p storage/{sessions,views,cache,framework/{views,sessions}}
+    #- php -S 127.0.0.1:1349 -t ./public >/tmp/foo 2>&1 &
+    #- php artisan vendor:publish
+    #- php artisan migrate
+    #- php artisan db:seed
+    #- echo | php artisan passport:install -qn
+    #- APP_URL='http://127.0.0.1:1349' phpunit
+    - composer install
+    - npm update
+    #- gulp
+    - /usr/local/bin/MakePackage bumblebee
+  artifacts:
+    paths:
+      - builds/
+    expire_in: 1 week
+
+deploy_dev:
+  stage: deploy_dev
+  tags:
+    - deploy
+  script:
+    - dep deploy dev --revision=$CI_COMMIT_SHA
+  only:
+    - master
+  environment:
+    name: dev
+    url: 'http://bumblebee.dev.gamelogic.com/'
+
+#deploy_qa:
+#  stage: deploy_qa
+#  tags:
+#    - deploy
+#  script:
+#    - dep deploy qa --revision=$CI_COMMIT_SHA
+#  only:
+#    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
+#  environment:
+#    name: qa
+#    url: 'http://bumblebee.pawtest.gamelogic.com/'
+#  when: manual
+#
+#deploy_uat:
+#  stage: deploy_uat
+#  tags:
+#    - deploy
+#  script:
+#    - dep deploy uat --revision=$CI_COMMIT_SHA
+#  only:
+#    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
+#  environment:
+#    name: uat
+#    url: 'https://bumblebee-uat.sg-bonusing.com/'
+#  when: manual
+#
+#deploy_prod:
+#  stage: deploy_prod
+#  tags:
+#    - deploy
+#  script:
+#    - dep deploy prod --revision=$CI_COMMIT_SHA
+#  only:
+#    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
+#  environment:
+#    name: prod
+#    url: 'https://bumblebee.sg-bonusing.com/'
+#  when: manual
