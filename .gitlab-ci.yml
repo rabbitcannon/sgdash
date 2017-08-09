@@ -11,7 +11,7 @@ after_script:
   - ssh-agent -k
 
 variables:
-  DEPLOY_RUN: MRB
+  DEPLOY_RUN: ZZZ
 
 build:
   stage: build
