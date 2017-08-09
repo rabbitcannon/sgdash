@@ -33,7 +33,7 @@ build:
     #- APP_URL='http://127.0.0.1:1349' phpunit
     - composer install
     - npm update
-    - gulp
+    #- gulp
     - /usr/local/bin/MakePackage bumblebee
   artifacts:
     paths:
