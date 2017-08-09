@@ -1,0 +1,4 @@
+./storage
+./bootstrap/cache
+./.env*
+./node_modules
