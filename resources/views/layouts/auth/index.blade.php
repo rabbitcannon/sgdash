@@ -12,7 +12,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="/assets/css/app.css" />
         <link rel="stylesheet" href="/assets/css/login/login.css" />
-        <link rel="stylesheet" href="/assets/css/animate.css" />
+        <link rel="stylesheet" href="/assets/css/animations.css" />
 
         <!-- Scripts -->
         <script src="/assets/js/app.js"></script>

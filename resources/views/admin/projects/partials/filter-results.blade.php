@@ -2,9 +2,6 @@
     <div class="large-12 columns">
 
         <div class="data-card">
-                {{--<div class="data-header">--}}
-                    {{--Filter Results--}}
-                {{--</div>--}}
 
             <div class="data-content">
 

@@ -30,7 +30,7 @@
 
 
 {{-- START Normal Content --}}
-@if($user->role->role_id === 5)
+@if($user->role->role_id === 7)
     <section>
         <div class="row">
             <div class="large-12 columns">

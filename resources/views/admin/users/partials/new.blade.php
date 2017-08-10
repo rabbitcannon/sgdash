@@ -35,7 +35,7 @@
                     <div class="row">
                         <div class="large-12 columns end">
                             <label>Role
-                                <?php $roles = \App\Roles::all(); ?>
+                                <?php $roles = \App\Role::all(); ?>
 
                                 <select name="role">
                                     @foreach($roles as $role)
