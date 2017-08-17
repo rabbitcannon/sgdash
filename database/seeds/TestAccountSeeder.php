@@ -36,7 +36,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '2',
-            'role_id' => '2',
+            'role_id' => '1',
         ]);
 
         //Development Manager
@@ -64,7 +64,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '4',
-            'role_id' => '3',
+            'role_id' => '4',
         ]);
 
         //Admin Account
@@ -92,7 +92,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '6',
-            'role_id' => '4',
+            'role_id' => '5',
         ]);
 
         //Vendor Account
@@ -106,7 +106,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '7',
-            'role_id' => '8',
+            'role_id' => '9',
         ]);
 
         //Customer Account
@@ -120,7 +120,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '8',
-            'role_id' => '5',
+            'role_id' => '6',
         ]);
 
         //Account Manager
@@ -134,7 +134,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '9',
-            'role_id' => '7',
+            'role_id' => '8',
         ]);
 
         //Executive Account
@@ -148,7 +148,7 @@ class TestAccountSeeder extends Seeder
 
         DB::table('users_roles')->insert([
             'user_id' => '10',
-            'role_id' => '6',
+            'role_id' => '7',
         ]);
     }
 }

@@ -36,7 +36,8 @@ class Login extends BasePage
     public function elements()
     {
         return [
-            '@login-frame' => '#login-frame',
+            '@login-frame'  => '#login-frame',
+            '@loginBtn'    => '#login-button',
         ];
     }
 }

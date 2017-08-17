@@ -8,21 +8,11 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class RouteTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
-//    public function testCheckLoginPageExists() {
-//        $this->browse(function (Browser $browser) {
-//            $browser->visit('/login')->assertVisible('login-frame');
-//        });
-//    }
 
     /**
      *
      */
-    public function testRootURL() {
+    public function testRootPath() {
         $response = $this->get('/');
         //A 302 is expected because you should be redirected to /login if you hit the root URL and not logged in.
         $response->assertStatus(302);
@@ -31,9 +21,8 @@ class RouteTest extends DuskTestCase
     /**
      *
      */
-//    public function testLoginPageToRoot() {
-//        $this->browse(function($user) {
-//            $user->loginAs(App\User::find(1))->visit('/login');
-//        });
-//    }
+    public function testLoginPath() {
+        $response = $this->get('/login');
+        $response->assertStatus(200);
+    }
 }
