@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-use App\ProjectStatus;
+use App\EnvironmentStatus;
 use App\Role;
 use App\User;
 
@@ -16,20 +16,23 @@ class FakeProjectSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        $status = ProjectStatus::all()->pluck('id');
+        $status = EnvironmentStatus::all()->pluck('id');
         $user = User::all()->pluck('id');
-
         $roles = Role::all();
+        $trends = Config::get('projects.trend');
 
         foreach($roles as $role) {
             if($role->name === "Development Manager")
                 $dev_id = $role->id;
             if($role->name === "Account Manager")
                 $acct_id = $role->id;
+            if($role->name === "Project Manager")
+                $proj_id = $role->id;
         }
 
         $acct_manager = User::whereHas('role', function ($query) use ($acct_id) { $query->where('role_id', '=', $acct_id); })->pluck('id');
         $dev_manager = User::whereHas('role', function ($query) use ($dev_id) { $query->where('role_id', '=', $dev_id); })->pluck('id');
+        $project_manager = User::whereHas('role', function ($query) use ($proj_id) { $query->where('role_id', '=', $proj_id); })->pluck('id');
 
         foreach(range(1,30) as $index) {
             App\Project::create([
@@ -38,6 +41,8 @@ class FakeProjectSeeder extends Seeder
                 'name' => $faker->words($nb = 3, $asText = true),
                 'acct_manager' => $faker->randomElement($acct_manager->toArray()),
                 'dev_manager' => $faker->randomElement($dev_manager->toArray()),
+                'project_manager' => $faker->randomElement($project_manager->toArray()),
+                'trend' => array_rand($trends),
                 'req_eta' => $faker->randomElement($status->toArray()),
                 'req_status' => $faker->randomElement($status->toArray()),
                 'dev_eta' => $faker->dateTime($max = 'now'),

@@ -19,6 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string('code');
             $table->string('name');
             $table->integer('acct_manager')->unsigned();
+            $table->integer('dev_manager')->unsigned();
+            $table->integer('project_manager')->unsigned();
             $table->string('trend')->nullable();
             $table->integer('req_status')->unsigned()->nullable();
             $table->dateTime('req_eta')->nullable();
@@ -37,11 +39,13 @@ class CreateProjectsTable extends Migration
         Schema::table('projects', function (Blueprint $table) {
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('acct_manager')->references('id')->on('users');
-            $table->foreign('req_status')->references('id')->on('project_statuses');
-            $table->foreign('dev_status')->references('id')->on('project_statuses');
-            $table->foreign('qa_status')->references('id')->on('project_statuses');
-            $table->foreign('uat_status')->references('id')->on('project_statuses');
-            $table->foreign('prod_status')->references('id')->on('project_statuses');
+            $table->foreign('dev_manager')->references('id')->on('users');
+            $table->foreign('project_manager')->references('id')->on('users');
+            $table->foreign('req_status')->references('id')->on('environment_status');
+            $table->foreign('dev_status')->references('id')->on('environment_status');
+            $table->foreign('qa_status')->references('id')->on('environment_status');
+            $table->foreign('uat_status')->references('id')->on('environment_status');
+            $table->foreign('prod_status')->references('id')->on('environment_status');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectStatusTable extends Migration
+class CreateEnvironmentStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProjectStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_status', function (Blueprint $table) {
+        Schema::create('environment_status', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('description');
@@ -28,7 +28,7 @@ class CreateProjectStatusTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('project_status');
+        Schema::dropIfExists('environment_status');
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -30,6 +30,8 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('notifications');
+        Schema::enableForeignKeyConstraints();
     }
 }

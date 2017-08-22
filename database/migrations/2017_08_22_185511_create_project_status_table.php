@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Jurisdictions extends Migration
+class CreateProjectStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Jurisdictions extends Migration
      */
     public function up()
     {
-        Schema::create('jurisdictions', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('project_status', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
             $table->string('name');
+            $table->string('description');
         });
     }
 
@@ -27,7 +28,7 @@ class Jurisdictions extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('jurisdictions');
+        Schema::dropIfExists('project_status');
         Schema::enableForeignKeyConstraints();
     }
 }
