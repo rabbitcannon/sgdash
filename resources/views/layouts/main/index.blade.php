@@ -30,7 +30,8 @@
 
 
 {{-- START Normal Content --}}
-@if($user->role->role_id === 7)
+<?php $executive = \App\Role::where('name', 'Executive')->first(); ?>
+@if($user->role->role_id === $executive->id)
     <section>
         <div class="row">
             <div class="large-12 columns">

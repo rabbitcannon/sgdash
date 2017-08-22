@@ -3,7 +3,7 @@ import Axios from 'axios';
 import _ from 'underscore';
 
 import ResultItem from './result-item.jsx';
-import ResultFilter from './result-filter.jsx';
+// import ResultFilter from './result-filter.jsx';
 
 let url = window.location.origin + '/api/v1/projects';
 
@@ -54,6 +54,8 @@ class Results extends React.Component {
 
 		let resultItems = _.map(filteredProjects, (project) => {
 			return <ResultItem ref="results" key={project.id} id={project.id} name={project.name} code={project.code}
+			   	acct_manager={project.acct_manager} dev_manager={project.dev_manager}
+				project_manager={project.project_manager} trend={project.trend}
 				req_eta={project.req_eta} req_status={project.req_status}
 				dev_eta={project.dev_eta} dev_status={project.dev_status}
 				qa_eta={project.qa_eta} qa_status={project.qa_status}
@@ -74,24 +76,24 @@ class Results extends React.Component {
 							</div>
 
 							<div className="data-content">
-				<form action="">
-					<fieldset className="fieldset">
-						<legend>Filter By:</legend>
-						<div className="row">
-							{/*<div className="large-6 columns">*/}
-								{/*<label>Code*/}
-									{/*<input type="text" defaultValue={this.state.project_code} placeholder="Project code" onChange={this.filterList.bind(this)} />*/}
-								{/*</label>*/}
-							{/*</div>*/}
+								<form action="">
+									<fieldset className="fieldset">
+										<legend>Filter By:</legend>
+										<div className="row">
+											{/*<div className="large-6 columns">*/}
+												{/*<label>Code*/}
+													{/*<input type="text" defaultValue={this.state.project_code} placeholder="Project code" onChange={this.filterList.bind(this)} />*/}
+												{/*</label>*/}
+											{/*</div>*/}
 
-							<div className="large-6 columns">
-								<label>Name
-									<input type="text" defaultValue={this.state.project_name} placeholder="Project name" onChange={this.filterList.bind(this)} />
-								</label>
-							</div>
-						</div>
-					</fieldset>
-				</form>
+											<div className="large-6 columns">
+												<label>Name
+													<input type="text" defaultValue={this.state.project_name} placeholder="Project name" onChange={this.filterList.bind(this)} />
+												</label>
+											</div>
+										</div>
+									</fieldset>
+								</form>
 							</div>
 						</div>
 

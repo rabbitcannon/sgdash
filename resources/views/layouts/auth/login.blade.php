@@ -61,7 +61,7 @@
                                 <div class="row">
                                     <div class="large-12 medium-12 small-12 columns text-center">
                                         <div class="pad-button">
-                                            <input type="submit" value="Login" class="button" />
+                                            <input type="submit" name="login_button" value="Login" class="button" />
                                         </div>
                                     </div>
                                 </div>

@@ -18,29 +18,29 @@
             </a>
         </div>
 
-        <div class="menu-item">
-            <a href="/admin/promotions">
-                @if($position === 'promotions')
-                    <span class="active-item">
-                        <i class="fa fa-usd"></i> Promotions
-                    </span>
-                @else
-                    <i class="fa fa-usd"></i> Promotions
-                @endif
-            </a>
-        </div>
+        {{--<div class="menu-item">--}}
+            {{--<a href="/admin/promotions">--}}
+                {{--@if($position === 'promotions')--}}
+                    {{--<span class="active-item">--}}
+                        {{--<i class="fa fa-usd"></i> Promotions--}}
+                    {{--</span>--}}
+                {{--@else--}}
+                    {{--<i class="fa fa-usd"></i> Promotions--}}
+                {{--@endif--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
-        <div class="menu-item">
-            <a href="/admin/environments">
-                @if($position === 'environments')
-                    <span class="active-item">
-                        <i class="fa fa-database"></i> Environments
-                    </span>
-                @else
-                    <i class="fa fa-database"></i> Environments
-                @endif
-            </a>
-        </div>
+        {{--<div class="menu-item">--}}
+            {{--<a href="/admin/environments">--}}
+                {{--@if($position === 'environments')--}}
+                    {{--<span class="active-item">--}}
+                        {{--<i class="fa fa-database"></i> Environments--}}
+                    {{--</span>--}}
+                {{--@else--}}
+                    {{--<i class="fa fa-database"></i> Environments--}}
+                {{--@endif--}}
+            {{--</a>--}}
+        {{--</div>--}}
 
         <div class="menu-item">
             <a href="/admin/support">

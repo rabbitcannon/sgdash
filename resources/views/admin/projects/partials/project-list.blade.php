@@ -3,7 +3,7 @@
 
         <div id="project-list"></div>
 
-        <div class="reveal small animated fadeIn" id="add-project-reveal" data-reveal>
+        <div class="reveal small animated fadeIn" id="add-project-reveal" data-reveal style="padding: 0px;">
             @include('admin.projects.partials.new')
         </div>
 

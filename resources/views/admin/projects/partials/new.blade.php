@@ -1,11 +1,20 @@
-<div class="data-card-small">
+<div class="data-card-small" style="margin: 0px;">
     <div class="data-header">
-        Add a new project
+        <div class="row">
+            <div class="large-6">
+                Add new project
+            </div>
+            <div class="large-6">
+                <button class="close-button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="data-content">
 
-        <form action="/admin/project/create" class="no-smoothState">
+        {{ Form::open(['url' => '/admin/project/create', 'class' => 'no-smoothState', 'method' => 'post']) }}
 
             <div class="row">
                 <div class="large-12 columns">
@@ -35,6 +44,43 @@
 
             <div class="row">
                 <div class="large-12 columns">
+                    <label>Current Project Trend
+                        {{  Form::select('trend_create', Config::get('projects.trend')) }}
+                    </label>
+
+                    <div>
+                        @if($errors->has('trend_create'))
+                            {!! $errors->first('trend_create', '<span class="failure-text is-visible">:message</span>') !!}
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>
+                        Development Manager
+                    </label>
+
+                    <select name="dev_manager" >
+                        <option selected>-- Select One --</option>
+                        @foreach($dev_managers as $dev_manager)
+                            <option value="{!! $dev_manager->id !!}">
+                                {!! $dev_manager->first_name !!} {!! $dev_manager->last_name !!}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <div>
+                        @if($errors->has('dev_manager'))
+                            {!! $errors->first('dev_manager', '<span class="failure-text is-visible">:message</span>') !!}
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
                     <label>
                         Account Manager
                     </label>
@@ -55,6 +101,29 @@
                     </div>
                 </div>
             </div>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>
+                    Project Manager
+                </label>
+
+                <select name="project_manager" >
+                    <option selected>-- Select One --</option>
+                    @foreach($project_managers as $project_manager)
+                        <option value="{!! $project_manager->id !!}">
+                            {!! $project_manager->first_name !!} {!! $project_manager->last_name !!}
+                        </option>
+                    @endforeach
+                </select>
+
+                <div>
+                    @if($errors->has('project_manager'))
+                        {!! $errors->first('project_manager', '<span class="failure-text is-visible">:message</span>') !!}
+                    @endif
+                </div>
+            </div>
+        </div>
 
             <div class="row">
                 <div class="large-6 columns">
@@ -191,7 +260,7 @@
                 </script>
             @endif
 
-        </form>
+        {{ Form::close() }}
 
     </div>
 </div>
