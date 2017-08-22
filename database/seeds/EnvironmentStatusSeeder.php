@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProjectStatusSeeder extends Seeder
+class EnvironmentStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +17,6 @@ class ProjectStatusSeeder extends Seeder
             ['name' => 'At-Risk', 'description' => 'Project possibly at risk for stall.'],
         ];
 
-        DB::table('project_statuses')->insert($data);
-//        \App\ProjectStatus::insert($data);
+        DB::table('environment_status')->insert($data);
     }
 }
