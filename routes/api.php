@@ -23,10 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function(){
     //-- Projects --//
     Route::get('/projects', function() {
-        return App\Project::orderBy('created_at', 'desc')->get();
+        return App\Project::orderBy('id', 'asc')->get();
     });
 
     Route::put('/projects/update/{id}', 'ProjectController@update');
+    Route::get('/projects/delete/{id}', 'ProjectController@delete');
 
     //-- Users --//
     Route::get('/users', function() {

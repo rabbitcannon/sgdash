@@ -55,11 +55,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
 
     //-- Project Routes --//
     //==========================//
-    Route::get('project/create', 'ProjectController@create');
+    Route::post('project/create', 'ProjectController@create');
 
-    Route::get('project/edit/{id}', function() {
-
-    });
 });
 
 //-- Main Routes --//

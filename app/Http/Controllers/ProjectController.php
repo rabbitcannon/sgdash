@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProject;
-use App\Projects;
-use App\ProjectStatus;
+use App\Project;
+use App\EnvironmentStatus;
+use App\Role;
 use App\User;
 use Auth;
 use Carbon\Carbon;
@@ -18,9 +19,22 @@ class ProjectController extends Controller
      * @return mixed
      */
     public function index() {
+        $roles = Role::all();
+
+        foreach($roles as $role) {
+            if($role->name === "Development Manager")
+                $dev_id = $role->id;
+            if($role->name === "Account Manager")
+                $acct_id = $role->id;
+            if($role->name === "Project Manager")
+                $proj_id = $role->id;
+        }
+
         $data = [
-            'statuses' => ProjectStatus::all(),
-            'account_managers' => User::whereHas('role', function ($query) { $query->where('role_id', '=', 7); })->get()
+            'statuses' => EnvironmentStatus::all(),
+            'account_managers' => User::whereHas('role', function ($query) use ($acct_id) { $query->where('role_id', '=', $acct_id); })->get(),
+            'dev_managers' => User::whereHas('role', function ($query) use ($dev_id) { $query->where('role_id', '=', $dev_id); })->get(),
+            'project_managers' => User::whereHas('role', function ($query) use ($proj_id) { $query->where('role_id', '=', $proj_id); })->get()
         ];
 
         return View::make('admin.projects.index', $data);
@@ -48,7 +62,9 @@ class ProjectController extends Controller
         $project->code = $request->input('project_code');
         $project->name = $request->input('project_name');
         $project->acct_manager = $request->input('acct_manager');
-        $project->trend = $request->input('trend');
+        $project->dev_manager = $request->input('dev_manager');
+        $project->project_manager = $request->input('project_manager');
+        $project->trend = $request->input('trend_create');
         $project->req_status = $request->input('req_status');
         $project->req_eta = Carbon::parse($request->input('req_eta'));
         $project->dev_status = $request->input('dev_status');
@@ -71,14 +87,17 @@ class ProjectController extends Controller
     public function update($id, Request $request) {
         if($request->req_eta === null) {
             $req = null;
-        }
-        else {
+        } else {
             $req = Carbon::parse($request->req_eta);
         }
 
         Project::where('id', $id)->update([
             'code' => $request->code,
             'name' => $request->name,
+//            'acct_manager' => $request->input('acct_manager'),
+//            'dev_manager' => $request->input('dev_manager'),
+//            'project_manager' => $request->input('project_manager'),
+            'trend' => $request->input('trend'),
             'req_eta' => $req,
             'req_status' => $request->req_status,
             'dev_eta' => Carbon::parse($request->dev_eta),
@@ -90,5 +109,11 @@ class ProjectController extends Controller
             'prod_eta' => Carbon::parse($request->prod_eta),
             'prod_status' => $request->prod_status,
         ]);
+    }
+
+    public function delete($id) {
+        \DB::table('projects')->where('id', $id)->delete();
+
+        return Redirect::to('/admin/projects');
     }
 }

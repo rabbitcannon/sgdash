@@ -19,11 +19,13 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.15.3",
+    "babel-polyfill": "^6.23.0",
     "css-loader": "^0.28.4",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.5.2",
     "react-chartjs": "^0.8.0",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "underscore": "^1.8.3"
   }
 }

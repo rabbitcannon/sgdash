@@ -17,8 +17,8 @@ class Project extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'name', 'acct_manager', 'trend', 'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status',
-        'uat_eta', 'prod_status', 'prod_eta'];
+    protected $fillable = ['code', 'name', 'acct_manager', 'dev_manager', 'project_manager', 'trend',
+        'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta'];
 
 
     /**
@@ -26,7 +26,7 @@ class Project extends Model
      * @return mixed
      */
     public function getStatus($id) {
-        $status = ProjectStatus::where('id', $id)->first();
+        $status = EnvironmentStatus::where('id', $id)->first();
         return $status;
     }
 
