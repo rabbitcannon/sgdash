@@ -224,6 +224,8 @@ class ResultItem extends React.Component {
 		const styles = {
 			main: {
 				padding: 15,
+				borderRadius: 5,
+				textTransform: 'uppercase'
 			},
 			onTrack: {
 				color: '#4CAF50',
@@ -241,9 +243,172 @@ class ResultItem extends React.Component {
 
 		return (
 			<tr id="row-edit" className="row-edit">
-				<td colspan="9">
-					<div>Test Section</div>
+				<td colSpan={10}>
+
+					<div className="text-left">
+						<h3>Details</h3>
+					</div>
+
+					<div className="row expanded">
+						<div className="large-3 columns">
+
+							<div className="row">
+								<div className="large-12 columns">
+									<label>Project Code
+										<input type="text" name="project_code" defaultValue={this.props.code} />
+									</label>
+								</div>
+							</div>
+
+							<div className="row">
+								<div className="large-12 columns">
+									<label>Project Name
+										<input type="text" name="project_name" defaultValue={this.props.name} />
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div className="large-9 columns">
+							<div className="row">
+								<div className="large-3 columns">
+									<label>Trend
+										<select name="trend" defaultValue={this.props.trend} onChange={this.handleSelectChange.bind(this, 'trend')}>
+											<option style={styles.onTrack} value="up">Up</option>
+											<option style={styles.caution} value="right">No Movement</option>
+											<option style={styles.risk} value="down">Down</option>
+										</select>
+									</label>
+								</div>
+								<div className="large-3 columns">
+									{/*<button onClick={() => {this.save(this.props.id)}} style={styles.main} className="success button">*/}
+										{/*<i className="fa fa-save fa-2x"></i> Save*/}
+									{/*</button>*/}
+									{/*<button onClick={this.unEdit.bind(this)} style={styles.main} className="alert button">*/}
+										{/*<i className="fa fa-ban fa-2x"></i> Cancel*/}
+									{/*</button>*/}
+									{/*<button onClick={() => {this.confirm(this.props.id)}} style={styles.main} className="button">*/}
+										{/*<i className="fa fa-trash fa-2x"></i> Delete*/}
+									{/*</button>*/}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="text-left">
+						<h3>Environments</h3>
+					</div>
+
+					<div className="row expanded">
+
+						<div className="large-12 columns">
+
+							<div className="row expanded">
+								<div className="columns">
+									<div>
+										<label>REQ
+								 			<input type="text" name="req_eta" defaultValue={this.dateFormatter(this.props.req_eta, full)} />
+										</label>
+									</div>
+									<div>
+										<label>Status
+											<select name="req_status" defaultValue={this.props.req_status} onChange={this.handleSelectChange.bind(this, 'req_status')}>
+												<option style={styles.onTrack} value="1">On-Track</option>
+												<option style={styles.caution} value="2">Caution</option>
+												<option style={styles.risk} value="3">At-Risk</option>
+											</select>
+										</label>
+									</div>
+								</div>
+
+								<div className="columns">
+									<div>
+										<label>DEV
+											<input type="text" name="dev_eta" defaultValue={this.dateFormatter(this.props.dev_eta, full)} />
+										</label>
+									</div>
+									<div>
+										<label>Status
+											<select name="dev_status" defaultValue={this.props.dev_status} onChange={this.handleSelectChange.bind(this, 'dev_status')}>
+												<option style={styles.onTrack} value="1">On-Track</option>
+												<option style={styles.caution} value="2">Caution</option>
+												<option style={styles.risk} value="3">At-Risk</option>
+											</select>
+										</label>
+									</div>
+								</div>
+
+								<div className="columns">
+									<div>
+										<label>QA
+											<input type="text" name="qa_eta" defaultValue={this.dateFormatter(this.props.qa_eta, full)} />
+										</label>
+									</div>
+									<div>
+										<label>Status
+											<select name="qa_status" defaultValue={this.props.qa_status} onChange={this.handleSelectChange.bind(this, 'qa_status')}>
+												<option style={styles.onTrack} value="1">On-Track</option>
+												<option style={styles.caution} value="2">Caution</option>
+												<option style={styles.risk} value="3">At-Risk</option>
+											</select>
+										</label>
+									</div>
+								</div>
+
+								<div className="columns">
+									<div>
+										<label>UAT
+											<input type="text" name="uat_eta" defaultValue={this.dateFormatter(this.props.uat_eta, full)} />
+										</label>
+									</div>
+									<div>
+										<label>Status
+											<select name="uat_status" defaultValue={this.props.uat_status} onChange={this.handleSelectChange.bind(this, 'uat_status')}>
+												<option style={styles.onTrack} value="1">On-Track</option>
+												<option style={styles.caution} value="2">Caution</option>
+												<option style={styles.risk} value="3">At-Risk</option>
+											</select>
+										</label>
+									</div>
+								</div>
+
+								<div className="columns">
+									<div>
+										<label>PROD
+											<input type="text" name="prod_eta" defaultValue={this.dateFormatter(this.props.prod_eta, full)} />
+										</label>
+									</div>
+									<div>
+										<label>Status
+											<select name="prod_status" defaultValue={this.props.prod_status} onChange={this.handleSelectChange.bind(this, 'prod_status')}>
+												<option style={styles.onTrack} value="1">On-Track</option>
+												<option style={styles.caution} value="2">Caution</option>
+												<option style={styles.risk} value="3">At-Risk</option>
+											</select>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className="row expanded">
+						<div className="large-12 columns">
+							<button onClick={() => {this.confirm(this.props.id)}} style={styles.main} className="button">
+								<i className="fa fa-trash"></i> Delete
+							</button>
+							&nbsp;
+							<button onClick={this.unEdit.bind(this)} style={styles.main} className="alert button">
+								<i className="fa fa-ban"></i> Cancel
+							</button>
+							&nbsp;
+							<button onClick={() => {this.save(this.props.id)}} style={styles.main} className="success button">
+								<i className="fa fa-save"></i> Save
+							</button>
+						</div>
+					</div>
 				</td>
+				
 				{/*<td width="120">*/}
 					{/*<input type="text" name="project_code" defaultValue={this.props.code} />*/}
 				{/*</td>*/}
@@ -341,17 +506,17 @@ class ResultItem extends React.Component {
 						{/*</label>*/}
 					{/*</div>*/}
 				{/*</td>*/}
-				<td width="125" className="text-center">
-					<button onClick={() => {this.save(this.props.id)}} style={styles.main}>
-						<i className="fa fa-save fa-2x"></i>
-					</button>
-					<button onClick={this.unEdit.bind(this)} style={styles.main}>
-						<i className="fa fa-ban fa-2x"></i>
-					</button>
-					<button onClick={() => {this.confirm(this.props.id)}} style={styles.main}>
-						<i className="fa fa-trash fa-2x"></i>
-					</button>
-				</td>
+				{/*<td width="125" className="text-center">*/}
+					{/*<button onClick={() => {this.save(this.props.id)}} style={styles.main}>*/}
+						{/*<i className="fa fa-save fa-2x"></i>*/}
+					{/*</button>*/}
+					{/*<button onClick={this.unEdit.bind(this)} style={styles.main}>*/}
+						{/*<i className="fa fa-ban fa-2x"></i>*/}
+					{/*</button>*/}
+					{/*<button onClick={() => {this.confirm(this.props.id)}} style={styles.main}>*/}
+						{/*<i className="fa fa-trash fa-2x"></i>*/}
+					{/*</button>*/}
+				{/*</td>*/}
 			</tr>
 		);
 	}

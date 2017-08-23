@@ -40122,7 +40122,9 @@ var ResultItem = function (_React$Component) {
 
 			var styles = {
 				main: {
-					padding: 15
+					padding: 15,
+					borderRadius: 5,
+					textTransform: 'uppercase'
 				},
 				onTrack: {
 					color: '#4CAF50',
@@ -40143,34 +40145,351 @@ var ResultItem = function (_React$Component) {
 				{ id: 'row-edit', className: 'row-edit' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'td',
-					{ colspan: '9' },
+					{ colSpan: 10 },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
-						null,
-						'Test Section'
-					)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'td',
-					{ width: '125', className: 'text-center' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'button',
-						{ onClick: function onClick() {
-								_this2.save(_this2.props.id);
-							}, style: styles.main },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-save fa-2x' })
+						{ className: 'text-left' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h3',
+							null,
+							'Details'
+						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'button',
-						{ onClick: this.unEdit.bind(this), style: styles.main },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban fa-2x' })
+						'div',
+						{ className: 'row expanded' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'large-3 columns' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'row' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'large-12 columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'label',
+										null,
+										'Project Code',
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_code', defaultValue: this.props.code })
+									)
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'row' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'large-12 columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'label',
+										null,
+										'Project Name',
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_name', defaultValue: this.props.name })
+									)
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'large-9 columns' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'row' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'large-3 columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'label',
+										null,
+										'Trend',
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'select',
+											{ name: 'trend', defaultValue: this.props.trend, onChange: this.handleSelectChange.bind(this, 'trend') },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'option',
+												{ style: styles.onTrack, value: 'up' },
+												'Up'
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'option',
+												{ style: styles.caution, value: 'right' },
+												'No Movement'
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'option',
+												{ style: styles.risk, value: 'down' },
+												'Down'
+											)
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'large-3 columns' })
+							)
+						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'button',
-						{ onClick: function onClick() {
-								_this2.confirm(_this2.props.id);
-							}, style: styles.main },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-trash fa-2x' })
+						'div',
+						{ className: 'text-left' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h3',
+							null,
+							'Environments'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'row expanded' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'large-12 columns' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'row expanded' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'REQ',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'req_eta', defaultValue: this.dateFormatter(this.props.req_eta, full) })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'Status',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'select',
+												{ name: 'req_status', defaultValue: this.props.req_status, onChange: this.handleSelectChange.bind(this, 'req_status') },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.onTrack, value: '1' },
+													'On-Track'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.caution, value: '2' },
+													'Caution'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.risk, value: '3' },
+													'At-Risk'
+												)
+											)
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'DEV',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'dev_eta', defaultValue: this.dateFormatter(this.props.dev_eta, full) })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'Status',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'select',
+												{ name: 'dev_status', defaultValue: this.props.dev_status, onChange: this.handleSelectChange.bind(this, 'dev_status') },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.onTrack, value: '1' },
+													'On-Track'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.caution, value: '2' },
+													'Caution'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.risk, value: '3' },
+													'At-Risk'
+												)
+											)
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'QA',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'qa_eta', defaultValue: this.dateFormatter(this.props.qa_eta, full) })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'Status',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'select',
+												{ name: 'qa_status', defaultValue: this.props.qa_status, onChange: this.handleSelectChange.bind(this, 'qa_status') },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.onTrack, value: '1' },
+													'On-Track'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.caution, value: '2' },
+													'Caution'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.risk, value: '3' },
+													'At-Risk'
+												)
+											)
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'UAT',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'uat_eta', defaultValue: this.dateFormatter(this.props.uat_eta, full) })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'Status',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'select',
+												{ name: 'uat_status', defaultValue: this.props.uat_status, onChange: this.handleSelectChange.bind(this, 'uat_status') },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.onTrack, value: '1' },
+													'On-Track'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.caution, value: '2' },
+													'Caution'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.risk, value: '3' },
+													'At-Risk'
+												)
+											)
+										)
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'columns' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'PROD',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'prod_eta', defaultValue: this.dateFormatter(this.props.prod_eta, full) })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										null,
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'label',
+											null,
+											'Status',
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'select',
+												{ name: 'prod_status', defaultValue: this.props.prod_status, onChange: this.handleSelectChange.bind(this, 'prod_status') },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.onTrack, value: '1' },
+													'On-Track'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.caution, value: '2' },
+													'Caution'
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+													'option',
+													{ style: styles.risk, value: '3' },
+													'At-Risk'
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'row expanded' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'large-12 columns' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ onClick: function onClick() {
+										_this2.confirm(_this2.props.id);
+									}, style: styles.main, className: 'button' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-trash' }),
+								' Delete'
+							),
+							'\xA0',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ onClick: this.unEdit.bind(this), style: styles.main, className: 'alert button' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban' }),
+								' Cancel'
+							),
+							'\xA0',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ onClick: function onClick() {
+										_this2.save(_this2.props.id);
+									}, style: styles.main, className: 'success button' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-save' }),
+								' Save'
+							)
+						)
 					)
 				)
 			);
