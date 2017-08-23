@@ -25,8 +25,17 @@ class Project extends Model
      * @param $id
      * @return mixed
      */
-    public function getStatus($id) {
+    public function getEnvStatus($id) {
         $status = EnvironmentStatus::where('id', $id)->first();
+        return $status;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getProjectStatus($id) {
+        $status = ProjectStatus::where('id', $id)->first();
         return $status;
     }
 
