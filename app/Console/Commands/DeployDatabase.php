@@ -41,19 +41,15 @@ class DeployDatabase extends Command
     {
 
         if($this->confirm('Do you wish to reset the database and run the seeder?')) {
-            $bar = $this->output->createProgressBar(100);
-
             $this->call('migrate:reset');
-//            $bar->advance(33);
-
             $this->call('migrate');
-//            $bar->advance(33);
-
             $this->call('db:seed', ['--class' => 'DevSeeder']);
 
-            for ($i = 0; $i <= 100; $i++) {
+            $bar = $this->output->createProgressBar(30);
+
+            for ($i = 0; $i <= 30; $i++) {
                 sleep(1);
-                $bar->advance($i);
+                $bar->advance(1);
             }
 
             $bar->finish();

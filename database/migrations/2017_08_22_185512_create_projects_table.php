@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->integer('created_by')->unsigned();
             $table->string('code');
             $table->string('name');
+            $table->integer('status')->unsigned();
             $table->integer('acct_manager')->unsigned();
             $table->integer('dev_manager')->unsigned();
             $table->integer('project_manager')->unsigned();
@@ -38,6 +39,7 @@ class CreateProjectsTable extends Migration
 
         Schema::table('projects', function (Blueprint $table) {
             $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('status')->references('id')->on('project_status');
             $table->foreign('acct_manager')->references('id')->on('users');
             $table->foreign('dev_manager')->references('id')->on('users');
             $table->foreign('project_manager')->references('id')->on('users');
