@@ -48,4 +48,16 @@ class User extends Authenticatable
         }
         return $admin;
     }
+
+
+    /**
+     * @param $query
+     * @param $type
+     * @return mixed
+     */
+    public function scopeManager($query, $type) {
+        $term = ucwords($type) . " Manager";
+        $id = Role::where('name', $term)->pluck('id');
+        return $query->whereHas('role', function ($query) use ($id) { $query->where('role_id', '=', $id); })->get();
+    }
 }

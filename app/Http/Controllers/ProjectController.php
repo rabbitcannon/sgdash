@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProject;
 use App\Project;
 use App\EnvironmentStatus;
+use App\ProjectStatus;
 use App\Role;
 use App\User;
 use Auth;
@@ -31,7 +32,8 @@ class ProjectController extends Controller
         }
 
         $data = [
-            'statuses' => EnvironmentStatus::all(),
+            'env_statuses' => EnvironmentStatus::all(),
+            'project_statuses' => ProjectStatus::all(),
             'account_managers' => User::whereHas('role', function ($query) use ($acct_id) { $query->where('role_id', '=', $acct_id); })->get(),
             'dev_managers' => User::whereHas('role', function ($query) use ($dev_id) { $query->where('role_id', '=', $dev_id); })->get(),
             'project_managers' => User::whereHas('role', function ($query) use ($proj_id) { $query->where('role_id', '=', $proj_id); })->get()
@@ -61,6 +63,7 @@ class ProjectController extends Controller
         $project->created_by = Auth::user()->id;
         $project->code = $request->input('project_code');
         $project->name = $request->input('project_name');
+        $project->status = $request->input('status');
         $project->acct_manager = $request->input('acct_manager');
         $project->dev_manager = $request->input('dev_manager');
         $project->project_manager = $request->input('project_manager');
@@ -94,9 +97,10 @@ class ProjectController extends Controller
         Project::where('id', $id)->update([
             'code' => $request->code,
             'name' => $request->name,
-//            'acct_manager' => $request->input('acct_manager'),
-//            'dev_manager' => $request->input('dev_manager'),
-//            'project_manager' => $request->input('project_manager'),
+            'status' => $request->status,
+            'acct_manager' => $request->input('acct_manager'),
+            'dev_manager' => $request->input('dev_manager'),
+            'project_manager' => $request->input('project_manager'),
             'trend' => $request->input('trend'),
             'req_eta' => $req,
             'req_status' => $request->req_status,

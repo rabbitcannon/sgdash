@@ -45,15 +45,6 @@ class DeployDatabase extends Command
             $this->call('migrate');
             $this->call('db:seed', ['--class' => 'DevSeeder']);
 
-            $bar = $this->output->createProgressBar(30);
-
-            for ($i = 0; $i <= 30; $i++) {
-                sleep(1);
-                $bar->advance(1);
-            }
-
-            $bar->finish();
-
             $this->info("\n" . 'Database reset and deployed' . "\n");
         }
         else {
