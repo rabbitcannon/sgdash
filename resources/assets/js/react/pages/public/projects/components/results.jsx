@@ -38,7 +38,8 @@ class Results extends React.Component {
 
     render() {
 		let resultItems = this.state.projects.map(function(project, i) {
-			return <ResultItem ref="results" key={project.id} id={project.id} name={project.name} code={project.code}
+			return <ResultItem ref="results" key={project.id} id={project.id}
+				name={project.name} code={project.code} trend={project.trend}
 				req_eta={project.req_eta} req_status={project.req_status}
 				dev_eta={project.dev_eta} dev_status={project.dev_status}
 				qa_eta={project.qa_eta} qa_status={project.qa_status}

@@ -4,12 +4,18 @@ import Axios from 'axios';
 
 const save_url = window.location.origin + '/api/v1/projects/update/';
 
+import ProjectStatusControl from './data/project-status-control.jsx';
+import ProjectManagers from "./data/project-managers.jsx";
+import DevelopmentManagers from "./data/development-managers.jsx";
+import AccountManagers from "./data/account-managers.jsx";
+
 class ResultItem extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
 			editing: false,
+			status: this.props.status,
 			req_status: this.props.req_status,
 			dev_status: this.props.dev_status,
 			qa_status: this.props.qa_status,
@@ -45,11 +51,10 @@ class ResultItem extends React.Component {
 		Axios.put(save_url + project_id, {
 			code: $('[name="project_code"]').val(),
 			name: $('[name="project_name"]').val(),
-			//
-			// acct_manager: $('[name="acct_manager"]').val(),
-			// dev_manager: $('[name="dev_manager"]').val(),
-			// project_manager: $('[name="project_manager"]').val(),
-			//
+			status: $('[name="status"]').val(),
+			acct_manager: $('[name="acct_manager"]').val(),
+			dev_manager: $('[name="dev_manager"]').val(),
+			project_manager: $('[name="project_manager"]').val(),
 			trend: $('[name="trend"]').val(),
 			req_eta: $('[name="req_eta"]').val(),
 			req_status: $('[name="req_status"]').val(),
@@ -138,6 +143,11 @@ class ResultItem extends React.Component {
 	}
 
 	handleSelectChange(status_name, event) {
+		if(status_name === 'status') {
+			this.setState({
+				trend: event.target.value,
+			});
+		}
 		if(status_name === 'req_status') {
 			this.setState({
 				req_status: event.target.value,
@@ -238,11 +248,14 @@ class ResultItem extends React.Component {
 			risk: {
 				color: '#EE5B57',
 				fontWeight: 'bold'
+			},
+			editRow: {
+				backgroundColor: "#e7e7e7"
 			}
 		}
 
 		return (
-			<tr id="row-edit" className="row-edit">
+			<tr id="row-edit" className="row-edit" style={styles.editRow}>
 				<td colSpan={10}>
 
 					<div className="text-left">
@@ -269,29 +282,34 @@ class ResultItem extends React.Component {
 							</div>
 						</div>
 
-						<div className="large-9 columns">
-							<div className="row">
-								<div className="large-3 columns">
-									<label>Trend
-										<select name="trend" defaultValue={this.props.trend} onChange={this.handleSelectChange.bind(this, 'trend')}>
-											<option style={styles.onTrack} value="up">Up</option>
-											<option style={styles.caution} value="right">No Movement</option>
-											<option style={styles.risk} value="down">Down</option>
-										</select>
-									</label>
-								</div>
-								<div className="large-3 columns">
-									{/*<button onClick={() => {this.save(this.props.id)}} style={styles.main} className="success button">*/}
-										{/*<i className="fa fa-save fa-2x"></i> Save*/}
-									{/*</button>*/}
-									{/*<button onClick={this.unEdit.bind(this)} style={styles.main} className="alert button">*/}
-										{/*<i className="fa fa-ban fa-2x"></i> Cancel*/}
-									{/*</button>*/}
-									{/*<button onClick={() => {this.confirm(this.props.id)}} style={styles.main} className="button">*/}
-										{/*<i className="fa fa-trash fa-2x"></i> Delete*/}
-									{/*</button>*/}
-								</div>
+						<div className="large-3 columns">
+							<div>
+								<label>Current Project Trend
+									<select name="trend" defaultValue={this.props.trend} onChange={this.handleSelectChange.bind(this, 'trend')}>
+										<option style={styles.onTrack} value="up">Up</option>
+										<option style={styles.caution} value="right">No Movement</option>
+										<option style={styles.risk} value="down">Down</option>
+									</select>
+								</label>
 							</div>
+						</div>
+
+						<div className="large-3 columns">
+							<label>Project Status
+								<ProjectStatusControl current={this.props.status} />
+							</label>
+						</div>
+
+						<div className="large-3 columns">
+							<label>Project Manager
+								<ProjectManagers current={this.props.project_manager} />
+							</label>
+							<label>Development Manager
+								<DevelopmentManagers current={this.props.dev_manager} />
+							</label>
+							<label>Account Manager
+								<AccountManagers current={this.props.acct_manager} />
+							</label>
 						</div>
 					</div>
 
@@ -408,115 +426,6 @@ class ResultItem extends React.Component {
 						</div>
 					</div>
 				</td>
-				
-				{/*<td width="120">*/}
-					{/*<input type="text" name="project_code" defaultValue={this.props.code} />*/}
-				{/*</td>*/}
-				{/*<td width="200">*/}
-					{/*<input type="text" name="project_name" defaultValue={this.props.name} />*/}
-				{/*</td>*/}
-				{/*<td>*/}
-					{/*<div>*/}
-						{/*<div>*/}
-							{/*<input type="text" name="req_eta" defaultValue={this.dateFormatter(this.props.req_eta, full)} />*/}
-						{/*</div>*/}
-						{/*<div>*/}
-							{/*<label>Status*/}
-								{/*<select name="req_status" defaultValue={this.props.req_status} onChange={this.handleSelectChange.bind(this, 'req_status')}>*/}
-									{/*<option style={styles.onTrack} value="1">On-Track</option>*/}
-									{/*<option style={styles.caution} value="2">Caution</option>*/}
-									{/*<option style={styles.risk} value="3">At-Risk</option>*/}
-								{/*</select>*/}
-							{/*</label>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td>*/}
-					{/*<div>*/}
-						{/*<div>*/}
-							{/*<input type="text" name="dev_eta" defaultValue={this.dateFormatter(this.props.dev_eta, full)} />*/}
-						{/*</div>*/}
-						{/*<div>*/}
-							{/*<label>Status*/}
-								{/*<select name="dev_status" defaultValue={this.props.dev_status} onChange={this.handleSelectChange.bind(this, 'dev_status')}>*/}
-									{/*<option style={styles.onTrack} value="1">On-Track</option>*/}
-									{/*<option style={styles.caution} value="2">Caution</option>*/}
-									{/*<option style={styles.risk} value="3">At-Risk</option>*/}
-								{/*</select>*/}
-							{/*</label>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td>*/}
-					{/*<div>*/}
-						{/*<div>*/}
-							{/*<input type="text" name="qa_eta" defaultValue={this.dateFormatter(this.props.qa_eta, full)} />*/}
-						{/*</div>*/}
-						{/*<div>*/}
-							{/*<label>Status*/}
-								{/*<select name="qa_status" defaultValue={this.props.qa_status} onChange={this.handleSelectChange.bind(this, 'qa_status')}>*/}
-									{/*<option style={styles.onTrack} value="1">On-Track</option>*/}
-									{/*<option style={styles.caution} value="2">Caution</option>*/}
-									{/*<option style={styles.risk} value="3">At-Risk</option>*/}
-								{/*</select>*/}
-							{/*</label>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td>*/}
-					{/*<div>*/}
-						{/*<div>*/}
-							{/*<input type="text" name="uat_eta" defaultValue={this.dateFormatter(this.props.uat_eta, full)} />*/}
-						{/*</div>*/}
-						{/*<div>*/}
-							{/*<label>Status*/}
-								{/*<select name="uat_status" defaultValue={this.props.uat_status} onChange={this.handleSelectChange.bind(this, 'uat_status')}>*/}
-									{/*<option style={styles.onTrack} value="1">On-Track</option>*/}
-									{/*<option style={styles.caution} value="2">Caution</option>*/}
-									{/*<option style={styles.risk} value="3">At-Risk</option>*/}
-								{/*</select>*/}
-							{/*</label>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td>*/}
-					{/*<div>*/}
-						{/*<div>*/}
-							{/*<input type="text" name="prod_eta" defaultValue={this.dateFormatter(this.props.prod_eta, full)} />*/}
-						{/*</div>*/}
-						{/*<div>*/}
-							{/*<label>Status*/}
-								{/*<select name="prod_status" defaultValue={this.props.prod_status} onChange={this.handleSelectChange.bind(this, 'prod_status')}>*/}
-									{/*<option style={styles.onTrack} value="1">On-Track</option>*/}
-									{/*<option style={styles.caution} value="2">Caution</option>*/}
-									{/*<option style={styles.risk} value="3">At-Risk</option>*/}
-								{/*</select>*/}
-							{/*</label>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td width="50">*/}
-					{/*<div>*/}
-						{/*<label>Trend*/}
-							{/*<select name="trend" defaultValue={this.props.trend} onChange={this.handleSelectChange.bind(this, 'trend')}>*/}
-								{/*<option style={styles.onTrack} value="up">Up</option>*/}
-								{/*<option style={styles.caution} value="right">No Movement</option>*/}
-								{/*<option style={styles.risk} value="down">Down</option>*/}
-							{/*</select>*/}
-						{/*</label>*/}
-					{/*</div>*/}
-				{/*</td>*/}
-				{/*<td width="125" className="text-center">*/}
-					{/*<button onClick={() => {this.save(this.props.id)}} style={styles.main}>*/}
-						{/*<i className="fa fa-save fa-2x"></i>*/}
-					{/*</button>*/}
-					{/*<button onClick={this.unEdit.bind(this)} style={styles.main}>*/}
-						{/*<i className="fa fa-ban fa-2x"></i>*/}
-					{/*</button>*/}
-					{/*<button onClick={() => {this.confirm(this.props.id)}} style={styles.main}>*/}
-						{/*<i className="fa fa-trash fa-2x"></i>*/}
-					{/*</button>*/}
-				{/*</td>*/}
 			</tr>
 		);
 	}

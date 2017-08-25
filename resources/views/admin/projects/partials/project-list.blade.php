@@ -1,6 +1,8 @@
 <div class="row expanded">
     <div class="large-12 columns">
 
+        @include('admin.projects.partials.filter-results')
+
         <div id="project-list"></div>
 
         <div class="reveal small animated fadeIn" id="add-project-reveal" data-reveal style="padding: 0px;">

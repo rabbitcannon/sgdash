@@ -42,6 +42,29 @@
                 </div>
             </div>
 
+        <div class="row">
+            <div class="large-12 columns">
+                <label>
+                    Project Status
+                </label>
+
+                <select name="project_status" >
+                    <option selected>-- Select One --</option>
+                    @foreach($project_statuses as $project_status)
+                        <option value="{!! $project_status->id !!}">
+                            {!! $project_status->name !!}
+                        </option>
+                    @endforeach
+                </select>
+
+                <div>
+                    @if($errors->has('acct_manager'))
+                        {!! $errors->first('acct_manager', '<span class="failure-text is-visible">:message</span>') !!}
+                    @endif
+                </div>
+            </div>
+        </div>
+
             <div class="row">
                 <div class="large-12 columns">
                     <label>Current Project Trend
@@ -143,9 +166,9 @@
                     </label>
 
                     <div>
-                        @foreach($statuses as $status)
-                            <input type="radio" name="req_status" value="{!! $status->id !!}">
-                            <label class="{!! strtolower($status->name) !!}">{{ $status->name }}</label>
+                        @foreach($env_statuses as $env_status)
+                            <input type="radio" name="req_status" value="{!! $env_status->id !!}">
+                            <label class="{!! strtolower($env_status->name) !!}">{{ $env_status->name }}</label>
                         @endforeach
                     </div>
 
@@ -161,9 +184,9 @@
                     </label>
 
                     <div>
-                        @foreach($statuses as $status)
-                            <input type="radio" name="dev_status" value="{!! $status->id !!}">
-                            <label class="{!! strtolower($status->name) !!}">{{ $status->name }}</label>
+                        @foreach($env_statuses as $env_status)
+                            <input type="radio" name="dev_status" value="{!! $env_status->id !!}">
+                            <label class="{!! strtolower($env_status->name) !!}">{{ $env_status->name }}</label>
                         @endforeach
                     </div>
 
@@ -187,9 +210,9 @@
                     </label>
 
                     <div>
-                        @foreach($statuses as $status)
-                            <input type="radio" name="qa_status" value="{!! $status->id !!}">
-                            <label class="{!! strtolower($status->name) !!}">{{ $status->name }}</label>
+                        @foreach($env_statuses as $env_status)
+                            <input type="radio" name="qa_status" value="{!! $env_status->id !!}">
+                            <label class="{!! strtolower($env_status->name) !!}">{{ $env_status->name }}</label>
                         @endforeach
                     </div>
 
@@ -205,9 +228,9 @@
                     </label>
 
                     <div>
-                        @foreach($statuses as $status)
-                            <input type="radio" name="uat_status" value="{!! $status->id !!}">
-                            <label class="{!! strtolower($status->name) !!}">{{ $status->name }}</label>
+                        @foreach($env_statuses as $env_status)
+                            <input type="radio" name="uat_status" value="{!! $env_status->id !!}">
+                            <label class="{!! strtolower($env_status->name) !!}">{{ $env_status->name }}</label>
                         @endforeach
                     </div>
 
@@ -231,9 +254,9 @@
                     </label>
 
                     <div>
-                        @foreach($statuses as $status)
-                            <input type="radio" name="prod_status" value="{!! $status->id !!}">
-                            <label class="{!! strtolower($status->name) !!}">{{ $status->name }}</label>
+                        @foreach($env_statuses as $env_status)
+                            <input type="radio" name="prod_status" value="{!! $env_status->id !!}">
+                            <label class="{!! strtolower($env_status->name) !!}">{{ $env_status->name }}</label>
                         @endforeach
                     </div>
 

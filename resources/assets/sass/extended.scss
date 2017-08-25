@@ -26,6 +26,7 @@ html, body {
 }
 
 .button {
+  @include border-radius(5px);
   background-color: $dark-blue;
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
@@ -195,6 +196,10 @@ textarea {
       color: $header-bg-blue;
       margin-right: -25px;
       font-size: 1.75em;
+    }
+
+    .override {
+      color: $blue-gray;
     }
   }
 

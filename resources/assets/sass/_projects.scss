@@ -1,7 +1,10 @@
+@import "modules/date-picker/datepicker";
+
 /**
   Table of Contents
   ------------------------
   CS01 - Project Elements
+  CS02 - Filter Elements
 
 **/
 
@@ -18,4 +21,25 @@
 .row-edit {
   line-height: 50px;
   vertical-align: top;
+}
+
+/** CS02 Filter Elements
+ ===================== **/
+
+#toggle-collapse {
+  border: 0;
+  cursor: pointer;
+
+  i:hover {
+    color: $light-gray;
+
+  }
+}
+.column-list {
+  list-style: none;
+
+  li {
+    float: left;
+    width: 45%;
+  }
 }

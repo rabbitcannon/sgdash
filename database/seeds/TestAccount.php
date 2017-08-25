@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use Carbon\Carbon as Carbon;
 
-class TestAccountSeeder extends Seeder
+class TestAccount extends Seeder
 {
     /**
      * Run the database seeds.

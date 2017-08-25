@@ -7,7 +7,7 @@ use App\EnvironmentStatus;
 use App\Role;
 use App\User;
 
-class FakeProjectSeeder extends Seeder
+class FakeProject extends Seeder
 {
     /**
      * Run the database seeds.
@@ -36,6 +36,8 @@ class FakeProjectSeeder extends Seeder
         $dev_manager = User::whereHas('role', function ($query) use ($dev_id) { $query->where('role_id', '=', $dev_id); })->pluck('id');
         $project_manager = User::whereHas('role', function ($query) use ($proj_id) { $query->where('role_id', '=', $proj_id); })->pluck('id');
 
+        $this->command->getOutput()->progressStart(30);
+
         foreach(range(1,30) as $index) {
             App\Project::create([
                 'created_by' => $faker->randomElement($user->toArray()),
@@ -58,6 +60,11 @@ class FakeProjectSeeder extends Seeder
                 'prod_status' => $faker->randomElement($env_status->toArray()),
                 'created_at' => $faker->dateTime($max = 'now')
             ]);
+
+            $this->command->getOutput()->progressAdvance();
         }
+
+        $this->command->getOutput()->progressFinish();
+
     }
 }

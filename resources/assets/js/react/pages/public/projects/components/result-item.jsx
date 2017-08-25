@@ -45,6 +45,24 @@ class ResultItem extends React.Component {
 		return status_class;
 	}
 
+	classTrendSetter(trend) {
+		let status_class = "";
+		switch(trend) {
+			case "up":
+				status_class = "on-track"
+				break;
+			case "right":
+				status_class = "caution"
+				break;
+			case "down":
+				status_class = "at-risk"
+				break;
+			default:
+				status_class = "disabled-text"
+		}
+		return status_class;
+	}
+
 	renderStaticDisplay() {
 		return (
 			<tr id="row-static">
@@ -79,8 +97,10 @@ class ResultItem extends React.Component {
 						{this.dateFormatter(this.props.prod_eta)}
 					</span>
 				</td>
-				<td>
-					positive - static
+				<td width="15">
+					<span className={this.classTrendSetter(this.props.trend)}>
+						<i className={"fa fa-2x fa-arrow-circle-" + this.props.trend}></i>
+					</span>
 				</td>
 			</tr>
 		);

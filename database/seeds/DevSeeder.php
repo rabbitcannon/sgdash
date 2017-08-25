@@ -11,13 +11,14 @@ class DevSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RoleSeeder::class);
-        $this->call(TestAccountSeeder::class);
-        $this->call(EnvironmentStatusSeeder::class);
-        $this->call(ProjectStatusSeeder::class);
+        $this->call(Role::class);
+        $this->call(TestAccount::class);
+        $this->call(EnvironmentStatus::class);
+        $this->call(ProjectStatus::class);
 
         //Fake Data Seeders
-        $this->call(FakeUserSeeder::class);
-        $this->call(FakeProjectSeeder::class);
+        $this->call(FakeUser::class);
+        $this->call(FakeProject::class);
+        $this->call(FakeProjectComment::class);
     }
 }

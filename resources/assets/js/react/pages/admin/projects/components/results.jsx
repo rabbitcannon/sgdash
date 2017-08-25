@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import _ from 'underscore';
+import $ from 'jquery';
 
 import ResultItem from './result-item.jsx';
 // import ResultFilter from './result-filter.jsx';
@@ -23,7 +24,7 @@ class Results extends React.Component {
     }
 
 	getProjects(url) {
-		var loader = jQuery('#loader');
+		var loader = $('#loader');
 		loader.show();
 
 		var self = this;
@@ -53,7 +54,8 @@ class Results extends React.Component {
 		);
 
 		let resultItems = _.map(filteredProjects, (project) => {
-			return <ResultItem ref="results" key={project.id} id={project.id} name={project.name} code={project.code}
+			return <ResultItem ref="results" key={project.id} id={project.id} name={project.name}
+			   	code={project.code} status={project.status}
 			   	acct_manager={project.acct_manager} dev_manager={project.dev_manager}
 				project_manager={project.project_manager} trend={project.trend}
 				req_eta={project.req_eta} req_status={project.req_status}
@@ -63,42 +65,36 @@ class Results extends React.Component {
 				prod_eta={project.prod_eta} prod_status={project.prod_status} />
 		});
 
-		let emptyResults = "<div>empty</div>div>";
+		let emptyResults = "<div>empty</div>";
 
         return (
         	<div>
-				{/*<ResultFilter project_name={this.state.project_name} projects={this.state.projectResults} />*/}
-				<div className="row expanded">
-					<div className="large-12 columns">
-						<div className="data-card">
-							<div className="data-header">
-								Filter Results
-							</div>
+				{/*<div className="row expanded">*/}
+					{/*<div className="large-12 columns">*/}
+						{/*<div className="data-card">*/}
+							{/*<div className="data-header">*/}
+								{/*Filter Results*/}
+							{/*</div>*/}
 
-							<div className="data-content">
-								<form action="">
-									<fieldset className="fieldset">
-										<legend>Filter By:</legend>
-										<div className="row">
+							{/*<div className="data-content">*/}
+								{/*<form action="">*/}
+									{/*<fieldset className="fieldset">*/}
+										{/*<legend>Filter By:</legend>*/}
+										{/*<div className="row">*/}
+
 											{/*<div className="large-6 columns">*/}
-												{/*<label>Code*/}
-													{/*<input type="text" defaultValue={this.state.project_code} placeholder="Project code" onChange={this.filterList.bind(this)} />*/}
+												{/*<label>Name*/}
+													{/*<input type="text" defaultValue={this.state.project_name} placeholder="Project name" onChange={this.filterList.bind(this)} />*/}
 												{/*</label>*/}
 											{/*</div>*/}
+										{/*</div>*/}
+									{/*</fieldset>*/}
+								{/*</form>*/}
+							{/*</div>*/}
+						{/*</div>*/}
 
-											<div className="large-6 columns">
-												<label>Name
-													<input type="text" defaultValue={this.state.project_name} placeholder="Project name" onChange={this.filterList.bind(this)} />
-												</label>
-											</div>
-										</div>
-									</fieldset>
-								</form>
-							</div>
-						</div>
-
-					</div>
-				</div>
+					{/*</div>*/}
+				{/*</div>*/}
 
 				<div className="data-table">
 					<div className="data-table-header">
