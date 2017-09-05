@@ -1,3 +1,9 @@
+<style>
+    .comments-inner {
+        height: 100%;
+    }
+</style>
+
 <div class="row expanded">
     <div class="large-12 columns">
 
@@ -22,13 +28,14 @@
 
                 <div id="filter-form">
 
-                    {!! Form::open() !!}
+                    {!! Form::open(['url' => '/admin/search/projects', 'method' => 'post']) !!}
 
                     <div class="row expanded">
                         <fieldset class="large-3 columns">
                             <legend>Creation Date</legend>
                             <hr/>
-                            <div id="date-picker"></div>
+                            <div id="date-picker-start"></div>
+                            <div id="date-picker-end"></div>
                         </fieldset>
 
                         <fieldset class="large-3 columns">
@@ -50,7 +57,7 @@
                             <ul name="project-status-list" class="column-list">
                                 @foreach($project_statuses as $project_status)
                                     <li>
-                                        <input value="{!! $project_status->id !!}" type="checkbox">
+                                        <input name="project_status[]" value="{!! $project_status->id !!}" type="checkbox">
 
                                         <label for="{!! $project_status->id !!}">
                                             {!! $project_status->name !!}
@@ -66,10 +73,10 @@
                             <legend>Project Manager</legend>
                             <hr/>
 
-                            <ul name="project_managers" class="column-list">
+                            <ul class="column-list">
                                 @foreach($project_managers as $project_manager)
                                     <li>
-                                        <input value="{!! $project_manager->id !!}" type="checkbox">
+                                        <input name="project_managers[]" value="{!! $project_manager->id !!}" type="checkbox">
                                         <label>{!! $project_manager->first_name !!} {!! $project_manager->last_name !!}</label>
                                     </li>
                                 @endforeach
@@ -80,10 +87,10 @@
                             <legend>Development Manager</legend>
                             <hr/>
 
-                            <ul name="dev_managers" class="column-list">
+                            <ul class="column-list">
                                 @foreach($dev_managers as $dev_manager)
                                     <li>
-                                        <input value="{!! $dev_manager->id !!}" type="checkbox">
+                                        <input name="dev_managers[]" value="{!! $dev_manager->id !!}" type="checkbox">
                                         <label>{!! $dev_manager->first_name !!} {!! $dev_manager->last_name !!}</label>
                                     </li>
                                 @endforeach
@@ -94,10 +101,10 @@
                             <legend>Account Manager</legend>
                             <hr/>
 
-                            <ul name="account_managers" class="column-list">
+                            <ul class="column-list">
                                 @foreach($account_managers as $account_manager)
                                     <li>
-                                        <input value="{!! $account_manager->id !!}" type="checkbox">
+                                        <input name="account_managers[]" value="{!! $account_manager->id !!}" type="checkbox">
                                         <label>{!! $account_manager->first_name !!} {!! $account_manager->last_name !!}</label>
                                     </li>
                                 @endforeach
@@ -125,6 +132,8 @@
         </div>
     </div>
 </div>
+
+@include('layouts.partials.react-script', ['script' => 'admin/projects'])
 
 
 <script>

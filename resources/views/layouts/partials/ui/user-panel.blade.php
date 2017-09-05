@@ -1,6 +1,6 @@
 <div class="row">
     <div id="user-notifications" class="large-9 columns text-right">
-
+        <input type="hidden" name="user_id" value="{{ $user->id }}" />
         <div class="row">
             <div class="large-2 large-offset-7 columns">
                 <span class="badge green-badge" id="messageCount">1</span>

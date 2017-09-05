@@ -9,7 +9,8 @@
 
 //-- Foundation --//
 @import "node_modules/foundation-sites/scss/foundation";
-@import "node_modules/foundation-sites/scss/settings/settings";
+//@import "node_modules/foundation-sites/scss/settings/settings";
+@import "resources/assets/sass/settings";
 @include foundation-everything(true);
 
 //-- Additional Styles --//

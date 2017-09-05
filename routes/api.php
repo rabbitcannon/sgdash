@@ -20,14 +20,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //-- Project Routes --//
 //=======================//
 //Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
-Route::group(['prefix' => 'v1'], function(){
+Route::group(['prefix' => 'v1'], function() {
+
     //-- Projects --//
     Route::get('/projects', function() {
-        return App\Project::orderBy('id', 'asc')->get();
+        return App\Project::withCount('comments')->orderBy('id', 'asc')->get();
     });
+    Route::put('/project/update/{id}', 'ProjectController@update');
+    Route::get('/project/delete/{id}', 'ProjectController@delete');
 
-    Route::put('/projects/update/{id}', 'ProjectController@update');
-    Route::get('/projects/delete/{id}', 'ProjectController@delete');
+    //-- Comments for projects --//
+    Route::get('/project/{id}/comments', function($id) {
+       return App\Comment::with('user')->where('project_id', $id)->get();
+    });
+    Route::post ('/comment/add', 'CommentController@create');
+
+
 
     //-- Users --//
     Route::get('/users', function() {
@@ -41,4 +49,14 @@ Route::group(['prefix' => 'v1'], function(){
 
     //-- Tickets --//
     Route::get('/tickets/view/all', 'TicketsController@viewTickets');
+
+
+    //-- Control Routes --//
+    Route::get('/controls/project-status', function() {
+        return App\ProjectStatus::all();
+    });
+
+    Route::get('/controls/manager/{type}', function($type) {
+        return App\User::Manager($type);
+    });
 });

@@ -5,6 +5,7 @@
   ------------------------
   CS01 - Project Elements
   CS02 - Filter Elements
+  CS03 - Comments Elements
 
 **/
 
@@ -21,6 +22,12 @@
 .row-edit {
   line-height: 50px;
   vertical-align: top;
+}
+
+.row-static {
+  .comment-container {
+    color: #263238;
+  }
 }
 
 /** CS02 Filter Elements
@@ -41,5 +48,96 @@
   li {
     float: left;
     width: 45%;
+  }
+}
+
+/** CS03 Comments Elements
+ ===================== **/
+
+.comment-loader {
+  //display: none;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  z-index: 999;
+}
+
+#comment-container {
+  .comment-date {
+    color: $dark-bg-light-link;
+  }
+}
+
+.comment-slider {
+  background-color: $light-gray;
+  right: 0;
+  top: 0;
+  height: 104%;
+  display: none;
+  position: fixed;
+  width: 47%;
+  z-index: 998;
+  margin: 0;
+
+  .comment-close {
+    background-color: $failure-red;
+    color: white;
+    cursor: pointer;
+    left: -51px;
+    padding: 13px;
+    position: absolute;
+    z-index: 998;
+
+    -webkit-transition: ease-in .5s;
+    -moz-transition: ease-in .5s;
+    -ms-transition: ease-in .5s;
+    -o-transition: ease-in .5s;
+    transition: ease-in .5s;
+
+    &:hover {
+      background-color: $failure-red-light;
+    }
+  }
+
+  .data-card-small {
+    margin: 0;
+
+    .data-content {
+      overflow-y: auto;
+    }
+
+    .comments-inner {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 100vh;
+      padding-bottom: 90px;
+    }
+  }
+}
+
+#comment-underlay {
+  background-color: rgba(0, 0, 0, 0.48);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 998;
+}
+
+.comment-avatar {
+  background-color: $header-bg-blue;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 60px;
+  margin: 0 auto;
+  width: 60px;
+  i {
+    color: $blue-gray;
+    margin-top: 6px;
   }
 }

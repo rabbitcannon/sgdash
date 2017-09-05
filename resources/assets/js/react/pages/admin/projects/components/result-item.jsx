@@ -1,19 +1,22 @@
 import React from 'react';
 import Moment from 'moment';
 import Axios from 'axios';
+import $ from 'jquery';
 
-const save_url = window.location.origin + '/api/v1/projects/update/';
+const save_url = window.location.origin + '/api/v1/project/update/';
 
-import ProjectStatusControl from './data/project-status-control.jsx';
+import ProjectStatusControl from "./data/project-status-control.jsx";
 import ProjectManagers from "./data/project-managers.jsx";
 import DevelopmentManagers from "./data/development-managers.jsx";
 import AccountManagers from "./data/account-managers.jsx";
+import Comments from "./comments/comments.jsx";
 
 class ResultItem extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
+			comment_id: '',
 			editing: false,
 			status: this.props.status,
 			req_status: this.props.req_status,
@@ -26,7 +29,7 @@ class ResultItem extends React.Component {
 	}
 
 	componentDidMount() {
-		jQuery.ajaxSetup({
+		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
@@ -80,7 +83,7 @@ class ResultItem extends React.Component {
 
 	confirm(id) {
 		if(confirm('Are you sure you want to delete this project?')){
-			let url = `/api/v1/projects/delete/${id}`;
+			let url = `/api/v1/project/delete/${id}`;
 			window.location = url;
 		}
 	}
@@ -187,7 +190,12 @@ class ResultItem extends React.Component {
 					{this.props.code}
 				</td>
 				<td>
-					{this.props.name}
+					<div>
+						{this.props.name}
+					</div>
+					<div>
+						 <Comments key={this.props.id} project_id={this.props.id} count={this.props.comments} />
+					</div>
 				</td>
 				<td>
 					<span className={this.classSetter(this.state.req_status)}>

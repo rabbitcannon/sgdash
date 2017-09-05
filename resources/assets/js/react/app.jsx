@@ -2,7 +2,8 @@ import "babel-polyfill";
 import React, {Component} from "react";
 
 import Notifications from "./components/notifications/index.jsx";
-import DatePicker from './components/universal/date-picker.jsx';
+import DatePickerStart from './components/universal/date-picker-start.jsx';
+import DatePickerEnd from './components/universal/date-picker-end.jsx';
 
 class App extends React.Component {
 
@@ -11,7 +12,8 @@ class App extends React.Component {
         return (
             <div>
                 <Notifications />
-                <DatePicker />
+                <DatePickerStart />
+                <DatePickerEnd />
             </div>
         );
     }

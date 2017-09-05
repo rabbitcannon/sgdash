@@ -12,13 +12,13 @@ class Project extends Model
     /**
      * @var array
      */
-    protected $dates = ['req_eta', 'dev_eta', 'qa_eta', 'uat_eta', 'prod_eta'];
+    protected $dates = ['req_eta', 'dev_eta', 'qa_eta', 'uat_eta', 'prod_eta', 'deleted_at'];
 
     /**
      * @var array
      */
     protected $fillable = ['code', 'name', 'status', 'acct_manager', 'dev_manager', 'project_manager', 'trend',
-        'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta'];
+        'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta', 'deleted_at'];
 
 
     /**
@@ -44,5 +44,12 @@ class Project extends Model
      */
     public function accountManager() {
         return $this->hasOne('App\User');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments() {
+        return $this->hasMany('App\Comment', 'project_id');
     }
 }

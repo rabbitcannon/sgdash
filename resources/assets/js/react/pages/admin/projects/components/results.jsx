@@ -54,8 +54,8 @@ class Results extends React.Component {
 		);
 
 		let resultItems = _.map(filteredProjects, (project) => {
-			return <ResultItem ref="results" key={project.id} id={project.id} name={project.name}
-			   	code={project.code} status={project.status}
+			return <ResultItem ref="results" key={project.id} comments={project.comments_count}
+			   	id={project.id} name={project.name} code={project.code} status={project.status}
 			   	acct_manager={project.acct_manager} dev_manager={project.dev_manager}
 				project_manager={project.project_manager} trend={project.trend}
 				req_eta={project.req_eta} req_status={project.req_status}

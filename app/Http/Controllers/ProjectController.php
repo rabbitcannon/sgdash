@@ -6,9 +6,11 @@ use App\Http\Requests\CreateProject;
 use App\Project;
 use App\EnvironmentStatus;
 use App\ProjectStatus;
+use App\Comment;
 use App\Role;
 use App\User;
 use Auth;
+use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use View;
@@ -63,7 +65,7 @@ class ProjectController extends Controller
         $project->created_by = Auth::user()->id;
         $project->code = $request->input('project_code');
         $project->name = $request->input('project_name');
-        $project->status = $request->input('status');
+        $project->status = $request->input('project_status');
         $project->acct_manager = $request->input('acct_manager');
         $project->dev_manager = $request->input('dev_manager');
         $project->project_manager = $request->input('project_manager');
@@ -116,7 +118,22 @@ class ProjectController extends Controller
     }
 
     public function delete($id) {
-        \DB::table('projects')->where('id', $id)->delete();
+
+        \DB::beginTransaction();
+
+        try {
+            Project::destroy($id);
+
+            $comments = Comment::where('project_id', $id)->pluck('id');
+            $comment_array = $comments->toArray();
+
+            Comment::destroy($comment_array);
+
+            \DB::commit();
+        }
+        catch (\Exception $exception) {
+            \DB::rollback();
+        }
 
         return Redirect::to('/admin/projects');
     }

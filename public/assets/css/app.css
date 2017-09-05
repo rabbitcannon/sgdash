@@ -7347,16 +7347,16 @@ select[multiple] {
 .position-left {
   top: 0;
   left: 0;
-  width: 250px;
+  width: 650px;
   height: 100%;
-  -webkit-transform: translateX(-250px);
-          transform: translateX(-250px);
+  -webkit-transform: translateX(-650px);
+          transform: translateX(-650px);
   overflow-y: auto;
 }
 
 .position-left.is-open ~ .off-canvas-content {
-  -webkit-transform: translateX(250px);
-          transform: translateX(250px);
+  -webkit-transform: translateX(650px);
+          transform: translateX(650px);
 }
 
 .position-left.is-transition-push::after {
@@ -7377,16 +7377,16 @@ select[multiple] {
 .position-right {
   top: 0;
   right: 0;
-  width: 250px;
+  width: 650px;
   height: 100%;
-  -webkit-transform: translateX(250px);
-          transform: translateX(250px);
+  -webkit-transform: translateX(650px);
+          transform: translateX(650px);
   overflow-y: auto;
 }
 
 .position-right.is-open ~ .off-canvas-content {
-  -webkit-transform: translateX(-250px);
-          transform: translateX(-250px);
+  -webkit-transform: translateX(-650px);
+          transform: translateX(-650px);
 }
 
 .position-right.is-transition-push::after {
@@ -7476,41 +7476,41 @@ select[multiple] {
   .position-left.reveal-for-medium {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-left.reveal-for-medium ~ .off-canvas-content {
-    margin-left: 250px;
+    margin-left: 650px;
   }
 
   .position-right.reveal-for-medium {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-right.reveal-for-medium ~ .off-canvas-content {
-    margin-right: 250px;
+    margin-right: 650px;
   }
 
   .position-top.reveal-for-medium {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-top.reveal-for-medium ~ .off-canvas-content {
-    margin-top: 250px;
+    margin-top: 650px;
   }
 
   .position-bottom.reveal-for-medium {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-bottom.reveal-for-medium ~ .off-canvas-content {
-    margin-bottom: 250px;
+    margin-bottom: 650px;
   }
 }
 
@@ -7518,41 +7518,41 @@ select[multiple] {
   .position-left.reveal-for-large {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-left.reveal-for-large ~ .off-canvas-content {
-    margin-left: 250px;
+    margin-left: 650px;
   }
 
   .position-right.reveal-for-large {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-right.reveal-for-large ~ .off-canvas-content {
-    margin-right: 250px;
+    margin-right: 650px;
   }
 
   .position-top.reveal-for-large {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-top.reveal-for-large ~ .off-canvas-content {
-    margin-top: 250px;
+    margin-top: 650px;
   }
 
   .position-bottom.reveal-for-large {
     -webkit-transform: none;
             transform: none;
-    z-index: 1;
+    z-index: 999;
   }
 
   .position-bottom.reveal-for-large ~ .off-canvas-content {
-    margin-bottom: 250px;
+    margin-bottom: 650px;
   }
 }
 
@@ -9637,6 +9637,7 @@ a.thumbnail image {
   ------------------------
   CS01 - Project Elements
   CS02 - Filter Elements
+  CS03 - Comments Elements
 
 **/
 
@@ -9653,6 +9654,10 @@ a.thumbnail image {
 .row-edit {
   line-height: 50px;
   vertical-align: top;
+}
+
+.row-static .comment-container {
+  color: #263238;
 }
 
 /** CS02 Filter Elements
@@ -9674,6 +9679,88 @@ a.thumbnail image {
 .column-list li {
   float: left;
   width: 45%;
+}
+
+/** CS03 Comments Elements
+ ===================== **/
+
+.comment-loader {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  z-index: 999;
+}
+
+#comment-container .comment-date {
+  color: #86a0ac;
+}
+
+.comment-slider {
+  background-color: #CDCDCD;
+  right: 0;
+  top: 0;
+  height: 104%;
+  display: none;
+  position: fixed;
+  width: 47%;
+  z-index: 998;
+  margin: 0;
+}
+
+.comment-slider .comment-close {
+  background-color: #D9534F;
+  color: white;
+  cursor: pointer;
+  left: -51px;
+  padding: 13px;
+  position: absolute;
+  z-index: 998;
+  transition: ease-in .5s;
+}
+
+.comment-slider .comment-close:hover {
+  background-color: #EE5B57;
+}
+
+.comment-slider .data-card-small {
+  margin: 0;
+}
+
+.comment-slider .data-card-small .data-content {
+  overflow-y: auto;
+}
+
+.comment-slider .data-card-small .comments-inner {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  padding-bottom: 90px;
+}
+
+#comment-underlay {
+  background-color: rgba(0, 0, 0, 0.48);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 998;
+}
+
+.comment-avatar {
+  background-color: #2D3A40;
+  border-radius: 50%;
+  height: 60px;
+  margin: 0 auto;
+  width: 60px;
+}
+
+.comment-avatar i {
+  color: #57666D;
+  margin-top: 6px;
 }
 
 /**
@@ -9830,9 +9917,9 @@ a.thumbnail image {
 
 html,
 body {
-  background-color: #CDCDCD;
+  background-color: #e6e6e6;
   font-family: 'Roboto', sans-serif;
-  height: 100vh;
+  height: 100%;
 }
 
 .button {
@@ -9886,6 +9973,11 @@ body {
 
 a {
   color: #86a0ac;
+  transition: ease-in .5s;
+}
+
+a:hover {
+  color: #6b828c;
 }
 
 textarea {
@@ -9902,7 +9994,7 @@ textarea {
 .user-login-bar {
   background-color: #2D3A40;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.48);
-  color: #CDCDCD;
+  color: #e6e6e6;
   padding: 10px;
 }
 
@@ -9942,6 +10034,10 @@ textarea {
   width: 100px;
 }
 
+.menu-background {
+  background-color: #263238;
+}
+
 .menu-holder {
   background-color: #263238;
   height: 100vh;
@@ -9958,7 +10054,7 @@ textarea {
 }
 
 #admin-menu .menu-item a {
-  color: #CDCDCD;
+  color: #e6e6e6;
   margin-left: 5px;
   transition-duration: .5s;
 }
@@ -10008,7 +10104,7 @@ textarea {
 
 .data-card-small .data-header {
   background-color: #263238;
-  color: #CDCDCD;
+  color: #e6e6e6;
   font-size: 1.5em;
   padding: 15px;
   text-transform: uppercase;
@@ -10051,7 +10147,7 @@ textarea {
 
 .data-table .data-table-header {
   background-color: #263238;
-  color: #CDCDCD;
+  color: #e6e6e6;
   font-size: 1.5em;
   padding: 15px;
   text-transform: uppercase;

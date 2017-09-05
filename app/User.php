@@ -60,4 +60,11 @@ class User extends Authenticatable
         $id = Role::where('name', $term)->pluck('id');
         return $query->whereHas('role', function ($query) use ($id) { $query->where('role_id', '=', $id); })->get();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments() {
+        return $this->hasMany('App\Comment', 'user_id');
+    }
 }

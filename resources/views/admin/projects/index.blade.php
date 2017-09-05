@@ -1,6 +1,8 @@
 @extends('layouts.admin.index')
 
 @section('content')
-    {{--@include('admin.projects.partials.filter-results')--}}
+
+    <div id="comment-underlay"></div>
+
     @include('admin.projects.partials.project-list')
 @stop

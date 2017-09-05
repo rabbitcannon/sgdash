@@ -5,8 +5,9 @@
   $user = \App\User::find(Auth::user()->id);
 ?>
 
+{{-- START Header Content --}}
 <section>
-    <div class="row expanded">
+    <div class="row expanded collapse">
         <div class="large-12 columns user-login-bar">
             <div class="row expanded">
 
@@ -27,9 +28,10 @@
 
     </div>
 </section>
+{{-- END Header Content --}}
 
 
-{{-- START Normal Content --}}
+{{-- START Body Content --}}
 <?php $executive = \App\Role::where('name', 'Executive')->first(); ?>
 @if($user->role->role_id === $executive->id)
     <section>
@@ -52,7 +54,7 @@
 @else
     <section>
         <div class="row expanded">
-            <div class="large-2 columns">
+            <div class="large-2 columns menu-background">
                 @include('layouts.partials.ui.side-menu', ['position' => $path])
             </div>
             <div class="large-10 columns">
@@ -72,7 +74,15 @@
         </div>
     </section>
 @endif
-{{-- END Normal Content --}}
+{{-- END Body Content --}}
 
-@include('layouts.partials.ui.footer')
-
+{{-- START Footer Content --}}
+<section>
+    <div class="row expanded">
+        <div class="large-2 columns menu-background"></div>
+        <div class="large-10 columns">
+            @include('layouts.partials.ui.footer')
+        </div>
+    </div>
+</section>
+{{-- END Footer Content --}}

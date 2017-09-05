@@ -15,5 +15,6 @@
 
         @include('layouts.partials.react-script', ['script' => 'admin/projects'])
 
+
     </div>
 </div>

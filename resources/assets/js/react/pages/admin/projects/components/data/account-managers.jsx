@@ -23,7 +23,7 @@ class AccountManagers extends React.Component {
 					count: response.data.length,
 					acctManagers: response.data
 				});
-				console.log("Acct");
+
 			}.bind(this)).catch(function (error) {
 				console.log(error);
 			});

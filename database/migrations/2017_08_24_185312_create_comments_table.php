@@ -19,11 +19,12 @@ class CreateCommentsTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->text('comment');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

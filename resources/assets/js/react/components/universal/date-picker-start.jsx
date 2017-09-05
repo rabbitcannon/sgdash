@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import ReactDatePicker from 'react-datepicker';
 import Moment from 'moment';
 
-export default class DatePicker extends React.Component {
+export default class DatePickerStart extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            date: Moment()
+            date: ''
+            // date: Moment()
         }
 
 		this.handleChange = this.handleChange.bind(this);
@@ -23,7 +24,8 @@ export default class DatePicker extends React.Component {
     render() {
         return (
             <ReactDatePicker
-				id="creation-date"
+				id="creation-date-start"
+				name="creation-date-start"
                 selected={this.state.date}
                 onChange={this.handleChange}
             />
@@ -31,4 +33,4 @@ export default class DatePicker extends React.Component {
     }
 }
 
-ReactDOM.render(<DatePicker />, document.getElementById("date-picker"));
+ReactDOM.render(<DatePickerStart />, document.getElementById("date-picker-start"));
