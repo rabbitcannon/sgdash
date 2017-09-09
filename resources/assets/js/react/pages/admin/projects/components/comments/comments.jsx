@@ -4,28 +4,27 @@ import _ from 'underscore';
 
 import CommentItem from './comment-item.jsx';
 
-const add_comment = '/api/v1/comment/add';
-const $loader = $('.comment-loader');
+const add_comment = '/admin/comment/add';
+const user_id = $('input[name=user_id]').val();
+// const add_comment = '/api/v1/comment/add';
 
 class Comments extends React.Component {
     constructor(props) {
     	super(props);
 
     	this.state = {
+    		user_id: user_id,
     		comments: [],
 			count: '',
 			project_id: this.props.project_id,
-			comment_project_id: '',
-			comment_user_id: '',
-			comment_submit: '',
+			comment_text: '',
+			comment_container: ''
 		}
 
 		this.commentLoader = this.commentLoader.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
-    	$loader.hide();
 		$(document).ready(function() {
 			$('.comment-link').on('click', function (event) {
 				event.preventDefault();
@@ -48,6 +47,7 @@ class Comments extends React.Component {
 	commentLoader(id) {
 		let url = `/api/v1/project/${id}/comments`;
 		var $underlay = $('div#comment-underlay');
+		const $loader = $('div.comment-loader');
 
 		this.closeCommentPanel();
 		this.openCommentPanel(id);
@@ -58,12 +58,12 @@ class Comments extends React.Component {
 		Axios.get(url).then(function(response) {
 			this.setState({
 				comments: response.data
-			}, function() {
-				$loader.hide();
 			});
+			$loader.hide();
 		}.bind(this)).catch(function(error) {
 			console.log(error);
 		});
+
 	}
 
 	closeCommentPanel() {
@@ -80,45 +80,45 @@ class Comments extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		// console.log($(this));
+		let btn_selector = event.target.id;
+		let id = btn_selector.replace('add-comment-btn-', '');
+		let project_id = id;
+		let comment = $('textarea#comment-text-' + id).val();
+		let url = '/api/v1/project/' + id + '/comments';
+
+		Axios.post(add_comment, {
+			user_id: user_id,
+			project_id: project_id,
+			comment: comment
+		}).then((response) => {
+			$('textarea#comment-text-' + id).val("");
+			$('div#inner-comments-id-' + id).fadeOut(250);
+
+			Axios.get(url).then((response) => {
+				this.setState({
+					comments: response.data
+				});
+				$('div#inner-comments-id-' + id).fadeIn(250);
+			}).catch((error) => {
+				console.log(error.response.data);
+			});
+		}).catch((error) => {
+			console.log(error.response.data);
+		});
+
 	}
 
 	handleChange(event) {
-    	var self = this;
-		self.setState({comment_submit: event.target.value});
-		console.log(this.state.comment_submit);
+		this.setState({
+			comment_text: event.target.value
+		});
 	}
-
-	// addComment(event) {
-	// 	event.preventDefault();
-	// 	var form = $(this).closest("form").attr("id");
-	// 	console.log(form);
-	//
-	//
-	// 	// console.log($(selected_div).parents("form").attr('data-form-id'));
-	//
-	//
-	// 	// console.log("User: " + $('[name="user_id"]').val());
-	// 	// console.log("Project: " + $('[name="project_id"]').val());
-	// 	// console.log("Comment: " + $('[name="comment"]').val());
-	//
-	// 	// Axios.post(add_comment, {
-	// 	// 	user_id: $('[name="user_id"]').val(),
-	// 	// 	project_id: $('[name="project_id"]').val(),
-	// 	// 	comment: $('[name="comment"]').val()
-	// 	// }).then(function () {
-	// 	// 	// self.setState({
-	// 	//
-	// 	// }).catch(function (error) {
-	// 	// 	console.log(error);
-	// 	// });
-	// }
 
     render() {
 		var commentItems = _.map(this.state.comments, (comment, index) => {
-			return <CommentItem ref="comments" key={index} id={comment.id} text={comment.comment}
-								first_name={comment.user.first_name} last_name={comment.user.last_name}
-								date={comment.created_at} />
+			return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id} poster_id={comment.user.id}
+								text={comment.comment} first_name={comment.user.first_name} last_name={comment.user.last_name}
+								date={comment.created_at} project_id={comment.project_id} />
 		});
 
     	return (
@@ -142,14 +142,15 @@ class Comments extends React.Component {
 									<i className="fa fa-comments"></i> Comments
 								</div>
 
-								<div className="data-content comments-inner">
+								<div id={"inner-comments-id-" + this.props.project_id} className="data-content comments-inner">
 									{commentItems}
 
-									<form method="post" data-form-id={this.props.project_id} onSubmit={this.handleSubmit}>
+									<form method="post" id={"form-id-" + this.props.project_id} data-form-id={this.props.project_id}>
 										<div className="row">
 											<div className="large-12 columns text-left">
 												<label>Comment
-													<textarea rows="5" name="comment" placeholder="Post a comment..." onChange={this.handleChange.bind(this)} />
+													<textarea id={"comment-text-" + this.props.project_id} rows="5" defaultValue={this.state.comment_text} name="comment"
+															  placeholder="Post a comment..." onChange={this.handleChange.bind(this)} />
 													<input type="hidden" name="project_id" value={this.props.project_id} />
 												</label>
 											</div>
@@ -161,8 +162,8 @@ class Comments extends React.Component {
 													<i className="fa fa-ban" aria-hidden="true"></i> Reset
 												</button>
 
-												<button id={"add-comment-btn-" + this.props.project_id} className="button">
-													<i className="fa fa-comment" aria-hidden="true"></i> Add Comment
+												<button id={"add-comment-btn-" + this.props.project_id} className="button" onClick={this.handleSubmit.bind(this)} >
+													<i className="fa fa-comment"></i> Add Comment
 												</button>
 											</div>
 										</div>

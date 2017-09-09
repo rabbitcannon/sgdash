@@ -1,4 +1,3 @@
-
 //-- Fonts --//
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,600);
@@ -9,9 +8,11 @@
 
 //-- Foundation --//
 @import "node_modules/foundation-sites/scss/foundation";
-//@import "node_modules/foundation-sites/scss/settings/settings";
 @import "resources/assets/sass/settings";
 @include foundation-everything(true);
+
+//-- Toastr --//
+@import "modules/toastr";
 
 //-- Additional Styles --//
 @import "extended";

@@ -49,22 +49,3 @@ mix.react('resources/assets/js/react/pages/admin/users/index.jsx', 'public/asset
 
 //-- Public Facing --//
 mix.react('resources/assets/js/react/pages/public/projects/index.jsx', 'public/assets/js/react/pages/public/projects.js');
-
-//-- Webpack Custom Config --//
-
-mix.webpackConfig({
-	module: {
-		loaders: [
-			{
-				test: /(\.jsx|\.js)$/,
-				exclude: /node_modules/,
-				loader: [
-					"babel"
-				],
-				query: {
-					presets:["es2015", "react", "stage-0"]
-				}
-			},
-		]
-	},
-});

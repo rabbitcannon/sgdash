@@ -33,9 +33,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::get('/project/{id}/comments', function($id) {
        return App\Comment::with('user')->where('project_id', $id)->get();
     });
-    Route::post ('/comment/add', 'CommentController@create');
-
-
 
     //-- Users --//
     Route::get('/users', function() {

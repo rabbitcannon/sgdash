@@ -4,9 +4,21 @@ import Moment from 'moment';
 class CommentItem extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+        	// edit: false,
+        	edit: 'false',
+		}
     }
 
-    dateFormatter(date, format) {
+    handleEdit = () => {
+    	this.setState({
+			// edit: true,
+			edit: 'true',
+		}, console.log(this.state.edit));
+	}
+
+    dateFormatter = (date, format) => {
         if(format === 'compact') {
 			return Moment(date).fromNow();
 		}
@@ -15,8 +27,20 @@ class CommentItem extends React.Component {
 		}
     }
 
-    render() {
+	defineEditState = () => {
+		if(this.props.user_id == this.props.poster_id) {
+			return (
+				<button id={"edit-comment-" + this.props.project_id} className="button" onClick={this.handleEdit.bind(this)}>
+					<i className="fa fa-pencil"></i> Edit
+				</button>
+			);
+		}
+		else {
+			return false;
+		}
+	}
 
+    render() {
         return (
             <div>
                 <div className="row">
@@ -36,8 +60,12 @@ class CommentItem extends React.Component {
                         <p>
                             {this.props.text}
                         </p>
-                    </div>
 
+						<div>
+							Edit State: {this.state.edit}<br />
+							{this.defineEditState()}
+						</div>
+					</div>
                 </div>
 
                 <div>

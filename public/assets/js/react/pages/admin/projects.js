@@ -41263,61 +41263,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 /* 383 */,
 /* 384 */,
 /* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -51577,32 +51523,91 @@ return jQuery;
 
 
 /***/ }),
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
 /* 441 */,
 /* 442 */,
 /* 443 */,
 /* 444 */,
 /* 445 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_results_jsx__ = __webpack_require__(463);
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(230);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _results = __webpack_require__(463);
+
+var _results2 = _interopRequireDefault(_results);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var Projects = function (_React$Component) {
     _inherits(Projects, _React$Component);
@@ -51616,18 +51621,18 @@ var Projects = function (_React$Component) {
     _createClass(Projects, [{
         key: "render",
         value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            return _react2.default.createElement(
                 "div",
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_results_jsx__["a" /* default */], null)
+                _react2.default.createElement(_results2.default, null)
             );
         }
     }]);
 
     return Projects;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Projects, null), document.getElementById("project-list"));
+_reactDom2.default.render(_react2.default.createElement(Projects, null), document.getElementById("project-list"));
 
 /***/ }),
 /* 446 */,
@@ -51641,23 +51646,32 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 /* 454 */,
 /* 455 */,
 /* 456 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 
 var CommentItem = function (_React$Component) {
     _inherits(CommentItem, _React$Component);
@@ -51665,93 +51679,142 @@ var CommentItem = function (_React$Component) {
     function CommentItem(props) {
         _classCallCheck(this, CommentItem);
 
-        return _possibleConstructorReturn(this, (CommentItem.__proto__ || Object.getPrototypeOf(CommentItem)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (CommentItem.__proto__ || Object.getPrototypeOf(CommentItem)).call(this, props));
+
+        _this.handleEdit = function () {
+            _this.setState({
+                // edit: true,
+                edit: 'true'
+            }, console.log(_this.state.edit));
+        };
+
+        _this.dateFormatter = function (date, format) {
+            if (format === 'compact') {
+                return (0, _moment2.default)(date).fromNow();
+            }
+            if (format === 'full') {
+                return (0, _moment2.default)(date).format('MMMM Do YYYY, h:mm:ss a');
+            }
+        };
+
+        _this.defineEditState = function () {
+            if (_this.props.user_id == _this.props.poster_id) {
+                return _react2.default.createElement(
+                    'button',
+                    { id: "edit-comment-" + _this.props.project_id, className: 'button', onClick: _this.handleEdit.bind(_this) },
+                    _react2.default.createElement('i', { className: 'fa fa-pencil' }),
+                    ' Edit'
+                );
+            } else {
+                return false;
+            }
+        };
+
+        _this.state = {
+            // edit: false,
+            edit: 'false'
+        };
+        return _this;
     }
 
     _createClass(CommentItem, [{
-        key: 'dateFormatter',
-        value: function dateFormatter(date, format) {
-            if (format === 'compact') {
-                return __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).fromNow();
-            }
-            if (format === 'full') {
-                return __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format('MMMM Do YYYY, h:mm:ss a');
-            }
-        }
-    }, {
         key: 'render',
         value: function render() {
-
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            return _react2.default.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                     'div',
                     { className: 'row' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    _react2.default.createElement(
                         'div',
                         { className: 'large-3 columns' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        _react2.default.createElement(
                             'div',
                             { className: 'comment-avatar' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user-circle fa-3x' })
+                            _react2.default.createElement('i', { className: 'fa fa-user-circle fa-3x' })
                         ),
                         this.props.first_name,
                         ' ',
                         this.props.last_name
                     ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    _react2.default.createElement(
                         'div',
                         { className: 'large-9 columns text-left' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        _react2.default.createElement(
                             'div',
                             null,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            _react2.default.createElement(
                                 'span',
                                 { className: 'comment-date' },
                                 this.dateFormatter(this.props.date, 'full'),
                                 ' - ',
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                _react2.default.createElement(
                                     'i',
                                     null,
                                     this.dateFormatter(this.props.date, 'compact')
                                 )
                             )
                         ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        _react2.default.createElement(
                             'p',
                             null,
                             this.props.text
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'Edit State: ',
+                            this.state.edit,
+                            _react2.default.createElement('br', null),
+                            this.defineEditState()
                         )
                     )
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                _react2.default.createElement(
                     'div',
                     null,
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
+                    _react2.default.createElement('hr', null)
                 )
             );
         }
     }]);
 
     return CommentItem;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (CommentItem);
+exports.default = CommentItem;
 
 /***/ }),
 /* 457 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__comment_item_jsx__ = __webpack_require__(456);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _commentItem = __webpack_require__(456);
+
+var _commentItem2 = _interopRequireDefault(_commentItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -51759,14 +51822,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-
-
-
-
-
-
-var add_comment = '/api/v1/comment/add';
-var $loader = $('.comment-loader');
+var add_comment = '/admin/comment/add';
+var user_id = $('input[name=user_id]').val();
+// const add_comment = '/api/v1/comment/add';
 
 var Comments = function (_React$Component) {
 	_inherits(Comments, _React$Component);
@@ -51777,23 +51835,21 @@ var Comments = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).call(this, props));
 
 		_this.state = {
+			user_id: user_id,
 			comments: [],
 			count: '',
 			project_id: _this.props.project_id,
-			comment_project_id: '',
-			comment_user_id: '',
-			comment_submit: ''
+			comment_text: '',
+			comment_container: ''
 		};
 
 		_this.commentLoader = _this.commentLoader.bind(_this);
-		_this.handleSubmit = _this.handleSubmit.bind(_this);
 		return _this;
 	}
 
 	_createClass(Comments, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			$loader.hide();
 			$(document).ready(function () {
 				$('.comment-link').on('click', function (event) {
 					event.preventDefault();
@@ -51817,6 +51873,7 @@ var Comments = function (_React$Component) {
 		value: function commentLoader(id) {
 			var url = '/api/v1/project/' + id + '/comments';
 			var $underlay = $('div#comment-underlay');
+			var $loader = $('div.comment-loader');
 
 			this.closeCommentPanel();
 			this.openCommentPanel(id);
@@ -51824,12 +51881,11 @@ var Comments = function (_React$Component) {
 			$underlay.fadeToggle(250);
 
 			$loader.show();
-			__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(url).then(function (response) {
+			_axios2.default.get(url).then(function (response) {
 				this.setState({
 					comments: response.data
-				}, function () {
-					$loader.hide();
 				});
+				$loader.hide();
 			}.bind(this)).catch(function (error) {
 				console.log(error);
 			});
@@ -51851,131 +51907,134 @@ var Comments = function (_React$Component) {
 	}, {
 		key: 'handleSubmit',
 		value: function handleSubmit(event) {
+			var _this2 = this;
+
 			event.preventDefault();
-			// console.log($(this));
+			var btn_selector = event.target.id;
+			var id = btn_selector.replace('add-comment-btn-', '');
+			var project_id = id;
+			var comment = $('textarea#comment-text-' + id).val();
+			var url = '/api/v1/project/' + id + '/comments';
+
+			_axios2.default.post(add_comment, {
+				user_id: user_id,
+				project_id: project_id,
+				comment: comment
+			}).then(function (response) {
+				$('textarea#comment-text-' + id).val("");
+				$('div#inner-comments-id-' + id).fadeOut(250);
+
+				_axios2.default.get(url).then(function (response) {
+					_this2.setState({
+						comments: response.data
+					});
+					$('div#inner-comments-id-' + id).fadeIn(250);
+				}).catch(function (error) {
+					console.log(error.response.data);
+				});
+			}).catch(function (error) {
+				console.log(error.response.data);
+			});
 		}
 	}, {
 		key: 'handleChange',
 		value: function handleChange(event) {
-			var self = this;
-			self.setState({ comment_submit: event.target.value });
-			console.log(this.state.comment_submit);
+			this.setState({
+				comment_text: event.target.value
+			});
 		}
-
-		// addComment(event) {
-		// 	event.preventDefault();
-		// 	var form = $(this).closest("form").attr("id");
-		// 	console.log(form);
-		//
-		//
-		// 	// console.log($(selected_div).parents("form").attr('data-form-id'));
-		//
-		//
-		// 	// console.log("User: " + $('[name="user_id"]').val());
-		// 	// console.log("Project: " + $('[name="project_id"]').val());
-		// 	// console.log("Comment: " + $('[name="comment"]').val());
-		//
-		// 	// Axios.post(add_comment, {
-		// 	// 	user_id: $('[name="user_id"]').val(),
-		// 	// 	project_id: $('[name="project_id"]').val(),
-		// 	// 	comment: $('[name="comment"]').val()
-		// 	// }).then(function () {
-		// 	// 	// self.setState({
-		// 	//
-		// 	// }).catch(function (error) {
-		// 	// 	console.log(error);
-		// 	// });
-		// }
-
 	}, {
 		key: 'render',
 		value: function render() {
-			var commentItems = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(this.state.comments, function (comment, index) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__comment_item_jsx__["a" /* default */], { ref: 'comments', key: index, id: comment.id, text: comment.comment,
-					first_name: comment.user.first_name, last_name: comment.user.last_name,
-					date: comment.created_at });
+			var _this3 = this;
+
+			var commentItems = _underscore2.default.map(this.state.comments, function (comment, index) {
+				return _react2.default.createElement(_commentItem2.default, { ref: 'comments', key: index, id: comment.id, user_id: _this3.state.user_id, poster_id: comment.user.id,
+					text: comment.comment, first_name: comment.user.first_name, last_name: comment.user.last_name,
+					date: comment.created_at, project_id: comment.project_id });
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				{ className: 'comment-container' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'a',
 					{ className: 'comment-link', onClick: this.commentLoader.bind(this, this.props.project_id) },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'small',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-comments' }),
+						_react2.default.createElement('i', { className: 'fa fa-comments' }),
 						' comments: ',
 						this.props.count
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'div',
 					{ id: this.props.project_id, className: 'comment-slider', 'data-id': this.props.project_id, 'data-state': 'closed' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'comment-loader' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/images/preloaders/loader.svg' })
+						_react2.default.createElement('img', { src: '/images/preloaders/loader.svg' })
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'comment-close' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-times fa-2x' })
+						_react2.default.createElement('i', { className: 'fa fa-times fa-2x' })
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'row collapse' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-12 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'data-card-small' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'data-header text-left' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-comments' }),
+									_react2.default.createElement('i', { className: 'fa fa-comments' }),
 									' Comments'
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
-									{ className: 'data-content comments-inner' },
+									{ id: "inner-comments-id-" + this.props.project_id, className: 'data-content comments-inner' },
 									commentItems,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'form',
-										{ method: 'post', 'data-form-id': this.props.project_id, onSubmit: this.handleSubmit },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										{ method: 'post', id: "form-id-" + this.props.project_id, 'data-form-id': this.props.project_id },
+										_react2.default.createElement(
 											'div',
 											{ className: 'row' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'div',
 												{ className: 'large-12 columns text-left' },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'label',
 													null,
 													'Comment',
-													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { rows: '5', name: 'comment', placeholder: 'Post a comment...', onChange: this.handleChange.bind(this) }),
-													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', name: 'project_id', value: this.props.project_id })
+													_react2.default.createElement('textarea', { id: "comment-text-" + this.props.project_id, rows: '5', defaultValue: this.state.comment_text, name: 'comment',
+														placeholder: 'Post a comment...', onChange: this.handleChange.bind(this) }),
+													_react2.default.createElement('input', { type: 'hidden', name: 'project_id', value: this.props.project_id })
 												)
 											)
 										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'div',
 											{ className: 'row' },
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'div',
 												{ className: 'large-12 columns' },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'button',
 													{ id: 'cancel-btn', type: 'reset', className: 'button cancel-button' },
-													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
+													_react2.default.createElement('i', { className: 'fa fa-ban', 'aria-hidden': 'true' }),
 													' Reset'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'button',
-													{ id: "add-comment-btn-" + this.props.project_id, className: 'button' },
-													__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-comment', 'aria-hidden': 'true' }),
+													{ id: "add-comment-btn-" + this.props.project_id, className: 'button', onClick: this.handleSubmit.bind(this) },
+													_react2.default.createElement('i', { className: 'fa fa-comment' }),
 													' Add Comment'
 												)
 											)
@@ -51991,32 +52050,42 @@ var Comments = function (_React$Component) {
 	}]);
 
 	return Comments;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Comments);
+exports.default = Comments;
 
 /***/ }),
 /* 458 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var AccountManagers = function (_React$Component) {
 	_inherits(AccountManagers, _React$Component);
@@ -52042,7 +52111,7 @@ var AccountManagers = function (_React$Component) {
 		value: function getProjectStatus() {
 			if (this.state.acctManagers !== null) {
 				var self = this;
-				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/v1/controls/manager/account').then(function (response) {
+				_axios2.default.get('/api/v1/controls/manager/account').then(function (response) {
 					self.setState({
 						count: response.data.length,
 						acctManagers: response.data
@@ -52055,8 +52124,8 @@ var AccountManagers = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var managers = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(this.state.acctManagers, function (user) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			var managers = _underscore2.default.map(this.state.acctManagers, function (user) {
+				return _react2.default.createElement(
 					'option',
 					{ key: user.id, value: user.id },
 					user.first_name,
@@ -52065,10 +52134,10 @@ var AccountManagers = function (_React$Component) {
 				);
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'select',
 					{ name: 'acct_manager', defaultValue: this.props.current },
 					managers
@@ -52078,32 +52147,42 @@ var AccountManagers = function (_React$Component) {
 	}]);
 
 	return AccountManagers;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (AccountManagers);
+exports.default = AccountManagers;
 
 /***/ }),
 /* 459 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var DevelopmentManagers = function (_React$Component) {
 	_inherits(DevelopmentManagers, _React$Component);
@@ -52129,7 +52208,7 @@ var DevelopmentManagers = function (_React$Component) {
 		value: function getProjectStatus() {
 			if (this.state.devManagers !== null) {
 				var self = this;
-				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/v1/controls/manager/development').then(function (response) {
+				_axios2.default.get('/api/v1/controls/manager/development').then(function (response) {
 					self.setState({
 						count: response.data.length,
 						devManagers: response.data
@@ -52142,8 +52221,8 @@ var DevelopmentManagers = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var managers = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(this.state.devManagers, function (user) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			var managers = _underscore2.default.map(this.state.devManagers, function (user) {
+				return _react2.default.createElement(
 					'option',
 					{ key: user.id, value: user.id },
 					user.first_name,
@@ -52152,10 +52231,10 @@ var DevelopmentManagers = function (_React$Component) {
 				);
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'select',
 					{ name: 'dev_manager', defaultValue: this.props.current },
 					managers
@@ -52165,32 +52244,42 @@ var DevelopmentManagers = function (_React$Component) {
 	}]);
 
 	return DevelopmentManagers;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (DevelopmentManagers);
+exports.default = DevelopmentManagers;
 
 /***/ }),
 /* 460 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var ProjectManagers = function (_React$Component) {
 	_inherits(ProjectManagers, _React$Component);
@@ -52216,7 +52305,7 @@ var ProjectManagers = function (_React$Component) {
 		value: function getProjectStatus() {
 			if (this.state.projectManagers !== null) {
 				var self = this;
-				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/v1/controls/manager/project').then(function (response) {
+				_axios2.default.get('/api/v1/controls/manager/project').then(function (response) {
 					self.setState({
 						count: response.data.length,
 						projectManagers: response.data
@@ -52229,8 +52318,8 @@ var ProjectManagers = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var managers = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(this.state.projectManagers, function (user) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			var managers = _underscore2.default.map(this.state.projectManagers, function (user) {
+				return _react2.default.createElement(
 					'option',
 					{ key: user.id, value: user.id },
 					user.first_name,
@@ -52239,10 +52328,10 @@ var ProjectManagers = function (_React$Component) {
 				);
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'select',
 					{ name: 'project_manager', defaultValue: this.props.current },
 					managers
@@ -52252,32 +52341,42 @@ var ProjectManagers = function (_React$Component) {
 	}]);
 
 	return ProjectManagers;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ProjectManagers);
+exports.default = ProjectManagers;
 
 /***/ }),
 /* 461 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var ProjectStatusControl = function (_React$Component) {
 	_inherits(ProjectStatusControl, _React$Component);
@@ -52303,7 +52402,7 @@ var ProjectStatusControl = function (_React$Component) {
 		value: function getProjectStatus() {
 			if (this.state.projectStatus !== null) {
 				var self = this;
-				__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/v1/controls/project-status').then(function (response) {
+				_axios2.default.get('/api/v1/controls/project-status').then(function (response) {
 					self.setState({
 						count: response.data.length,
 						projectStatus: response.data
@@ -52316,18 +52415,18 @@ var ProjectStatusControl = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var statuses = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(this.state.projectStatus, function (status) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			var statuses = _underscore2.default.map(this.state.projectStatus, function (status) {
+				return _react2.default.createElement(
 					'option',
 					{ key: status.id, value: status.id },
 					status.name
 				);
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'select',
 					{ name: 'status', defaultValue: this.props.current },
 					statuses
@@ -52337,29 +52436,60 @@ var ProjectStatusControl = function (_React$Component) {
 	}]);
 
 	return ProjectStatusControl;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ProjectStatusControl);
+exports.default = ProjectStatusControl;
 
 /***/ }),
 /* 462 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_project_status_control_jsx__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__data_project_managers_jsx__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__data_development_managers_jsx__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data_account_managers_jsx__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__comments_comments_jsx__ = __webpack_require__(457);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _jquery = __webpack_require__(386);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _projectStatusControl = __webpack_require__(461);
+
+var _projectStatusControl2 = _interopRequireDefault(_projectStatusControl);
+
+var _projectManagers = __webpack_require__(460);
+
+var _projectManagers2 = _interopRequireDefault(_projectManagers);
+
+var _developmentManagers = __webpack_require__(459);
+
+var _developmentManagers2 = _interopRequireDefault(_developmentManagers);
+
+var _accountManagers = __webpack_require__(458);
+
+var _accountManagers2 = _interopRequireDefault(_accountManagers);
+
+var _comments = __webpack_require__(457);
+
+var _comments2 = _interopRequireDefault(_comments);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -52367,18 +52497,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-
-
-
-
-
 var save_url = window.location.origin + '/api/v1/project/update/';
-
-
-
-
-
-
 
 var ResultItem = function (_React$Component) {
 	_inherits(ResultItem, _React$Component);
@@ -52405,9 +52524,9 @@ var ResultItem = function (_React$Component) {
 	_createClass(ResultItem, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			__WEBPACK_IMPORTED_MODULE_3_jquery___default.a.ajaxSetup({
+			_jquery2.default.ajaxSetup({
 				headers: {
-					'X-CSRF-TOKEN': __WEBPACK_IMPORTED_MODULE_3_jquery___default()('meta[name="csrf-token"]').attr('content')
+					'X-CSRF-TOKEN': (0, _jquery2.default)('meta[name="csrf-token"]').attr('content')
 				}
 			});
 		}
@@ -52430,24 +52549,24 @@ var ResultItem = function (_React$Component) {
 		value: function save(project_id) {
 			var self = this;
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.put(save_url + project_id, {
-				code: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="project_code"]').val(),
-				name: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="project_name"]').val(),
-				status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="status"]').val(),
-				acct_manager: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="acct_manager"]').val(),
-				dev_manager: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="dev_manager"]').val(),
-				project_manager: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="project_manager"]').val(),
-				trend: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="trend"]').val(),
-				req_eta: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="req_eta"]').val(),
-				req_status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="req_status"]').val(),
-				dev_eta: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="dev_eta"]').val(),
-				dev_status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="dev_status"]').val(),
-				qa_eta: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="qa_eta"]').val(),
-				qa_status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="qa_status"]').val(),
-				uat_eta: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="uat_eta"]').val(),
-				uat_status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="uat_status"]').val(),
-				prod_eta: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="prod_eta"]').val(),
-				prod_status: __WEBPACK_IMPORTED_MODULE_3_jquery___default()('[name="prod_status"]').val()
+			_axios2.default.put(save_url + project_id, {
+				code: (0, _jquery2.default)('[name="project_code"]').val(),
+				name: (0, _jquery2.default)('[name="project_name"]').val(),
+				status: (0, _jquery2.default)('[name="status"]').val(),
+				acct_manager: (0, _jquery2.default)('[name="acct_manager"]').val(),
+				dev_manager: (0, _jquery2.default)('[name="dev_manager"]').val(),
+				project_manager: (0, _jquery2.default)('[name="project_manager"]').val(),
+				trend: (0, _jquery2.default)('[name="trend"]').val(),
+				req_eta: (0, _jquery2.default)('[name="req_eta"]').val(),
+				req_status: (0, _jquery2.default)('[name="req_status"]').val(),
+				dev_eta: (0, _jquery2.default)('[name="dev_eta"]').val(),
+				dev_status: (0, _jquery2.default)('[name="dev_status"]').val(),
+				qa_eta: (0, _jquery2.default)('[name="qa_eta"]').val(),
+				qa_status: (0, _jquery2.default)('[name="qa_status"]').val(),
+				uat_eta: (0, _jquery2.default)('[name="uat_eta"]').val(),
+				uat_status: (0, _jquery2.default)('[name="uat_status"]').val(),
+				prod_eta: (0, _jquery2.default)('[name="prod_eta"]').val(),
+				prod_status: (0, _jquery2.default)('[name="prod_status"]').val()
 			}).then(function () {
 				self.setState({
 					editing: false
@@ -52481,14 +52600,14 @@ var ResultItem = function (_React$Component) {
 		value: function dateFormatter(date, full) {
 			if (full) {
 				if (date) {
-					var newDate = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format('MM/DD/YY');
+					var newDate = (0, _moment2.default)(date).format('MM/DD/YY');
 				} else {
 					var newDate = "N/A";
 				}
 				return newDate;
 			} else {
 				if (date) {
-					var newDate = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format('MM/DD');
+					var newDate = (0, _moment2.default)(date).format('MM/DD');
 				} else {
 					var newDate = "N/A";
 				}
@@ -52575,89 +52694,89 @@ var ResultItem = function (_React$Component) {
 	}, {
 		key: 'renderStaticDisplay',
 		value: function renderStaticDisplay() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'tr',
 				{ id: 'row-static' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					this.props.code
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
 						this.props.name
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__comments_comments_jsx__["a" /* default */], { key: this.props.id, project_id: this.props.id, count: this.props.comments })
+						_react2.default.createElement(_comments2.default, { key: this.props.id, project_id: this.props.id, count: this.props.comments })
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classSetter(this.state.req_status) },
 						this.dateFormatter(this.props.req_eta)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classSetter(this.state.dev_status) },
 						this.dateFormatter(this.props.dev_eta)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classSetter(this.state.qa_status) },
 						this.dateFormatter(this.props.qa_eta)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classSetter(this.state.uat_status) },
 						this.dateFormatter(this.props.uat_eta)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classSetter(this.state.prod_status) },
 						this.dateFormatter(this.props.prod_eta)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ width: '15' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'span',
 						{ className: this.classTrendSetter(this.state.trend) },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: "fa fa-2x fa-arrow-circle-" + this.props.trend })
+						_react2.default.createElement('i', { className: "fa fa-2x fa-arrow-circle-" + this.props.trend })
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ width: '50', className: 'text-center' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'button',
 						{ id: 'initiate-edit', onClick: this.edit.bind(this) },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-pencil-square-o fa-2x' })
+						_react2.default.createElement('i', { className: 'fa fa-pencil-square-o fa-2x' })
 					)
 				)
 			);
@@ -52692,80 +52811,80 @@ var ResultItem = function (_React$Component) {
 				}
 			};
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'tr',
 				{ id: 'row-edit', className: 'row-edit', style: styles.editRow },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ colSpan: 10 },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'text-left' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'h3',
 							null,
 							'Details'
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'row expanded' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-3 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'row' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'large-12 columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'label',
 										null,
 										'Project Code',
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_code', defaultValue: this.props.code })
+										_react2.default.createElement('input', { type: 'text', name: 'project_code', defaultValue: this.props.code })
 									)
 								)
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'row' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'large-12 columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'label',
 										null,
 										'Project Name',
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_name', defaultValue: this.props.name })
+										_react2.default.createElement('input', { type: 'text', name: 'project_name', defaultValue: this.props.name })
 									)
 								)
 							)
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-3 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'label',
 									null,
 									'Current Project Trend',
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'select',
 										{ name: 'trend', defaultValue: this.props.trend, onChange: this.handleSelectChange.bind(this, 'trend') },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'option',
 											{ style: styles.onTrack, value: 'up' },
 											'Up'
 										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'option',
 											{ style: styles.caution, value: 'right' },
 											'No Movement'
 										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'option',
 											{ style: styles.risk, value: 'down' },
 											'Down'
@@ -52774,91 +52893,91 @@ var ResultItem = function (_React$Component) {
 								)
 							)
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-3 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Project Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__data_project_status_control_jsx__["a" /* default */], { current: this.props.status })
+								_react2.default.createElement(_projectStatusControl2.default, { current: this.props.status })
 							)
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-3 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Project Manager',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__data_project_managers_jsx__["a" /* default */], { current: this.props.project_manager })
+								_react2.default.createElement(_projectManagers2.default, { current: this.props.project_manager })
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Development Manager',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__data_development_managers_jsx__["a" /* default */], { current: this.props.dev_manager })
+								_react2.default.createElement(_developmentManagers2.default, { current: this.props.dev_manager })
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Account Manager',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__data_account_managers_jsx__["a" /* default */], { current: this.props.acct_manager })
+								_react2.default.createElement(_accountManagers2.default, { current: this.props.acct_manager })
 							)
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'text-left' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'h3',
 							null,
 							'Environments'
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'row expanded' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-12 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'row expanded' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'REQ',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'req_eta', defaultValue: this.dateFormatter(this.props.req_eta, full) })
+											_react2.default.createElement('input', { type: 'text', name: 'req_eta', defaultValue: this.dateFormatter(this.props.req_eta, full) })
 										)
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'Status',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'select',
 												{ name: 'req_status', defaultValue: this.props.req_status, onChange: this.handleSelectChange.bind(this, 'req_status') },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.onTrack, value: '1' },
 													'On-Track'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.caution, value: '2' },
 													'Caution'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.risk, value: '3' },
 													'At-Risk'
@@ -52867,40 +52986,40 @@ var ResultItem = function (_React$Component) {
 										)
 									)
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'DEV',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'dev_eta', defaultValue: this.dateFormatter(this.props.dev_eta, full) })
+											_react2.default.createElement('input', { type: 'text', name: 'dev_eta', defaultValue: this.dateFormatter(this.props.dev_eta, full) })
 										)
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'Status',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'select',
 												{ name: 'dev_status', defaultValue: this.props.dev_status, onChange: this.handleSelectChange.bind(this, 'dev_status') },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.onTrack, value: '1' },
 													'On-Track'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.caution, value: '2' },
 													'Caution'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.risk, value: '3' },
 													'At-Risk'
@@ -52909,40 +53028,40 @@ var ResultItem = function (_React$Component) {
 										)
 									)
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'QA',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'qa_eta', defaultValue: this.dateFormatter(this.props.qa_eta, full) })
+											_react2.default.createElement('input', { type: 'text', name: 'qa_eta', defaultValue: this.dateFormatter(this.props.qa_eta, full) })
 										)
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'Status',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'select',
 												{ name: 'qa_status', defaultValue: this.props.qa_status, onChange: this.handleSelectChange.bind(this, 'qa_status') },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.onTrack, value: '1' },
 													'On-Track'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.caution, value: '2' },
 													'Caution'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.risk, value: '3' },
 													'At-Risk'
@@ -52951,40 +53070,40 @@ var ResultItem = function (_React$Component) {
 										)
 									)
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'UAT',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'uat_eta', defaultValue: this.dateFormatter(this.props.uat_eta, full) })
+											_react2.default.createElement('input', { type: 'text', name: 'uat_eta', defaultValue: this.dateFormatter(this.props.uat_eta, full) })
 										)
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'Status',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'select',
 												{ name: 'uat_status', defaultValue: this.props.uat_status, onChange: this.handleSelectChange.bind(this, 'uat_status') },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.onTrack, value: '1' },
 													'On-Track'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.caution, value: '2' },
 													'Caution'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.risk, value: '3' },
 													'At-Risk'
@@ -52993,40 +53112,40 @@ var ResultItem = function (_React$Component) {
 										)
 									)
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'div',
 									{ className: 'columns' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'PROD',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'prod_eta', defaultValue: this.dateFormatter(this.props.prod_eta, full) })
+											_react2.default.createElement('input', { type: 'text', name: 'prod_eta', defaultValue: this.dateFormatter(this.props.prod_eta, full) })
 										)
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'div',
 										null,
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										_react2.default.createElement(
 											'label',
 											null,
 											'Status',
-											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											_react2.default.createElement(
 												'select',
 												{ name: 'prod_status', defaultValue: this.props.prod_status, onChange: this.handleSelectChange.bind(this, 'prod_status') },
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.onTrack, value: '1' },
 													'On-Track'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.caution, value: '2' },
 													'Caution'
 												),
-												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												_react2.default.createElement(
 													'option',
 													{ style: styles.risk, value: '3' },
 													'At-Risk'
@@ -53038,34 +53157,34 @@ var ResultItem = function (_React$Component) {
 							)
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'row expanded' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'large-12 columns' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'button',
 								{ onClick: function onClick() {
 										_this2.confirm(_this2.props.id);
 									}, style: styles.main, className: 'button' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-trash' }),
+								_react2.default.createElement('i', { className: 'fa fa-trash' }),
 								' Delete'
 							),
 							'\xA0',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'button',
 								{ onClick: this.unEdit.bind(this), style: styles.main, className: 'alert button' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban' }),
+								_react2.default.createElement('i', { className: 'fa fa-ban' }),
 								' Cancel'
 							),
 							'\xA0',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'button',
 								{ onClick: function onClick() {
 										_this2.save(_this2.props.id);
 									}, style: styles.main, className: 'success button' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-save' }),
+								_react2.default.createElement('i', { className: 'fa fa-save' }),
 								' Save'
 							)
 						)
@@ -53085,37 +53204,50 @@ var ResultItem = function (_React$Component) {
 	}]);
 
 	return ResultItem;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ResultItem);
+exports.default = ResultItem;
 
 /***/ }),
 /* 463 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__result_item_jsx__ = __webpack_require__(462);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _jquery = __webpack_require__(386);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _resultItem = __webpack_require__(462);
+
+var _resultItem2 = _interopRequireDefault(_resultItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-
 
 // import ResultFilter from './result-filter.jsx';
 
@@ -53145,11 +53277,11 @@ var Results = function (_React$Component) {
 	}, {
 		key: 'getProjects',
 		value: function getProjects(url) {
-			var loader = __WEBPACK_IMPORTED_MODULE_3_jquery___default()('#loader');
+			var loader = (0, _jquery2.default)('#loader');
 			loader.show();
 
 			var self = this;
-			__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(url).then(function (response) {
+			_axios2.default.get(url).then(function (response) {
 				self.setState({
 					count: response.data.length,
 					projectResults: response.data
@@ -53172,12 +53304,12 @@ var Results = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
-			var filteredProjects = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.filter(this.state.projectResults, function (project) {
+			var filteredProjects = _underscore2.default.filter(this.state.projectResults, function (project) {
 				return project.name.toLowerCase().indexOf(_this2.state.project_name) >= 0;
 			});
 
-			var resultItems = __WEBPACK_IMPORTED_MODULE_2_underscore___default.a.map(filteredProjects, function (project) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__result_item_jsx__["a" /* default */], { ref: 'results', key: project.id, comments: project.comments_count,
+			var resultItems = _underscore2.default.map(filteredProjects, function (project) {
+				return _react2.default.createElement(_resultItem2.default, { ref: 'results', key: project.id, comments: project.comments_count,
 					id: project.id, name: project.name, code: project.code, status: project.status,
 					acct_manager: project.acct_manager, dev_manager: project.dev_manager,
 					project_manager: project.project_manager, trend: project.trend,
@@ -53190,101 +53322,101 @@ var Results = function (_React$Component) {
 
 			var emptyResults = "<div>empty</div>";
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'div',
 					{ className: 'data-table' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'data-table-header' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'row expanded' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'large-10 columns' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-bar-chart' }),
+								_react2.default.createElement('i', { className: 'fa fa-bar-chart' }),
 								' Current projects: ',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'span',
 									{ className: 'counter' },
 									this.state.projectResults.length
 								)
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'large-2 columns text-right' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'a',
 									{ className: 'no-smoothState', 'data-toggle': 'add-project-reveal' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-plus-circle' }),
+									_react2.default.createElement('i', { className: 'fa fa-plus-circle' }),
 									' Add'
 								)
 							)
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'data-table-content' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'table',
 							{ className: 'idtable' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'thead',
 								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'tr',
 									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Code'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Name'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'REQ'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'DEV'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'QA'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'UAT'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'PROD'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Trend'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Edit'
 									)
 								)
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'tbody',
 								null,
 								resultItems
@@ -53297,9 +53429,9 @@ var Results = function (_React$Component) {
 	}]);
 
 	return Results;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Results);
+exports.default = Results;
 
 /***/ }),
 /* 464 */,

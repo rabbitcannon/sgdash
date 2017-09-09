@@ -39770,26 +39770,32 @@ module.exports = function(module) {
 /* 444 */,
 /* 445 */,
 /* 446 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_results_jsx__ = __webpack_require__(465);
 
 
+var _react = __webpack_require__(26);
 
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(230);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _results = __webpack_require__(465);
+
+var _results2 = _interopRequireDefault(_results);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import ResultsFilter from './components/result-filter.jsx';
 
 var Users = function Users() {
-	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_results_jsx__["a" /* default */], null);
+	return _react2.default.createElement(_results2.default, null);
 };
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Users, null), document.getElementById("users-list"));
+_reactDom2.default.render(_react2.default.createElement(Users, null), document.getElementById("users-list"));
 
 /***/ }),
 /* 447 */,
@@ -39810,26 +39816,36 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 /* 462 */,
 /* 463 */,
 /* 464 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
 
 var save_url = window.location.origin + '/api/v1/projects/update/';
 
@@ -39875,7 +39891,7 @@ var ResultItem = function (_React$Component) {
 		value: function save(user_id) {
 			var self = this;
 
-			__WEBPACK_IMPORTED_MODULE_2_axios___default.a.put(save_url + user_id, {
+			_axios2.default.put(save_url + user_id, {
 				code: $('[name="first_name"]').val(),
 				name: $('[name="last_name"]').val(),
 				req_eta: $('[name="email"]').val()
@@ -39891,7 +39907,7 @@ var ResultItem = function (_React$Component) {
 		key: 'dateFormatter',
 		value: function dateFormatter(date) {
 			if (date) {
-				var newDate = __WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format('MM/DD/YY');
+				var newDate = (0, _moment2.default)(date).format('MM/DD/YY');
 			} else {
 				var newDate = "N/A";
 			}
@@ -39925,25 +39941,25 @@ var ResultItem = function (_React$Component) {
 	}, {
 		key: 'renderStaticDisplay',
 		value: function renderStaticDisplay() {
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'tr',
 				{ id: 'row-static' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					this.props.first_name
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					this.props.last_name
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					this.props.email
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					this.dateFormatter(this.props.created_at)
@@ -39975,51 +39991,51 @@ var ResultItem = function (_React$Component) {
 				}
 			};
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'tr',
 				{ id: 'row-edit', className: 'row-edit' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ width: '120' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_code', defaultValue: this.props.code })
+					_react2.default.createElement('input', { type: 'text', name: 'project_code', defaultValue: this.props.code })
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ width: '200' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'project_name', defaultValue: this.props.name })
+					_react2.default.createElement('input', { type: 'text', name: 'project_name', defaultValue: this.props.name })
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'req_eta', defaultValue: this.dateFormatter(this.props.req_eta, full) })
+							_react2.default.createElement('input', { type: 'text', name: 'req_eta', defaultValue: this.dateFormatter(this.props.req_eta, full) })
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'select',
 									{ name: 'req_status', defaultValue: this.props.req_status, onChange: this.handleSelectChange.bind(this, 'req_status') },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.onTrack, value: '1' },
 										'On-Track'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.caution, value: '2' },
 										'Caution'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.risk, value: '3' },
 										'At-Risk'
@@ -40029,38 +40045,38 @@ var ResultItem = function (_React$Component) {
 						)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'dev_eta', defaultValue: this.dateFormatter(this.props.dev_eta, full) })
+							_react2.default.createElement('input', { type: 'text', name: 'dev_eta', defaultValue: this.dateFormatter(this.props.dev_eta, full) })
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'select',
 									{ name: 'dev_status', defaultValue: this.props.dev_status, onChange: this.handleSelectChange.bind(this, 'dev_status') },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.onTrack, value: '1' },
 										'On-Track'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.caution, value: '2' },
 										'Caution'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.risk, value: '3' },
 										'At-Risk'
@@ -40070,38 +40086,38 @@ var ResultItem = function (_React$Component) {
 						)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'qa_eta', defaultValue: this.dateFormatter(this.props.qa_eta, full) })
+							_react2.default.createElement('input', { type: 'text', name: 'qa_eta', defaultValue: this.dateFormatter(this.props.qa_eta, full) })
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'select',
 									{ name: 'qa_status', value: this.props.qa_status, onChange: this.handleSelectChange.bind(this, 'qa_status') },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.onTrack, value: '1' },
 										'On-Track'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.caution, value: '2' },
 										'Caution'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.risk, value: '3' },
 										'At-Risk'
@@ -40111,38 +40127,38 @@ var ResultItem = function (_React$Component) {
 						)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'uat_eta', defaultValue: this.dateFormatter(this.props.uat_eta, full) })
+							_react2.default.createElement('input', { type: 'text', name: 'uat_eta', defaultValue: this.dateFormatter(this.props.uat_eta, full) })
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'select',
 									{ name: 'uat_status', value: this.props.uat_status, onChange: this.handleSelectChange.bind(this, 'uat_status') },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.onTrack, value: '1' },
 										'On-Track'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.caution, value: '2' },
 										'Caution'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.risk, value: '3' },
 										'At-Risk'
@@ -40152,38 +40168,38 @@ var ResultItem = function (_React$Component) {
 						)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						null,
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', name: 'prod_eta', defaultValue: this.dateFormatter(this.props.prod_eta, full) })
+							_react2.default.createElement('input', { type: 'text', name: 'prod_eta', defaultValue: this.dateFormatter(this.props.prod_eta, full) })
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'label',
 								null,
 								'Status',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'select',
 									{ name: 'prod_status', value: this.props.prod_status, onChange: this.handleSelectChange.bind(this, 'prod_status') },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.onTrack, value: '1' },
 										'On-Track'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.caution, value: '2' },
 										'Caution'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'option',
 										{ style: styles.risk, value: '3' },
 										'At-Risk'
@@ -40193,25 +40209,25 @@ var ResultItem = function (_React$Component) {
 						)
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					null,
 					'positive - static'
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'td',
 					{ width: '125', className: 'text-center' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'button',
 						{ onClick: function onClick() {
 								_this2.save(_this2.props.id);
 							}, style: styles.main },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-save fa-2x', 'aria-hidden': 'true' })
+						_react2.default.createElement('i', { className: 'fa fa-save fa-2x', 'aria-hidden': 'true' })
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'button',
 						{ onClick: this.unEdit.bind(this) },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-ban fa-2x', 'aria-hidden': 'true' })
+						_react2.default.createElement('i', { className: 'fa fa-ban fa-2x', 'aria-hidden': 'true' })
 					)
 				)
 			);
@@ -40228,32 +40244,42 @@ var ResultItem = function (_React$Component) {
 	}]);
 
 	return ResultItem;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (ResultItem);
+exports.default = ResultItem;
 
 /***/ }),
 /* 465 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__result_item_jsx__ = __webpack_require__(464);
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(26);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(63);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _resultItem = __webpack_require__(464);
+
+var _resultItem2 = _interopRequireDefault(_resultItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
 
 var url = window.location.origin + '/api/v1/users';
 
@@ -40283,7 +40309,7 @@ var Results = function (_React$Component) {
 			loader.show();
 
 			var self = this;
-			__WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(url).then(function (response) {
+			_axios2.default.get(url).then(function (response) {
 				self.setState({
 					count: response.data.length,
 					userResults: response.data
@@ -40298,80 +40324,80 @@ var Results = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			var resultItems = this.state.userResults.map(function (user, i) {
-				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__result_item_jsx__["a" /* default */], { ref: 'results', key: user.id, id: user.id, first_name: user.first_name, last_name: user.last_name,
+				return _react2.default.createElement(_resultItem2.default, { ref: 'results', key: user.id, id: user.id, first_name: user.first_name, last_name: user.last_name,
 					email: user.email, created_at: user.created_at });
 			});
 
-			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				_react2.default.createElement(
 					'div',
 					{ className: 'data-table' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'data-table-header' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'div',
 							{ className: 'row expanded' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'large-10 columns' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' }),
+								_react2.default.createElement('i', { className: 'fa fa-user', 'aria-hidden': 'true' }),
 								' Current users: ',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'span',
 									{ className: 'counter' },
 									this.state.userResults.length
 								)
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'div',
 								{ className: 'large-2 columns text-right' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'a',
 									{ className: 'no-smoothState', 'data-toggle': 'add-user-reveal' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-plus-circle', 'aria-hidden': 'true' }),
+									_react2.default.createElement('i', { className: 'fa fa-plus-circle', 'aria-hidden': 'true' }),
 									' Add'
 								)
 							)
 						)
 					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					_react2.default.createElement(
 						'div',
 						{ className: 'data-table-content' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						_react2.default.createElement(
 							'table',
 							{ className: 'idtable' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'thead',
 								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								_react2.default.createElement(
 									'tr',
 									null,
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'First Name'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Last Name'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Email Address'
 									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									_react2.default.createElement(
 										'th',
 										null,
 										'Created On'
 									)
 								)
 							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							_react2.default.createElement(
 								'tbody',
 								null,
 								resultItems
@@ -40384,9 +40410,9 @@ var Results = function (_React$Component) {
 	}]);
 
 	return Results;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+}(_react2.default.Component);
 
-/* harmony default export */ __webpack_exports__["a"] = (Results);
+exports.default = Results;
 
 /***/ }),
 /* 466 */,

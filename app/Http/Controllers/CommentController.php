@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use Illuminate\Support\Facades\Request;
+use Request;
 
 class CommentController extends Controller
 {
     public function create() {
         $request = Request::all();
 
-        $new_comment = [
-            'user_id'       => $request['user_id'],
-            'project_id'    => $request['project_id'],
-            'comment'       => $request['comment'],
-        ];
-
-        Comment::insert($new_comment);
+        $comment = new Comment();
+        $comment->user_id       = $request['user_id'];
+        $comment->project_id    = $request['project_id'];
+        $comment->comment       = $request['comment'];
+        $comment->save();
     }
 }
