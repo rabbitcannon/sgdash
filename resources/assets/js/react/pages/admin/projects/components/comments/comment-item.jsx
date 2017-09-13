@@ -6,15 +6,13 @@ class CommentItem extends React.Component {
         super(props);
 
         this.state = {
-        	// edit: false,
-        	edit: 'false',
+        	edit: false,
 		}
     }
 
     handleEdit = () => {
     	this.setState({
-			// edit: true,
-			edit: 'true',
+			edit: true,
 		}, console.log(this.state.edit));
 	}
 
@@ -38,6 +36,14 @@ class CommentItem extends React.Component {
 		else {
 			return false;
 		}
+	}
+
+	renderStaticOutput = () => {
+
+	}
+
+	renderEditOutput = () => {
+
 	}
 
     render() {

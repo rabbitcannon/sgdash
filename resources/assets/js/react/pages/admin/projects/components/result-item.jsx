@@ -52,8 +52,8 @@ class ResultItem extends React.Component {
 		var self = this;
 
 		Axios.put(save_url + project_id, {
-			code: $('[name="project_code"]').val(),
-			name: $('[name="project_name"]').val(),
+			code: $('[name="edit_project_code"]').val(),
+			name: $('[name="edit_project_name"]').val(),
 			status: $('[name="status"]').val(),
 			acct_manager: $('[name="acct_manager"]').val(),
 			dev_manager: $('[name="dev_manager"]').val(),
@@ -276,7 +276,7 @@ class ResultItem extends React.Component {
 							<div className="row">
 								<div className="large-12 columns">
 									<label>Project Code
-										<input type="text" name="project_code" defaultValue={this.props.code} />
+										<input type="text" name="edit_project_code" defaultValue={this.props.code} />
 									</label>
 								</div>
 							</div>
@@ -284,7 +284,7 @@ class ResultItem extends React.Component {
 							<div className="row">
 								<div className="large-12 columns">
 									<label>Project Name
-										<input type="text" name="project_name" defaultValue={this.props.name} />
+										<input type="text" name="edit_project_name" defaultValue={this.props.name} />
 									</label>
 								</div>
 							</div>
