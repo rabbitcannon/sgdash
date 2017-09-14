@@ -57,12 +57,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
     //==========================//
     Route::post('project/create', 'ProjectController@create');
 
-    //-- Search Routes --//
+    //-- Comment Routes --//
     //=======================//
     Route::post('/comment/add', 'CommentController@create');
-
-
-
 
 });
 

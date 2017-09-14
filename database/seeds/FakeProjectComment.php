@@ -21,7 +21,7 @@ class FakeProjectComment extends Seeder
         $this->command->getOutput()->progressStart(300);
 
         foreach(range(1,300) as $index) {
-            App\Comment::create([
+            App\Comment::insert([
                 'user_id'       => $faker->randomElement($user->toArray()),
                 'project_id'    => $faker->randomElement($project->toArray()),
                 'comment'       => $faker->realText($maxNbChars = 200, $indexSize = 2),

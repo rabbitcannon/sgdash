@@ -118,7 +118,7 @@ class Comments extends React.Component {
 		var commentItems = _.map(this.state.comments, (comment, index) => {
 			return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id} poster_id={comment.user.id}
 								text={comment.comment} first_name={comment.user.first_name} last_name={comment.user.last_name}
-								date={comment.created_at} project_id={comment.project_id} />
+								date={comment.created_at} project_id={comment.project_id} updated_at={comment.updated_at} />
 		});
 
     	return (
