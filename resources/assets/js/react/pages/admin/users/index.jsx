@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Results from './components/results.jsx';
+import Users from './components/users.jsx';
 // import ResultsFilter from './components/result-filter.jsx';
 
-const Users = () => {
+const UsersList = () => {
 	return (
-        <Results />
+        <Users />
 	);
 }
 
-ReactDOM.render(<Users />, document.getElementById("users-list"));
+ReactDOM.render(<UsersList />, document.getElementById("users-list"));

@@ -26,13 +26,18 @@ Route::group(['prefix' => 'v1'], function() {
     Route::get('/projects', function() {
         return App\Project::withCount('comments')->orderBy('id', 'asc')->get();
     });
-    Route::put('/project/update/{id}', 'ProjectController@update');
-    Route::get('/project/delete/{id}', 'ProjectController@delete');
 
-    //-- Comments for projects --//
-    Route::get('/project/{id}/comments', function($id) {
-       return App\Comment::with('user')->where('project_id', $id)->get();
+    //-- Project Routes --//
+    Route::group(['prefix' => 'project'], function() {
+        Route::put('/update/{id}', 'ProjectController@update');
+        Route::get('/delete/{id}', 'ProjectController@delete');
+
+        //-- Comments for projects --//
+        Route::get('/{id}/comments', function($id) {
+            return App\Comment::with('user')->where('project_id', $id)->get();
+        });
     });
+
     Route::put('/comment/update/{id}', 'CommentController@update');
 
     //-- Users --//
@@ -40,9 +45,15 @@ Route::group(['prefix' => 'v1'], function() {
         return App\User::all();
     });
 
-    Route::post('/users/create', 'UserController@create');
+    //-- User Routes --//
+    Route::group(['prefix' => 'user'], function() {
+        Route::post('/create', 'UserController@create');
+        Route::get('/notifications/{id}', 'NotificationsController@getUnreadNotifications');
+        Route::put('/update/{id}', 'UserController@update');
+        Route::get('/delete/{id}', 'UserController@delete');
+    });
 
-    Route::get('/users/notifications/{id}', 'NotificationsController@getUnreadNotifications');
+
 //    Route::get('/users/notifications/{id}/read', 'NotificationsController@getNotifications');
 
     //-- Tickets --//
@@ -50,11 +61,14 @@ Route::group(['prefix' => 'v1'], function() {
 
 
     //-- Control Routes --//
-    Route::get('/controls/project-status', function() {
-        return App\ProjectStatus::all();
+    Route::group(['prefix' => 'controls'], function() {
+        Route::get('/project-status', function() {
+            return App\ProjectStatus::all();
+        });
+
+        Route::get('/manager/{type}', function($type) {
+            return App\User::Manager($type);
+        });
     });
 
-    Route::get('/controls/manager/{type}', function($type) {
-        return App\User::Manager($type);
-    });
 });

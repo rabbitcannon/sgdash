@@ -14,7 +14,7 @@ class Results extends React.Component {
 	}
 
 	componentDidMount() {
-		var url = '/api/v1/users/notifications/' + $('#notifications').attr('data-user');
+		var url = '/api/v1/user/notifications/' + $('#notifications').attr('data-user');
 		this.getNotifications(url);
     }
 

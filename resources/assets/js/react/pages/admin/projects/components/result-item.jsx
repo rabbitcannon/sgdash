@@ -37,15 +37,16 @@ class ResultItem extends React.Component {
 	}
 
 	edit() {
-		this.setState({
-			editing: true,
-		});
-	}
-
-	unEdit() {
-		this.setState({
-			editing: false,
-		});
+		if(this.state.editing === false) {
+			this.setState({
+				editing: true,
+			});
+		}
+		else {
+			this.setState({
+				editing: false,
+			});
+		}
 	}
 
 	save(project_id) {
@@ -424,7 +425,7 @@ class ResultItem extends React.Component {
 								<i className="fa fa-trash"></i> Delete
 							</button>
 							&nbsp;
-							<button onClick={this.unEdit.bind(this)} style={styles.main} className="alert button">
+							<button onClick={this.edit.bind(this)} style={styles.main} className="alert button">
 								<i className="fa fa-ban"></i> Cancel
 							</button>
 							&nbsp;

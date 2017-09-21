@@ -1,24 +1,35 @@
 import React, {Component} from 'react';
+import Moment from 'moment';
 import Axios from 'axios';
 
-import ResultItem from './result-item.jsx';
+import UserItem from './user-item.jsx';
 
 let url = window.location.origin + '/api/v1/users';
 
-class Results extends React.Component {
+class Users extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			userResults: []
+			userResults: [],
 		}
 	}
 
-	componentDidMount() {
+	componentDidMount = () => {
 	    this.getUsers(url);
     }
 
-	getUsers(url) {
+	dateFormatter(date) {
+		if(date) {
+			var newDate = Moment(date).format('MM/DD/YY');
+		}
+		else {
+			var newDate = "N/A";
+		}
+		return newDate;
+	}
+
+	getUsers = (url) => {
 		var loader = jQuery('#loader');
 		loader.show();
 
@@ -36,13 +47,13 @@ class Results extends React.Component {
 	}
 
     render() {
-		let resultItems = this.state.userResults.map(function(user, i) {
-			return <ResultItem ref="results" key={user.id} id={user.id} first_name={user.first_name} last_name={user.last_name}
-				email={user.email} created_at={user.created_at} />
+		let users_list = this.state.userResults.map((user, i) => {
+			return <UserItem ref="results" key={user.id} id={user.id} first_name={user.first_name} last_name={user.last_name}
+				email={user.email} created_at={user.created_at} dateFormatter={this.dateFormatter} user_list={this.getUsers}/>
 		});
 
         return (
-        	<div>
+			<div>
 				<div className="data-table">
 					<div className="data-table-header">
 
@@ -67,11 +78,12 @@ class Results extends React.Component {
 								<th>Last Name</th>
 								<th>Email Address</th>
 								<th>Created On</th>
+								<th>Edit</th>
 							</tr>
 							</thead>
 
 							<tbody>
-								{resultItems}
+								{users_list}
 							</tbody>
 						</table>
 
@@ -82,4 +94,4 @@ class Results extends React.Component {
     }
 }
 
-export default Results;
+export default Users;

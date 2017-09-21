@@ -9341,6 +9341,24 @@ button.toast-close-button {
   display: none;
 }
 
+.user-enter {
+  opacity: 0.01;
+}
+
+.user-enter.user-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.user-leave {
+  opacity: 1;
+}
+
+.user-leave.user-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle,
 .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle,
 .react-datepicker__year-read-view--down-arrow,

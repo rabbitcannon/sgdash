@@ -81,3 +81,22 @@
   padding:10px;
   display:none;
 }
+
+////// Users
+.user-enter {
+  opacity: 0.01;
+}
+
+.user-enter.user-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.user-leave {
+  opacity: 1;
+}
+
+.user-leave.user-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

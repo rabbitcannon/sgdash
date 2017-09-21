@@ -4,7 +4,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import ResultItem from './result-item.jsx';
-// import ResultFilter from './result-filter.jsx';
+import ResultFilter from './result-filter.jsx';
 
 let url = window.location.origin + '/api/v1/projects';
 
@@ -27,22 +27,15 @@ class Results extends React.Component {
 		var loader = $('#loader');
 		loader.show();
 
-		var self = this;
 		Axios.get(url).then(function(response) {
-			self.setState({
+			this.setState({
 				count: response.data.length,
 				projectResults: response.data
 			});
-
+console.log('test');
 			loader.fadeOut('slow');
 		}.bind(this)).catch(function(error) {
 			console.log(error);
-		});
-	}
-
-	filterList(event){
-		this.setState({
-			project_name: event.target.value
 		});
 	}
 
@@ -68,33 +61,8 @@ class Results extends React.Component {
 		let emptyResults = "<div>empty</div>";
 
         return (
-        	<div>
-				{/*<div className="row expanded">*/}
-					{/*<div className="large-12 columns">*/}
-						{/*<div className="data-card">*/}
-							{/*<div className="data-header">*/}
-								{/*Filter Results*/}
-							{/*</div>*/}
-
-							{/*<div className="data-content">*/}
-								{/*<form action="">*/}
-									{/*<fieldset className="fieldset">*/}
-										{/*<legend>Filter By:</legend>*/}
-										{/*<div className="row">*/}
-
-											{/*<div className="large-6 columns">*/}
-												{/*<label>Name*/}
-													{/*<input type="text" defaultValue={this.state.project_name} placeholder="Project name" onChange={this.filterList.bind(this)} />*/}
-												{/*</label>*/}
-											{/*</div>*/}
-										{/*</div>*/}
-									{/*</fieldset>*/}
-								{/*</form>*/}
-							{/*</div>*/}
-						{/*</div>*/}
-
-					{/*</div>*/}
-				{/*</div>*/}
+        		<div>
+				<ResultFilter ref="results" getProjects={() => this.getProjects.bind(this)} />
 
 				<div className="data-table">
 					<div className="data-table-header">
