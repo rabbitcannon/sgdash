@@ -9,7 +9,7 @@ class CommentItem extends React.Component {
         super(props);
 
         this.state = {
-        		edit: false,
+			edit: false,
 			comment: this.props.text,
 			updated_at: this.props.updated_at
 		}

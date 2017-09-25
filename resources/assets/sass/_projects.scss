@@ -6,6 +6,7 @@
   CS01 - Project Elements
   CS02 - Filter Elements
   CS03 - Comments Elements
+  CS04 - Toastr Elements
 
 **/
 
@@ -140,4 +141,38 @@
     color: $blue-gray;
     margin-top: 6px;
   }
+}
+
+/** CS04 Toastr Elements
+ ===================== **/
+
+#toast-container > .toast {
+  background-image: none !important;
+}
+
+#toast-container > .toast:before {
+  position: fixed;
+  font-family: FontAwesome;
+  font-size: 24px;
+  line-height: 18px;
+  float: left;
+  color: #FFF;
+  padding-right: 0.5em;
+  margin: auto 0.5em auto -1.5em;
+}
+#toast-container > .toast-warning:before {
+  background-color: $warning-amber;
+  content: "\f071";
+}
+#toast-container > .toast-error:before {
+  background-color: $failure-red;
+  content: "\f05e";
+}
+#toast-container > .toast-info:before {
+  background-color: $blue-gray;
+  content: "\f129";
+}
+#toast-container > .toast-success:before {
+  background-color: $success-green;
+  content: "\f00c";
 }

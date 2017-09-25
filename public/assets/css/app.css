@@ -9882,6 +9882,7 @@ button.toast-close-button {
   CS01 - Project Elements
   CS02 - Filter Elements
   CS03 - Comments Elements
+  CS04 - Toastr Elements
 
 **/
 
@@ -10005,6 +10006,44 @@ button.toast-close-button {
 .comment-avatar i {
   color: #57666D;
   margin-top: 6px;
+}
+
+/** CS04 Toastr Elements
+ ===================== **/
+
+#toast-container > .toast {
+  background-image: none !important;
+}
+
+#toast-container > .toast:before {
+  position: fixed;
+  font-family: FontAwesome;
+  font-size: 24px;
+  line-height: 18px;
+  float: left;
+  color: #FFF;
+  padding-right: 0.5em;
+  margin: auto 0.5em auto -1.5em;
+}
+
+#toast-container > .toast-warning:before {
+  background-color: #FFAE00;
+  content: "\F003";
+}
+
+#toast-container > .toast-error:before {
+  background-color: #D9534F;
+  content: "\F001";
+}
+
+#toast-container > .toast-info:before {
+  background-color: #57666D;
+  content: "\F005";
+}
+
+#toast-container > .toast-success:before {
+  background-color: #4CAF50;
+  content: "\F002";
 }
 
 /**

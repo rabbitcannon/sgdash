@@ -41,7 +41,8 @@
                         <fieldset class="large-3 columns">
                             <legend>Project Code</legend>
                             <hr/>
-                            {{ Form::text('project_code', null, ['placeholder' => 'Project Code']) }}
+{{--                            {{ Form::text('project_code', null, ['placeholder' => 'Project Code']) }}--}}
+                            <input type="text" name="project_code" placeholder="Project Code">
                         </fieldset>
 
                         <fieldset class="large-3 columns">
@@ -57,7 +58,7 @@
                             <ul name="project-status-list" class="column-list">
                                 @foreach($project_statuses as $project_status)
                                     <li>
-                                        <input name="project_status[]" value="{!! $project_status->id !!}" type="checkbox">
+                                        <input class="project_status" name="project_status[]" value="{!! $project_status->id !!}" type="checkbox">
 
                                         <label for="{!! $project_status->id !!}">
                                             {!! $project_status->name !!}

@@ -25,6 +25,7 @@ Route::group(['prefix' => 'v1'], function() {
     //-- Projects --//
     Route::get('/projects', function() {
         return App\Project::withCount('comments')->orderBy('id', 'asc')->get();
+//        return App\Project::withCount('comments')->orderBy('id', 'asc')->get();
     });
 
     //-- Project Routes --//

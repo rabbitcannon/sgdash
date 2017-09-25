@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import toastr from 'toastr';
 import _ from 'underscore';
 import $ from 'jquery';
 
@@ -21,7 +22,36 @@ class Results extends React.Component {
 
 	componentDidMount() {
 	    this.getProjects(url);
+		toastr.options.newestOnTop = true;
+		toastr.options.showMethod = 'slideDown';
     }
+
+    updateProjects = (update_url, event) => {
+		event.preventDefault();
+		var loader = $('#loader');
+		loader.show();
+		///////////////
+		var projectStatus = []
+		$("input[name='project_status[]']:checked").each(function() {
+			projectStatus.push(parseInt($(this).val()));
+		});
+		///////////////
+		Axios.post(update_url, {
+			project_code: $('input[name=project_code]').val(),
+			project_name: $('input[name=project_name]').val(),
+			project_status: projectStatus,
+		}).then(function(response) {
+			this.setState({
+				count: response.data.length,
+				projectResults: response.data
+			});
+			loader.fadeOut('slow');
+			toastr.success('Results complete.');
+		}.bind(this)).catch(function(error) {
+			console.log(error);
+			toastr.error('Unable to retrieve results, please try again.');
+		});
+	}
 
 	getProjects(url) {
 		var loader = $('#loader');
@@ -32,7 +62,6 @@ class Results extends React.Component {
 				count: response.data.length,
 				projectResults: response.data
 			});
-console.log('test');
 			loader.fadeOut('slow');
 		}.bind(this)).catch(function(error) {
 			console.log(error);
@@ -40,13 +69,14 @@ console.log('test');
 	}
 
     render() {
-		let filteredProjects = _.filter(this.state.projectResults,
-			(project) => {
-				return project.name.toLowerCase().indexOf(this.state.project_name) >= 0;
-			}
-		);
+		// let filteredProjects = _.filter(this.state.projectResults,
+		// 	(project) => {
+		// 		return project.name.toLowerCase().indexOf(this.state.project_name) >= 0;
+		// 	}
+		// );
 
-		let resultItems = _.map(filteredProjects, (project) => {
+		// let resultItems = _.map(filteredProjects, (project) => {
+		let resultItems = _.map(this.state.projectResults, (project) => {
 			return <ResultItem ref="results" key={project.id} comments={project.comments_count}
 			   	id={project.id} name={project.name} code={project.code} status={project.status}
 			   	acct_manager={project.acct_manager} dev_manager={project.dev_manager}
@@ -62,7 +92,7 @@ console.log('test');
 
         return (
         		<div>
-				<ResultFilter ref="results" getProjects={() => this.getProjects.bind(this)} />
+				{/*<ResultFilter updateProjects={this.updateProjects} />*/}
 
 				<div className="data-table">
 					<div className="data-table-header">
@@ -102,6 +132,7 @@ console.log('test');
 
 					</div>
 				</div>
+					<ResultFilter updateProjects={this.updateProjects} />
 			</div>
         );
     }

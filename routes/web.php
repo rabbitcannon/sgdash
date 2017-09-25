@@ -34,21 +34,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
         return view('admin.index');
     });
 
-    Route::get('projects', 'ProjectController@index');
+    Route::get('/projects', 'ProjectController@index');
+    Route::post('/search/projects', 'SearchController@searchProjects');
 
-    Route::get('promotions', function() {
+    // TEST URL
+    Route::get('/search/projects', 'SearchController@searchProjects');
+    Route::post('/projects/search', 'SearchController@searchProjects');
+    // TEST URL
+
+    Route::get('/promotions', function() {
         return view('admin.promotions.index');
         // Matches The "/admin/promotions" URL
     });
-    Route::get('environments', function() {
+    Route::get('/environments', function() {
         return view('admin.environments.index');
         // Matches The "/admin/environments" URL
     });
-    Route::get('support', function() {
+    Route::get('/support', function() {
         return view('admin.support.index');
         // Matches The "/admin/support" URL
     });
-    Route::get('users', function() {
+    Route::get('/users', function() {
         return view('admin.users.index');
         // Matches The "/admin/users" URL
     });
