@@ -52,4 +52,8 @@ class Project extends Model
     public function comments() {
         return $this->hasMany('App\Comment', 'project_id');
     }
+
+//    public function scopeProjectStatus($query, $array) {
+//        return $query->whereIn('status', $array);
+//    }
 }

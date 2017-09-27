@@ -10028,22 +10028,22 @@ button.toast-close-button {
 
 #toast-container > .toast-warning:before {
   background-color: #FFAE00;
-  content: "\F003";
+  content: "\F071";
 }
 
 #toast-container > .toast-error:before {
   background-color: #D9534F;
-  content: "\F001";
+  content: "\F05E";
 }
 
 #toast-container > .toast-info:before {
   background-color: #57666D;
-  content: "\F005";
+  content: "\F129";
 }
 
 #toast-container > .toast-success:before {
   background-color: #4CAF50;
-  content: "\F002";
+  content: "\F00C";
 }
 
 /**

@@ -50,6 +50,10 @@ class UserController extends Controller
         return Redirect::to('/admin/users');
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     */
     public function update($id, Request $request) {
         User::where('id', $id)->update([
             'first_name' => $request->first_name,

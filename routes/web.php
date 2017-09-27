@@ -34,13 +34,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
         return view('admin.index');
     });
 
-    Route::get('/projects', 'ProjectController@index');
-    Route::post('/search/projects', 'SearchController@searchProjects');
+    Route::group(['prefix' => 'search'], function () {
+        Route::post('/projects', 'SearchController@searchProjects');
+    });
 
-    // TEST URL
-    Route::get('/search/projects', 'SearchController@searchProjects');
-    Route::post('/projects/search', 'SearchController@searchProjects');
-    // TEST URL
+    Route::group(['prefix' => 'projects'], function () {
+        Route::get('/', 'ProjectController@index');
+    });
+//    // TEST URL
+//    Route::get('/projects/search', 'SearchController@searchProjects');
+//    Route::post('/projects/search', 'SearchController@searchProjects');
+//    // TEST URL
 
     Route::get('/promotions', function() {
         return view('admin.promotions.index');

@@ -117,6 +117,10 @@ class ProjectController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function delete($id) {
 
         \DB::beginTransaction();

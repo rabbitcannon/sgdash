@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-const url = '/admin/projects/search';
+const url = '/admin/search/projects';
 // const url = '/api/v1/projects';
 
 class ResultFilter extends React.Component {
