@@ -268,7 +268,9 @@ class ResultItem extends React.Component {
 				<td colSpan={10}>
 
 					<div className="text-left">
-						<h3>Details</h3>
+						<h3>
+							Details<small> - {this.dateFormatter(this.props.created_at, full)}</small>
+						</h3>
 					</div>
 
 					<div className="row expanded">

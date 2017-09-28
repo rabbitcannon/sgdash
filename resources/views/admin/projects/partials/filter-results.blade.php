@@ -105,7 +105,7 @@
                             <ul class="column-list">
                                 @foreach($account_managers as $account_manager)
                                     <li>
-                                        <input name="account_managers[]" value="{!! $account_manager->id !!}" type="checkbox">
+                                        <input name="acct_managers[]" value="{!! $account_manager->id !!}" type="checkbox">
                                         <label>{!! $account_manager->first_name !!} {!! $account_manager->last_name !!}</label>
                                     </li>
                                 @endforeach

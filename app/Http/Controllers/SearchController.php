@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Input;
 class SearchController extends Controller
 {
     public function searchProjects(Request $request) {
-//        var_dump($request->all());die;
-//        var_dump(Input::get('dev_managers[]'));die;
         $query = Project::query();
 
             // Date Range
@@ -41,8 +39,8 @@ class SearchController extends Controller
             $query->whereIn('dev_manager', $request->input('dev_managers'));
         }
         // Account Managers
-        if($request->has('account_managers') && !empty($request->input('account_managers'))) {
-            $query->whereIn('acct_manager', $request->input('account_managers'));
+        if($request->has('acct_managers') && !empty($request->input('acct_managers'))) {
+            $query->whereIn('acct_manager', $request->input('acct_managers'));
         }
 
         $projects = $query->withCount('comments')->get();

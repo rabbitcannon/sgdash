@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Axios from 'axios';
 import toastr from 'toastr';
 import RenderHTML from 'react-render-html';
+import Moment from 'moment';
 import _ from 'underscore';
 import $ from 'jquery';
 
@@ -46,20 +47,20 @@ class Results extends React.Component {
 	}
 
 	_getDevelopmentManagers = () => {
-		var development_managers = new Array();
-		$.each($("input[name='development_managers[]']:checked"), function() {
-			development_managers.push($(this).val());
+		var dev_managers = new Array();
+		$.each($("input[name='dev_managers[]']:checked"), function() {
+			dev_managers.push($(this).val());
 		});
-		console.log(development_managers);
-		return development_managers;
+		console.log(dev_managers);
+		return dev_managers;
 	}
 	_getAccountManagers = () => {
-		var account_managers = new Array();
-		$.each($("input[name='account_managers[]']:checked"), function() {
-			account_managers.push($(this).val());
+		var acct_managers = new Array();
+		$.each($("input[name='acct_managers[]']:checked"), function() {
+			acct_managers.push($(this).val());
 		});
-		console.log(account_managers);
-		return account_managers;
+		console.log(acct_managers);
+		return acct_managers;
 	}
 
 	updateProjects = (update_url, event) => {
@@ -67,37 +68,44 @@ class Results extends React.Component {
 		var loader = $('#loader');
 		loader.show();
 
-		///////////////
 		var project_status = [];
+		var project_managers = [];
 		var dev_managers = [];
-
-		// var projectStatus = []
-		// $("input[name='project_status[]']:checked").each(function() {
-		// 	projectStatus.push(parseInt($(this).val()));
-		// });
-		///////////////
+		var acct_managers = [];
 
 		$('input[type="checkbox"]:checked').each(function() {
 			var $this = $(this);
 			var $name = $this.attr('name');
 
-			if($name == "project_status[]") {
-				project_status.push(parseInt($this.val()));
+			switch ($name) {
+				case "project_status[]":
+					project_status.push(parseInt($this.val()));
+					break;
+				case "project_managers[]":
+					project_managers.push(parseInt($this.val()));
+					break;
+				case "dev_managers[]":
+					dev_managers.push(parseInt($this.val()));
+					break;
+				case "acct_managers[]":
+					acct_managers.push(parseInt($this.val()));
+					break;
 			}
-			if($name == "dev_managers[]") {
-				dev_managers.push(parseInt($this.val()));
-			}
-
-			// console.log(this.state.dev_managers);
 		});
-		console.log(project_status);
-		console.log(dev_managers);
-		///////////////
+
+		var current_time = $('#creation-date-start').val();
+		var revert_time = Moment(current_time).format('YYYY-MM-DD HH:mm:ss');
+		console.log(revert_time);
+
 		Axios.post(update_url, {
+			created_at: revert_time,
+			// created_at: $('#creation-date-start').val(),
 			project_code: $('input[name=project_code]').val(),
 			project_name: $('input[name=project_name]').val(),
 			project_status: project_status,
+			project_managers: project_managers,
 			dev_managers: dev_managers,
+			acct_managers: acct_managers,
 		}).then(function(response) {
 			this.setState({
 				count: response.data.length,
@@ -139,7 +147,8 @@ class Results extends React.Component {
 						   dev_eta={project.dev_eta} dev_status={project.dev_status}
 						   qa_eta={project.qa_eta} qa_status={project.qa_status}
 						   uat_eta={project.uat_eta} uat_status={project.uat_status}
-						   prod_eta={project.prod_eta} prod_status={project.prod_status}/>
+						   prod_eta={project.prod_eta} prod_status={project.prod_status}
+						   created_at={project.created_at} />
 			});
 		}
 		else {

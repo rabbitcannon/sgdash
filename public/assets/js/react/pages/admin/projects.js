@@ -4534,7 +4534,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(371)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(372)(module)))
 
 /***/ }),
 /* 1 */
@@ -50270,7 +50270,7 @@ module.exports = Duplex;
 
 /*<replacement>*/
 var util = __webpack_require__(381);
-util.inherits = __webpack_require__(376);
+util.inherits = __webpack_require__(377);
 /*</replacement>*/
 
 var Readable = __webpack_require__(479);
@@ -50351,67 +50351,6 @@ function forEach(xs, f) {
 
 /***/ }),
 /* 371 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ }),
-/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -51963,6 +51902,67 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscor
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   }
 }.call(this));
+
+
+/***/ }),
+/* 372 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
 
 
 /***/ }),
@@ -54977,7 +54977,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 module.exports = Stream;
 
 var EE = __webpack_require__(428).EventEmitter;
-var inherits = __webpack_require__(376);
+var inherits = __webpack_require__(377);
 
 inherits(Stream, EE);
 Stream.Readable = __webpack_require__(433);
@@ -57684,7 +57684,7 @@ Writable.WritableState = WritableState;
 
 /*<replacement>*/
 var util = __webpack_require__(381);
-util.inherits = __webpack_require__(376);
+util.inherits = __webpack_require__(377);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -62901,7 +62901,7 @@ function _isUint8Array(obj) {
 
 /*<replacement>*/
 var util = __webpack_require__(381);
-util.inherits = __webpack_require__(376);
+util.inherits = __webpack_require__(377);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -63919,7 +63919,7 @@ var Duplex = __webpack_require__(370);
 
 /*<replacement>*/
 var util = __webpack_require__(381);
-util.inherits = __webpack_require__(376);
+util.inherits = __webpack_require__(377);
 /*</replacement>*/
 
 util.inherits(Transform, Duplex);
@@ -64429,7 +64429,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _underscore = __webpack_require__(377);
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -64690,7 +64690,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _underscore = __webpack_require__(377);
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -64780,7 +64780,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _underscore = __webpack_require__(377);
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -64870,7 +64870,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _underscore = __webpack_require__(377);
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -64960,7 +64960,7 @@ var _axios = __webpack_require__(45);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _underscore = __webpack_require__(377);
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -65046,6 +65046,14 @@ var _react = __webpack_require__(23);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _axios = __webpack_require__(45);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _underscore = __webpack_require__(371);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -65057,10 +65065,49 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var url = '/admin/search/projects';
 // const url = '/api/v1/projects';
 
-var _ref = _jsx("input", {
-    type: "submit",
-    className: "button",
-    value: "BUTTON SON!"
+var _ref = _jsx('div', {
+    className: 'large-11 columns'
+}, void 0, _jsx('i', {
+    className: 'fa fa-filter'
+}), ' Filter');
+
+var _ref2 = _jsx('i', {
+    id: 'collapse-chevron',
+    className: 'fa fa-angle-double-up override'
+});
+
+var _ref3 = _jsx('fieldset', {
+    className: 'large-3 columns'
+}, void 0, _jsx('legend', {}, void 0, 'Creation Date'), _jsx('hr', {}), _jsx('div', {
+    id: 'date-picker-start'
+}), _jsx('div', {
+    id: 'date-picker-end'
+}));
+
+var _ref4 = _jsx('fieldset', {
+    className: 'large-3 columns'
+}, void 0, _jsx('legend', {}, void 0, 'Project Code'), _jsx('hr', {}), _jsx('input', {
+    type: 'text',
+    name: 'project_code',
+    placeholder: 'Project Code'
+}));
+
+var _ref5 = _jsx('fieldset', {
+    className: 'large-3 columns'
+}, void 0, _jsx('legend', {}, void 0, 'Project Name'), _jsx('hr', {}), _jsx('input', {
+    type: 'text',
+    name: 'project_name',
+    placeholder: 'Project Name'
+}));
+
+var _ref6 = _jsx('legend', {}, void 0, 'Project Status');
+
+var _ref7 = _jsx('hr', {});
+
+var _ref8 = _jsx('input', {
+    type: 'submit',
+    className: 'button',
+    value: 'BUTTON SON!'
 });
 
 var ResultFilter = function (_React$Component) {
@@ -65069,16 +65116,97 @@ var ResultFilter = function (_React$Component) {
     function ResultFilter(props) {
         _classCallCheck(this, ResultFilter);
 
-        return _possibleConstructorReturn(this, (ResultFilter.__proto__ || Object.getPrototypeOf(ResultFilter)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ResultFilter.__proto__ || Object.getPrototypeOf(ResultFilter)).call(this, props));
+
+        _this.getProjectStatus = function () {
+            _axios2.default.get('/api/v1/controls/project-status').then(function (response) {
+                this.setState({
+                    project_status: response.data
+                });
+            }.bind(_this)).catch(function (error) {
+                console.log(error);
+            });
+        };
+
+        _this.getDevManagers = function () {
+            _axios2.default.get('/api/v1/controls/manager/development').then(function (response) {
+                this.setState({
+                    dev_managers: response.data
+                });
+            }.bind(_this)).catch(function (error) {
+                console.log(error);
+            });
+        };
+
+        _this.state = {
+            project_status: [],
+            dev_managers: []
+        };
+        return _this;
     }
 
     _createClass(ResultFilter, [{
-        key: "render",
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.getProjectStatus();
+            this.getDevManagers();
+        }
+    }, {
+        key: 'render',
         value: function render() {
-            return _jsx("form", {
-                method: "post",
+            var styles = {
+                icon: {
+                    marginLeft: 60
+                }
+            };
+
+            var projectStatusBoxes = _underscore2.default.map(this.state.project_status, function (status) {
+                return _jsx('li', {}, void 0, _jsx('input', {
+                    type: 'checkbox',
+                    name: 'project_status[]',
+                    defaultValue: status.id
+                }, status.id), ' ', _jsx('label', {}, void 0, status.name));
+            });
+
+            var devManagerBoxes = _underscore2.default.map(this.state.dev_managers, function (manager) {
+                return _jsx('li', {}, void 0, _jsx('input', {
+                    type: 'checkbox',
+                    name: 'dev_managers[]',
+                    defaultValue: manager.id
+                }, manager.id), ' ', _jsx('label', {}, void 0, manager.first_name, ' ', manager.last_name));
+            });
+
+            return _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _jsx('div', {
+                className: 'large-12 columns'
+            }, void 0, _jsx('div', {
+                className: 'data-card-small'
+            }, void 0, _jsx('div', {
+                className: 'data-header'
+            }, void 0, _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _ref, _jsx('div', {
+                className: 'large-1 columns'
+            }, void 0, _jsx('button', {
+                id: 'toggle-collapse',
+                type: 'button',
+                style: styles.icon
+            }, void 0, _ref2)))), _jsx('div', {
+                className: 'data-content'
+            }, void 0, _jsx('div', {
+                id: 'filter-form'
+            }, void 0, _jsx('form', {
+                method: 'post',
                 onSubmit: this.props.updateProjects.bind(this, url)
-            }, void 0, _ref);
+            }, void 0, _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _ref3, _ref4, _ref5, _jsx('fieldset', {
+                className: 'large-3 columns'
+            }, void 0, _ref6, _ref7, _jsx('ul', {
+                name: 'project-status-list',
+                className: 'column-list'
+            }, void 0, projectStatusBoxes))), _ref8))))));
         }
     }]);
 
@@ -65154,21 +65282,17 @@ var _ref = _jsx('i', {
 
 var _ref2 = _jsx('div', {
 	className: 'text-left'
-}, void 0, _jsx('h3', {}, void 0, 'Details'));
-
-var _ref3 = _jsx('div', {
-	className: 'text-left'
 }, void 0, _jsx('h3', {}, void 0, 'Environments'));
 
-var _ref4 = _jsx('i', {
+var _ref3 = _jsx('i', {
 	className: 'fa fa-trash'
 });
 
-var _ref5 = _jsx('i', {
+var _ref4 = _jsx('i', {
 	className: 'fa fa-ban'
 });
 
-var _ref6 = _jsx('i', {
+var _ref5 = _jsx('i', {
 	className: 'fa fa-save'
 });
 
@@ -65431,7 +65555,9 @@ var ResultItem = function (_React$Component) {
 				style: styles.editRow
 			}, void 0, _jsx('td', {
 				colSpan: 10
-			}, void 0, _ref2, _jsx('div', {
+			}, void 0, _jsx('div', {
+				className: 'text-left'
+			}, void 0, _jsx('h3', {}, void 0, 'Details', _jsx('small', {}, void 0, ' - ', this.dateFormatter(this.props.created_at, full)))), _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'large-3 columns'
@@ -65478,7 +65604,7 @@ var ResultItem = function (_React$Component) {
 				current: this.props.dev_manager
 			})), _jsx('label', {}, void 0, 'Account Manager', _jsx(_accountManagers2.default, {
 				current: this.props.acct_manager
-			})))), _ref3, _jsx('div', {
+			})))), _ref2, _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'large-12 columns'
@@ -65589,17 +65715,17 @@ var ResultItem = function (_React$Component) {
 				},
 				style: styles.main,
 				className: 'button'
-			}, void 0, _ref4, ' Delete'), '\xA0', _jsx('button', {
+			}, void 0, _ref3, ' Delete'), '\xA0', _jsx('button', {
 				onClick: this.edit.bind(this),
 				style: styles.main,
 				className: 'alert button'
-			}, void 0, _ref5, ' Cancel'), '\xA0', _jsx('button', {
+			}, void 0, _ref4, ' Cancel'), '\xA0', _jsx('button', {
 				onClick: function onClick() {
 					_this2.save(_this2.props.id);
 				},
 				style: styles.main,
 				className: 'success button'
-			}, void 0, _ref6, ' Save')))));
+			}, void 0, _ref5, ' Save')))));
 		}
 	}, {
 		key: 'render',
@@ -65648,7 +65774,11 @@ var _reactRenderHtml = __webpack_require__(728);
 
 var _reactRenderHtml2 = _interopRequireDefault(_reactRenderHtml);
 
-var _underscore = __webpack_require__(377);
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _underscore = __webpack_require__(371);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
@@ -65716,21 +65846,21 @@ var Results = function (_React$Component) {
 		};
 
 		_this._getDevelopmentManagers = function () {
-			var development_managers = new Array();
-			_jquery2.default.each((0, _jquery2.default)("input[name='development_managers[]']:checked"), function () {
-				development_managers.push((0, _jquery2.default)(this).val());
+			var dev_managers = new Array();
+			_jquery2.default.each((0, _jquery2.default)("input[name='dev_managers[]']:checked"), function () {
+				dev_managers.push((0, _jquery2.default)(this).val());
 			});
-			console.log(development_managers);
-			return development_managers;
+			console.log(dev_managers);
+			return dev_managers;
 		};
 
 		_this._getAccountManagers = function () {
-			var account_managers = new Array();
-			_jquery2.default.each((0, _jquery2.default)("input[name='account_managers[]']:checked"), function () {
-				account_managers.push((0, _jquery2.default)(this).val());
+			var acct_managers = new Array();
+			_jquery2.default.each((0, _jquery2.default)("input[name='acct_managers[]']:checked"), function () {
+				acct_managers.push((0, _jquery2.default)(this).val());
 			});
-			console.log(account_managers);
-			return account_managers;
+			console.log(acct_managers);
+			return acct_managers;
 		};
 
 		_this.updateProjects = function (update_url, event) {
@@ -65738,37 +65868,44 @@ var Results = function (_React$Component) {
 			var loader = (0, _jquery2.default)('#loader');
 			loader.show();
 
-			///////////////
 			var project_status = [];
+			var project_managers = [];
 			var dev_managers = [];
-
-			// var projectStatus = []
-			// $("input[name='project_status[]']:checked").each(function() {
-			// 	projectStatus.push(parseInt($(this).val()));
-			// });
-			///////////////
+			var acct_managers = [];
 
 			(0, _jquery2.default)('input[type="checkbox"]:checked').each(function () {
 				var $this = (0, _jquery2.default)(this);
 				var $name = $this.attr('name');
 
-				if ($name == "project_status[]") {
-					project_status.push(parseInt($this.val()));
+				switch ($name) {
+					case "project_status[]":
+						project_status.push(parseInt($this.val()));
+						break;
+					case "project_managers[]":
+						project_managers.push(parseInt($this.val()));
+						break;
+					case "dev_managers[]":
+						dev_managers.push(parseInt($this.val()));
+						break;
+					case "acct_managers[]":
+						acct_managers.push(parseInt($this.val()));
+						break;
 				}
-				if ($name == "dev_managers[]") {
-					dev_managers.push(parseInt($this.val()));
-				}
-
-				// console.log(this.state.dev_managers);
 			});
-			console.log(project_status);
-			console.log(dev_managers);
-			///////////////
+
+			var current_time = (0, _jquery2.default)('#creation-date-start').val();
+			var revert_time = (0, _moment2.default)(current_time).format('YYYY-MM-DD HH:mm:ss');
+			console.log(revert_time);
+
 			_axios2.default.post(update_url, {
+				created_at: revert_time,
+				// created_at: $('#creation-date-start').val(),
 				project_code: (0, _jquery2.default)('input[name=project_code]').val(),
 				project_name: (0, _jquery2.default)('input[name=project_name]').val(),
 				project_status: project_status,
-				dev_managers: dev_managers
+				project_managers: project_managers,
+				dev_managers: dev_managers,
+				acct_managers: acct_managers
 			}).then(function (response) {
 				this.setState({
 					count: response.data.length,
@@ -65828,7 +65965,8 @@ var Results = function (_React$Component) {
 						dev_eta: project.dev_eta, dev_status: project.dev_status,
 						qa_eta: project.qa_eta, qa_status: project.qa_status,
 						uat_eta: project.uat_eta, uat_status: project.uat_status,
-						prod_eta: project.prod_eta, prod_status: project.prod_status });
+						prod_eta: project.prod_eta, prod_status: project.prod_status,
+						created_at: project.created_at });
 				});
 			} else {
 				renderedResults = (0, _reactRenderHtml2.default)("<tr><td colspan='9'>Sorry, no results found.</td></tr>");
@@ -68389,7 +68527,7 @@ var Transform = __webpack_require__(480);
 
 /*<replacement>*/
 var util = __webpack_require__(381);
-util.inherits = __webpack_require__(376);
+util.inherits = __webpack_require__(377);
 /*</replacement>*/
 
 util.inherits(PassThrough, Transform);
