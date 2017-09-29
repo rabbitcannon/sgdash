@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import Axios from 'axios';
 import _ from 'underscore';
 
+import DatePickerStart from '../../../../components/universal/date-picker-start.jsx'
+import DatePickerEnd from '../../../../components/universal/date-picker-end.jsx'
+
 const url = '/admin/search/projects';
 // const url = '/api/v1/projects';
 
@@ -11,34 +14,33 @@ class ResultFilter extends React.Component {
 
         this.state = {
             project_status: [],
-            dev_managers: []
+            project_managers: [],
+            dev_managers: [],
+            acct_managers: [],
         }
     }
 
     componentDidMount() {
-        this.getProjectStatus();
-        this.getDevManagers();
+        this.getControlData();
     }
 
-	getProjectStatus = () => {
-		Axios.get('/api/v1/controls/project-status').then(function(response) {
-			this.setState({
-				project_status: response.data
-			});
-		}.bind(this)).catch((error) => {
-			console.log(error);
-		});
-	}
-
-    getDevManagers = () => {
-        Axios.get('/api/v1/controls/manager/development').then(function(response) {
+    getControlData = () => {
+		Axios.all([
+			Axios.get('/api/v1/controls/project-status'),
+			Axios.get('/api/v1/controls/manager/project'),
+			Axios.get('/api/v1/controls/manager/development'),
+			Axios.get('/api/v1/controls/manager/account'),
+        ]).then(Axios.spread(function (statuses, projectmans, devmans, acctmans) {
             this.setState({
-				dev_managers: response.data
-			});
-        }.bind(this)).catch((error) => {
+                project_status: statuses.data,
+                project_managers: projectmans.data,
+                dev_managers: devmans.data,
+                acct_managers: acctmans.data,
+            });
+        }.bind(this))).catch(function(error) {
             console.log(error);
         });
-    }
+	}
 
     render () {
         const styles = {
@@ -55,12 +57,28 @@ class ResultFilter extends React.Component {
 			);
 		});
 
-		let devManagerBoxes = _.map(this.state.dev_managers, (manager) => {
+		let projectManagerBoxes = _.map(this.state.project_managers, (projectmanager) => {
 			return (
                 <li>
-                    <input type="checkbox" name="dev_managers[]" key={manager.id} defaultValue={manager.id}/> <label>{manager.first_name} {manager.last_name}</label>
+                    <input type="checkbox" name="project_managers[]" key={projectmanager.id} defaultValue={projectmanager.id}/> <label>{projectmanager.first_name} {projectmanager.last_name}</label>
+                </li>
+			);
+		});
+
+		let devManagerBoxes = _.map(this.state.dev_managers, (devmanager) => {
+			return (
+                <li>
+                    <input type="checkbox" name="dev_managers[]" key={devmanager.id} defaultValue={devmanager.id}/> <label>{devmanager.first_name} {devmanager.last_name}</label>
                 </li>
             );
+		});
+
+		let acctManagerBoxes = _.map(this.state.acct_managers, (acctmanager) => {
+			return (
+                <li>
+                    <input type="checkbox" name="acct_managers[]" key={acctmanager.id} defaultValue={acctmanager.id}/> <label>{acctmanager.first_name} {acctmanager.last_name}</label>
+                </li>
+			);
 		});
 
         return (
@@ -89,11 +107,11 @@ class ResultFilter extends React.Component {
                             <div id="filter-form">
                                 <form method="post" onSubmit={this.props.updateProjects.bind(this, url)}>
                                     <div className="row expanded">
-                                        <fieldset className="large-3 columns">
+                                        <fieldset className="large-3 columns text-center">
                                             <legend>Creation Date</legend>
                                             <hr/>
-                                            <div id="date-picker-start"></div>
-                                            <div id="date-picker-end"></div>
+                                            <DatePickerStart />
+                                            <DatePickerEnd />
                                         </fieldset>
 
                                         <fieldset className="large-3 columns">
@@ -114,18 +132,51 @@ class ResultFilter extends React.Component {
 
                                             <ul name="project-status-list" className="column-list">
                                                 {projectStatusBoxes}
-                                                {/*<li>*/}
-                                                    {/*/!*<input className="project_status" name="project_status[]" value="{!! $project_status->id !!}" type="checkbox" />*!/*/}
-
-                                                        {/*<label>*/}
-                                                            {/*/!*{!! $project_status->name !!}*!/*/}
-                                                        {/*</label>*/}
-                                                {/*</li>*/}
                                             </ul>
                                         </fieldset>
                                     </div>
 
-                                    <input type="submit" className="button" value="BUTTON SON!" />
+                                    <div className="row expanded">
+                                        <fieldset className="large-4 columns">
+                                            <legend>Project Manager</legend>
+                                            <hr/>
+
+                                            <ul className="column-list">
+                                                {projectManagerBoxes}
+                                            </ul>
+                                        </fieldset>
+
+                                        <fieldset className="large-4 columns">
+                                            <legend>Development Manager</legend>
+                                            <hr/>
+
+                                            <ul className="column-list">
+                                                {devManagerBoxes}
+                                            </ul>
+                                        </fieldset>
+
+                                        <fieldset className="large-4 columns">
+                                            <legend>Account Manager</legend>
+                                            <hr/>
+
+                                            <ul className="column-list">
+                                                {acctManagerBoxes}
+                                            </ul>
+                                        </fieldset>
+                                    </div>
+
+                                    <hr />
+                                    <div className="row expanded">
+                                        <div className="large-12 columns text-center pad-box">
+                                            <button type="reset" className="button cancel-button">
+                                                <i className="fa fa-times" aria-hidden="true"></i> Clear Form
+                                            </button>
+
+                                            <button id="search-btn" type="submit" className="button ">
+                                                <i className="fa fa-search" aria-hidden="true"></i> Search
+                                            </button>
+                                        </div>
+                                    </div>
 
                                 </form>
                             </div>

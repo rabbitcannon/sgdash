@@ -24,43 +24,20 @@ class Results extends React.Component {
 
 	componentDidMount() {
 		this.getProjects(url);
+		this.accordionPanel();
 		toastr.options.newestOnTop = true;
 		toastr.options.showMethod = 'slideDown';
 	}
 
-	_getProjectStatus = () => {
-		var project_status = new Array();
-		$.each($("input[name='project_status[]']:checked"), function() {
-			project_status.push($(this).val());
-		});
-		console.log(project_status);
-		return project_status;
-	}
+	accordionPanel = () => {
+		$(document).ready(function() {
+			$('button#toggle-collapse').on('click', function() {
+				$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
 
-	_getProjectManagers = () => {
-		var project_managers = new Array();
-		$.each($("input[name='project_managers[]']:checked"), function() {
-			project_managers.push($(this).val());
+				var $chevron = $('i#collapse-chevron');
+				$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+			});
 		});
-		console.log(project_managers);
-		return project_managers;
-	}
-
-	_getDevelopmentManagers = () => {
-		var dev_managers = new Array();
-		$.each($("input[name='dev_managers[]']:checked"), function() {
-			dev_managers.push($(this).val());
-		});
-		console.log(dev_managers);
-		return dev_managers;
-	}
-	_getAccountManagers = () => {
-		var acct_managers = new Array();
-		$.each($("input[name='acct_managers[]']:checked"), function() {
-			acct_managers.push($(this).val());
-		});
-		console.log(acct_managers);
-		return acct_managers;
 	}
 
 	updateProjects = (update_url, event) => {
@@ -93,13 +70,8 @@ class Results extends React.Component {
 			}
 		});
 
-		var current_time = $('#creation-date-start').val();
-		var revert_time = Moment(current_time).format('YYYY-MM-DD HH:mm:ss');
-		console.log(revert_time);
-
 		Axios.post(update_url, {
-			created_at: revert_time,
-			// created_at: $('#creation-date-start').val(),
+			created_at: $('#creation-date-start').val(),
 			project_code: $('input[name=project_code]').val(),
 			project_name: $('input[name=project_name]').val(),
 			project_status: project_status,
@@ -117,6 +89,15 @@ class Results extends React.Component {
 			console.log(error);
 			toastr.error('Unable to retrieve results, please try again.');
 		});
+
+		var hidden = $('div#filter-form').is(':hidden');
+
+		if(!hidden) {
+			$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
+
+			var $chevron = $('i#collapse-chevron');
+			$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+		}
 	}
 
 	getProjects(url) {

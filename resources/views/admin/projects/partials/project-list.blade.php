@@ -1,7 +1,7 @@
 <div class="row expanded">
     <div class="large-12 columns">
 
-        @include('admin.projects.partials.filter-results')
+        @include('layouts.partials.react-script', ['script' => 'admin/projects'])
 
         <div id="project-list"></div>
 
@@ -10,7 +10,9 @@
         </div>
 
         <div id="loader" style="display: block;">
-            <img src="/images/preloaders/loader.svg" />
+            <div class="load-image">
+                <img src="/images/preloaders/loader.svg" />
+            </div>
         </div>
 
         @include('layouts.partials.react-script', ['script' => 'admin/projects'])

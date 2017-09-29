@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactDatePicker from 'react-datepicker';
 import Moment from 'moment';
 
-export default class DatePickerEnd extends React.Component {
+class DatePickerEnd extends React.Component {
     constructor() {
         super();
 
@@ -26,11 +26,13 @@ export default class DatePickerEnd extends React.Component {
             <ReactDatePicker
 				id="creation-date-end"
 				name="creation-date-end"
-                selected={this.state.date}
-                onChange={this.handleChange}
+				showMonthDropdown
+				showYearDropdown
+				selected={this.state.date}
+				onChange={this.handleChange}
             />
         );
     }
 }
 
-ReactDOM.render(<DatePickerEnd />, document.getElementById("date-picker-end"));
+export default DatePickerEnd;

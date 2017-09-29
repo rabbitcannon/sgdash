@@ -18,8 +18,8 @@ class Project extends Model
      * @var array
      */
     protected $fillable = ['code', 'name', 'status', 'acct_manager', 'dev_manager', 'project_manager', 'trend',
-        'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta', 'deleted_at'];
-
+        'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta', 'deleted_at'
+    ];
 
     /**
      * @param $id

@@ -9677,7 +9677,6 @@ button.toast-close-button {
 .react-datepicker__input-container {
   position: relative;
   display: inline-block;
-  width: 359px;
 }
 
 .react-datepicker__year-read-view,
@@ -10241,7 +10240,7 @@ body {
 #loader {
   width: 200px;
   height: 200px;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   z-index: 999;
