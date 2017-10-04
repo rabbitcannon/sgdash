@@ -5,27 +5,27 @@
   CS02 - Form
 
 **/
-
 /** CS01 General Items
  ===================== **/
-
-html,
-body {
+html, body {
   font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background: url(/images/slots.jpg?e0a30f1cbc37c65926f896deac8d1bdb);
+  background: url("assets/images/bgs/slots.jpg");
 }
 
 .button {
   background-color: #263238;
+  -webkit-transition-duration: .5s;
   transition-duration: .5s;
-  transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
 }
 
 .button:hover {
-  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
   background-color: #57666D;
 }
 
@@ -51,12 +51,12 @@ body {
 }
 
 .shadowbox {
-  box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.51);
+  -webkit-box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.51);
+          box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.51);
 }
 
 /** CS02 Form
  ===================== **/
-
 .data-card-small {
   background-color: white;
   margin: 15px 0;

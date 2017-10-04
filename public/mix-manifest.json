@@ -1,12 +1,11 @@
 {
-  "/assets/js/react/app-components.js": "/assets/js/react/app-components.js",
-  "/assets/js/react/pages/public/projects.js": "/assets/js/react/pages/public/projects.js",
-  "/assets/js/react/pages/admin/users.js": "/assets/js/react/pages/admin/users.js",
-  "/assets/js/react/pages/admin/projects.js": "/assets/js/react/pages/admin/projects.js",
-  "/mix.js": "/mix.js",
-  "/assets/css/app.css": "/assets/css/app.css",
-  "/assets/css/login/login.css": "/assets/css/login/login.css",
-  "/assets/js/pages/tickets.js": "/assets/js/pages/tickets.js",
-  "/assets/css/animations.css": "/assets/css/animations.css",
-  "/assets/js/app.js": "/assets/js/app.js"
+    "/assets/js/react/app-components.js": "/assets/js/react/app-components.js",
+    "/assets/js/react/pages/admin/projects.js": "/assets/js/react/pages/admin/projects.js",
+    "/assets/js/react/pages/admin/users.js": "/assets/js/react/pages/admin/users.js",
+    "/assets/js/react/pages/public/projects.js": "/assets/js/react/pages/public/projects.js",
+    "/assets/js/pages/tickets.js": "/assets/js/pages/tickets.js",
+    "/assets/css/app.css": "/assets/css/app.css",
+    "/assets/css/login/login.css": "/assets/css/login/login.css",
+    "/assets/css/animations.css": "/assets/css/animations.css",
+    "/assets/js/app.js": "/assets/js/app.js"
 }

@@ -24,6 +24,11 @@ class ResultFilter extends React.Component {
         this.getControlData();
     }
 
+    removeDates = () => {
+        $('#creation-date-start').val("");
+        $('#creation-date-end').val("");
+    }
+
     getControlData = () => {
 		Axios.all([
 			Axios.get('/api/v1/controls/project-status'),
@@ -46,13 +51,18 @@ class ResultFilter extends React.Component {
         const styles = {
             icon: {
                 marginLeft: 60
+            },
+            pad: {
+                display: 'none',
+                padding: 15,
             }
         }
 
 		let projectStatusBoxes = _.map(this.state.project_status, (status) => {
 			return (
                 <li>
-                    <input type="checkbox" name="project_status[]" key={status.id} defaultValue={status.id}/> <label>{status.name}</label>
+                    <input type="checkbox" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}/>
+                    &nbsp;<label value={status.name}>{status.name}</label>
                 </li>
 			);
 		});
@@ -60,7 +70,9 @@ class ResultFilter extends React.Component {
 		let projectManagerBoxes = _.map(this.state.project_managers, (projectmanager) => {
 			return (
                 <li>
-                    <input type="checkbox" name="project_managers[]" key={projectmanager.id} defaultValue={projectmanager.id}/> <label>{projectmanager.first_name} {projectmanager.last_name}</label>
+                    <input type="checkbox" name="project_managers[]" key={projectmanager.id}
+                        data-value={projectmanager.first_name + " " + projectmanager.last_name} defaultValue={projectmanager.id}/>
+                    &nbsp;<label>{projectmanager.first_name} {projectmanager.last_name}</label>
                 </li>
 			);
 		});
@@ -68,7 +80,9 @@ class ResultFilter extends React.Component {
 		let devManagerBoxes = _.map(this.state.dev_managers, (devmanager) => {
 			return (
                 <li>
-                    <input type="checkbox" name="dev_managers[]" key={devmanager.id} defaultValue={devmanager.id}/> <label>{devmanager.first_name} {devmanager.last_name}</label>
+                    <input type="checkbox" name="dev_managers[]" key={devmanager.id}
+                        data-value={devmanager.first_name + " " + devmanager.last_name} defaultValue={devmanager.id}/>
+                    &nbsp;<label>{devmanager.first_name} {devmanager.last_name}</label>
                 </li>
             );
 		});
@@ -76,7 +90,9 @@ class ResultFilter extends React.Component {
 		let acctManagerBoxes = _.map(this.state.acct_managers, (acctmanager) => {
 			return (
                 <li>
-                    <input type="checkbox" name="acct_managers[]" key={acctmanager.id} defaultValue={acctmanager.id}/> <label>{acctmanager.first_name} {acctmanager.last_name}</label>
+                    <input type="checkbox" name="acct_managers[]" key={acctmanager.id}
+                        data-value={acctmanager.first_name + " " + acctmanager.last_name} defaultValue={acctmanager.id}/>
+                    &nbsp;<label>{acctmanager.first_name} {acctmanager.last_name}</label>
                 </li>
 			);
 		});
@@ -99,19 +115,21 @@ class ResultFilter extends React.Component {
                                     </button>
                                 </div>
                             </div>
-
                         </div>
 
-                        <div className="data-content">
 
+
+                        <div className="data-content">
                             <div id="filter-form">
                                 <form method="post" onSubmit={this.props.updateProjects.bind(this, url)}>
                                     <div className="row expanded">
-                                        <fieldset className="large-3 columns text-center">
+                                        <fieldset className="large-3 columns">
                                             <legend>Creation Date</legend>
                                             <hr/>
-                                            <DatePickerStart />
-                                            <DatePickerEnd />
+                                            <div className="text-center">
+                                                <DatePickerStart />
+                                                <DatePickerEnd />
+                                            </div>
                                         </fieldset>
 
                                         <fieldset className="large-3 columns">
@@ -165,6 +183,13 @@ class ResultFilter extends React.Component {
                                         </fieldset>
                                     </div>
 
+                                    <div className="row expanded">
+                                        <div id="tag-wrapper" className="large-12 columns" style={styles.pad}>
+                                            <legend>Search Tags</legend>
+                                            <div id="tag-container"></div>
+                                        </div>
+                                    </div>
+
                                     <hr />
                                     <div className="row expanded">
                                         <div className="large-12 columns text-center pad-box">
@@ -172,7 +197,7 @@ class ResultFilter extends React.Component {
                                                 <i className="fa fa-times" aria-hidden="true"></i> Clear Form
                                             </button>
 
-                                            <button id="search-btn" type="submit" className="button ">
+                                            <button id="search-btn" type="submit" className="button">
                                                 <i className="fa fa-search" aria-hidden="true"></i> Search
                                             </button>
                                         </div>

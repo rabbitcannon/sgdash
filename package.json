@@ -8,33 +8,32 @@
     "production": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.16.2",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^3.2.3",
-    "css-loader": "^0.28.4",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
     "foundation-sites": "^6.3.1",
-    "jquery": "^3.1.1",
-    "laravel-mix": "0.*",
+    "laravel-mix": "^1.4.5",
     "lodash": "^4.17.4",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-chartjs": "^0.8.0",
-    "react-dom": "^15.5.4",
+    "react-dom": "^16.0.0",
     "react-render-html": "^0.5.2",
+    "smoothstate": "^0.7.2",
     "underscore": "^1.8.3"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "axios": "^0.15.3",
     "hideshowpassword": "^2.1.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
-    "react-datepicker": "^0.53.0",
-    "react-transition-group": "^2.2.0",
+    "react-datepicker": "^0.55.0",
+    "react-transition-group": "^2.2.1",
     "toastr": "^2.1.2"
   }
 }

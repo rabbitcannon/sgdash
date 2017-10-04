@@ -7,6 +7,7 @@
   CS02 - Filter Elements
   CS03 - Comments Elements
   CS04 - Toastr Elements
+  CS05- Tag Elements
 
 **/
 
@@ -175,4 +176,38 @@
 #toast-container > .toast-success:before {
   background-color: $success-green;
   content: "\f00c";
+}
+
+/** CS05 Tag Elements
+ ===================== **/
+#tag-wrapper {
+  border-top: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  padding: 20px;
+}
+
+span {
+  &.tag {
+    @include border-radius(5px);
+    background-color: $dark-blue;
+    color: $silver;
+    font-weight: 400;
+    padding: 7px 12px;
+    margin-right: 12px;
+
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+    transition-timing-function: ease-in;
+
+    &:before {
+      color: $silver;
+      content: "X | ";
+    }
+
+    &:hover {
+      transition-timing-function: ease-out;
+      background-color: $blue-gray;
+      cursor: pointer;
+    }
+  }
 }

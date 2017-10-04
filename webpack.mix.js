@@ -11,6 +11,10 @@ const { mix } = require('laravel-mix');
  |
  */
 
+mix.options({
+	processCssUrls: false
+});
+
 //--  Style Files --//
 // ========================= //
 mix.sass('resources/assets/sass/app.scss', 'public/assets/css');

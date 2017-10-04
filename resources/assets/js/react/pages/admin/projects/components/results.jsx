@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Axios from 'axios';
 import toastr from 'toastr';
 import RenderHTML from 'react-render-html';
-import Moment from 'moment';
 import _ from 'underscore';
 import $ from 'jquery';
 
@@ -25,6 +24,7 @@ class Results extends React.Component {
 	componentDidMount() {
 		this.getProjects(url);
 		this.accordionPanel();
+		this.clearTagRunner();
 		toastr.options.newestOnTop = true;
 		toastr.options.showMethod = 'slideDown';
 	}
@@ -42,8 +42,14 @@ class Results extends React.Component {
 
 	updateProjects = (update_url, event) => {
 		event.preventDefault();
+		event.stopPropagation()
 		var loader = $('#loader');
 		loader.show();
+
+		$('div#tag-container').find('.tag').remove();
+
+		var start_date = $('#creation-date-start').val();
+		var end_date = $('#creation-date-end').val();
 
 		var project_status = [];
 		var project_managers = [];
@@ -70,6 +76,14 @@ class Results extends React.Component {
 			}
 		});
 
+		$('#creation-date-start').val(start_date);
+		$('#creation-date-end').val(end_date);
+
+		console.log(start_date);
+		console.log(end_date);
+
+		this.tagRunner();
+
 		Axios.post(update_url, {
 			created_at: $('#creation-date-start').val(),
 			project_code: $('input[name=project_code]').val(),
@@ -90,14 +104,40 @@ class Results extends React.Component {
 			toastr.error('Unable to retrieve results, please try again.');
 		});
 
-		var hidden = $('div#filter-form').is(':hidden');
+		// var hidden = $('div#filter-form').is(':hidden');
+		//
+		// if(!hidden) {
+		// 	$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
+		//
+		// 	var $chevron = $('i#collapse-chevron');
+		// 	$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+		// }
+	}
 
-		if(!hidden) {
-			$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
+	tagRunner = () => {
+		$('div#tag-wrapper').fadeIn(250);
 
-			var $chevron = $('i#collapse-chevron');
-			$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+		var start_date = $('#creation-date-start').val();
+		var end_date = $('#creation-date-end').val();
+
+		if(start_date) {
+			$("div#tag-container").append("<span class='tag'>" + start_date + "</span>");
 		}
+		else if(end_date) {
+			$("div#tag-container").append("<span class='tag'>" + end_date + "</span>");
+		}
+
+		$('input[type="checkbox"]:checked').each(function() {
+			let tag_name = $(this).attr('data-value');
+			$("div#tag-container").append("<span class='tag'>" + tag_name + "</span>");
+		});
+	}
+
+	clearTagRunner = () => {
+		$('span .tag').on('click', function() {
+			console.log($(this));
+			$(this).remove();
+		})
 	}
 
 	getProjects(url) {
