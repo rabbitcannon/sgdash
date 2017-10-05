@@ -58,6 +58,16 @@ class ResultFilter extends React.Component {
             }
         }
 
+		// let projectStatusTags = _.map(this.state.project_status, (status) => {
+		// 	return (
+         //        <li>
+         //            <span className="tag" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}>
+         //                {status.name}
+         //            </span>
+         //        </li>
+		// 	);
+		// });
+
 		let projectStatusBoxes = _.map(this.state.project_status, (status) => {
 			return (
                 <li>
@@ -147,7 +157,9 @@ class ResultFilter extends React.Component {
                                         <fieldset className="large-3 columns">
                                             <legend>Project Status</legend>
                                             <hr/>
-
+                                            <ul name="project-status-tags" className="column-list">
+												{/*{projectStatusTags}*/}
+                                            </ul>
                                             <ul name="project-status-list" className="column-list">
                                                 {projectStatusBoxes}
                                             </ul>

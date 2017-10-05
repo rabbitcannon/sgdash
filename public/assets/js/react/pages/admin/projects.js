@@ -63861,8 +63861,8 @@ var Results = function (_React$Component) {
 			(0, _jquery2.default)('#creation-date-start').val(start_date);
 			(0, _jquery2.default)('#creation-date-end').val(end_date);
 
-			console.log(start_date);
-			console.log(end_date);
+			// console.log(start_date);
+			// console.log(end_date);
 
 			_this.tagRunner();
 
@@ -63903,20 +63903,20 @@ var Results = function (_React$Component) {
 			var end_date = (0, _jquery2.default)('#creation-date-end').val();
 
 			if (start_date) {
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag'>" + start_date + "</span>");
+				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + start_date + "</span>");
 			} else if (end_date) {
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag'>" + end_date + "</span>");
+				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + end_date + "</span>");
 			}
 
 			(0, _jquery2.default)('input[type="checkbox"]:checked').each(function () {
 				var tag_name = (0, _jquery2.default)(this).attr('data-value');
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag'>" + tag_name + "</span>");
+				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + tag_name + "</span>");
 			});
 		};
 
 		_this.clearTagRunner = function () {
-			(0, _jquery2.default)('span .tag').on('click', function () {
-				console.log((0, _jquery2.default)(this));
+			console.log('test');
+			(0, _jquery2.default)('div#tag-container').on('click', '.tag', function () {
 				(0, _jquery2.default)(this).remove();
 			});
 		};
@@ -68325,9 +68325,18 @@ var ResultFilter = function (_React$Component) {
                     display: 'none',
                     padding: 15
                 }
-            };
 
-            var projectStatusBoxes = _underscore2.default.map(this.state.project_status, function (status) {
+                // let projectStatusTags = _.map(this.state.project_status, (status) => {
+                // 	return (
+                //        <li>
+                //            <span className="tag" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}>
+                //                {status.name}
+                //            </span>
+                //        </li>
+                // 	);
+                // });
+
+            };var projectStatusBoxes = _underscore2.default.map(this.state.project_status, function (status) {
                 return _jsx('li', {}, void 0, _jsx('input', {
                     type: 'checkbox',
                     name: 'project_status[]',
@@ -68393,6 +68402,9 @@ var ResultFilter = function (_React$Component) {
             }, void 0, _ref3, _ref4, _ref5, _jsx('fieldset', {
                 className: 'large-3 columns'
             }, void 0, _ref6, _ref7, _jsx('ul', {
+                name: 'project-status-tags',
+                className: 'column-list'
+            }, void 0), _jsx('ul', {
                 name: 'project-status-list',
                 className: 'column-list'
             }, void 0, projectStatusBoxes))), _jsx('div', {

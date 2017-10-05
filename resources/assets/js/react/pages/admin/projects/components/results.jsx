@@ -79,8 +79,8 @@ class Results extends React.Component {
 		$('#creation-date-start').val(start_date);
 		$('#creation-date-end').val(end_date);
 
-		console.log(start_date);
-		console.log(end_date);
+		// console.log(start_date);
+		// console.log(end_date);
 
 		this.tagRunner();
 
@@ -121,21 +121,20 @@ class Results extends React.Component {
 		var end_date = $('#creation-date-end').val();
 
 		if(start_date) {
-			$("div#tag-container").append("<span class='tag'>" + start_date + "</span>");
+			$("div#tag-container").append("<span class='tag selected'>" + start_date + "</span>");
 		}
 		else if(end_date) {
-			$("div#tag-container").append("<span class='tag'>" + end_date + "</span>");
+			$("div#tag-container").append("<span class='tag selected'>" + end_date + "</span>");
 		}
 
 		$('input[type="checkbox"]:checked').each(function() {
 			let tag_name = $(this).attr('data-value');
-			$("div#tag-container").append("<span class='tag'>" + tag_name + "</span>");
+			$("div#tag-container").append("<span class='tag selected'>" + tag_name + "</span>");
 		});
 	}
 
 	clearTagRunner = () => {
-		$('span .tag').on('click', function() {
-			console.log($(this));
+		$('div#tag-container').on('click', '.tag', function() {
 			$(this).remove();
 		})
 	}
