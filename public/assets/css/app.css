@@ -9505,7 +9505,6 @@ button.toast-close-button {
 
 .column-list li {
   float: left;
-  width: 45%;
 }
 
 /** CS03 Comments Elements
@@ -9629,19 +9628,18 @@ button.toast-close-button {
 
 /** CS05 Tag Elements
  ===================== **/
-#tag-wrapper {
-  border-top: 1px solid #CDCDCD;
-  border-bottom: 1px solid #CDCDCD;
-  padding: 20px;
+.tag-group {
+  padding: 0 20px;
 }
 
-span.tag {
+ul li.tag {
   border-radius: 5px;
   background-clip: padding-box;
   background-color: #263238;
   color: #CCC;
-  font-weight: 400;
+  font-weight: 500;
   padding: 7px 12px;
+  margin-bottom: 12px;
   margin-right: 12px;
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
@@ -9649,12 +9647,36 @@ span.tag {
           transition-timing-function: ease-in;
 }
 
-span.tag.selected:before {
+ul li.tag.pm {
+  background-color: #24617F;
+}
+
+ul li.tag.pm:hover {
+  background-color: #2B7499;
+}
+
+ul li.tag.dm {
+  background-color: #7F4A4F;
+}
+
+ul li.tag.dm:hover {
+  background-color: #CC767F;
+}
+
+ul li.tag.am {
+  background-color: #444444;
+}
+
+ul li.tag.am:hover {
+  background-color: #7F7F7F;
+}
+
+ul li.tag.selected:before {
   color: #CCC;
   content: "X | ";
 }
 
-span.tag:hover {
+ul li.tag:hover {
   -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
   background-color: #57666D;

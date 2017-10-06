@@ -49,7 +49,7 @@
 
   li {
     float: left;
-    width: 45%;
+    //width: 45%;
   }
 }
 
@@ -180,34 +180,63 @@
 
 /** CS05 Tag Elements
  ===================== **/
-#tag-wrapper {
-  border-top: 1px solid $light-gray;
-  border-bottom: 1px solid $light-gray;
-  padding: 20px;
+.tag-group {
+  padding: 0 20px;
 }
 
-span {
-  &.tag {
-    @include border-radius(5px);
-    background-color: $dark-blue;
-    color: $silver;
-    font-weight: 400;
-    padding: 7px 12px;
-    margin-right: 12px;
+ul {
+  //&#pm-tags li {
+  //  background-color: $light-blue;
+  //  &:hover {
+  //    background-color: $light-blue-hover;
+  //  }
+  //}
 
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-    transition-timing-function: ease-in;
-
-    &.selected:before {
+  li {
+    &.tag {
+      @include border-radius(5px);
+      background-color: $dark-blue;
       color: $silver;
-      content: "X | ";
-    }
+      font-weight: 500;
+      padding: 7px 12px;
+      margin-bottom: 12px;
+      margin-right: 12px;
 
-    &:hover {
-      transition-timing-function: ease-out;
-      background-color: $blue-gray;
-      cursor: pointer;
+      &.pm {
+        background-color: $light-blue;
+        &:hover {
+          background-color: $light-blue-hover;
+        }
+      }
+
+      &.dm {
+        background-color: $salmon;
+        &:hover {
+          background-color: $salmon-hover;
+        }
+      }
+
+      &.am {
+        background-color: $evergreen;
+        &:hover {
+          background-color: $evergreen-hover;
+        }
+      }
+
+      -webkit-transition-duration: .5s;
+      transition-duration: .5s;
+      transition-timing-function: ease-in;
+
+      &.selected:before {
+        color: $silver;
+        content: "X | ";
+      }
+
+      &:hover {
+        transition-timing-function: ease-out;
+        background-color: $blue-gray;
+        cursor: pointer;
+      }
     }
   }
 }

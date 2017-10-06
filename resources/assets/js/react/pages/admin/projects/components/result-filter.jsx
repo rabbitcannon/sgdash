@@ -47,6 +47,44 @@ class ResultFilter extends React.Component {
         });
 	}
 
+	clearForm = () => {
+		$('ul#tag-container').find('.tag').each(function() {
+			var  $this = $(this);
+
+			if($this.attr('name') == "project_status[]") {
+				var data_value = $(this).attr("data-value");
+				var value = $(this).val();
+				$this.remove();
+				$("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "project_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "dev_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "acct_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+		});
+    }
+
     render () {
         const styles = {
             icon: {
@@ -58,51 +96,37 @@ class ResultFilter extends React.Component {
             }
         }
 
-		// let projectStatusTags = _.map(this.state.project_status, (status) => {
-		// 	return (
-         //        <li>
-         //            <span className="tag" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}>
-         //                {status.name}
-         //            </span>
-         //        </li>
-		// 	);
-		// });
-
-		let projectStatusBoxes = _.map(this.state.project_status, (status) => {
+		let projectStatusTags = _.map(this.state.project_status, (status) => {
 			return (
-                <li>
-                    <input type="checkbox" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}/>
-                    &nbsp;<label value={status.name}>{status.name}</label>
+                <li className="tag" name="project_status[]" key={status.id} data-value={status.name} value={status.id}>
+                    {status.name}
                 </li>
 			);
 		});
 
-		let projectManagerBoxes = _.map(this.state.project_managers, (projectmanager) => {
+		let projectManagerTags = _.map(this.state.project_managers, (projectmanager) => {
 			return (
-                <li>
-                    <input type="checkbox" name="project_managers[]" key={projectmanager.id}
-                        data-value={projectmanager.first_name + " " + projectmanager.last_name} defaultValue={projectmanager.id}/>
-                    &nbsp;<label>{projectmanager.first_name} {projectmanager.last_name}</label>
+                <li className="tag pm" name="project_managers[]" key={projectmanager.id} data-value={projectmanager.first_name + " " + projectmanager.last_name}
+                    value={projectmanager.id}>
+					{projectmanager.first_name} {projectmanager.last_name}
                 </li>
 			);
 		});
 
-		let devManagerBoxes = _.map(this.state.dev_managers, (devmanager) => {
+		let developmentManagerTags = _.map(this.state.dev_managers, (devmanager) => {
 			return (
-                <li>
-                    <input type="checkbox" name="dev_managers[]" key={devmanager.id}
-                        data-value={devmanager.first_name + " " + devmanager.last_name} defaultValue={devmanager.id}/>
-                    &nbsp;<label>{devmanager.first_name} {devmanager.last_name}</label>
+                <li className="tag dm" name="dev_managers[]" key={devmanager.id} data-value={devmanager.first_name + " " + devmanager.last_name}
+                    value={devmanager.id}>
+					{devmanager.first_name} {devmanager.last_name}
                 </li>
-            );
+			);
 		});
 
-		let acctManagerBoxes = _.map(this.state.acct_managers, (acctmanager) => {
+		let accountManagerTags = _.map(this.state.acct_managers, (acctmanager) => {
 			return (
-                <li>
-                    <input type="checkbox" name="acct_managers[]" key={acctmanager.id}
-                        data-value={acctmanager.first_name + " " + acctmanager.last_name} defaultValue={acctmanager.id}/>
-                    &nbsp;<label>{acctmanager.first_name} {acctmanager.last_name}</label>
+                <li className="tag am" name="acct_managers[]" key={acctmanager.id} data-value={acctmanager.first_name + " " + acctmanager.last_name}
+                    value={acctmanager.id}>
+					{acctmanager.first_name} {acctmanager.last_name}
                 </li>
 			);
 		});
@@ -127,13 +151,11 @@ class ResultFilter extends React.Component {
                             </div>
                         </div>
 
-
-
                         <div className="data-content">
                             <div id="filter-form">
                                 <form method="post" onSubmit={this.props.updateProjects.bind(this, url)}>
                                     <div className="row expanded">
-                                        <fieldset className="large-3 columns">
+                                        <fieldset className="large-4 columns">
                                             <legend>Creation Date</legend>
                                             <hr/>
                                             <div className="text-center">
@@ -142,70 +164,76 @@ class ResultFilter extends React.Component {
                                             </div>
                                         </fieldset>
 
-                                        <fieldset className="large-3 columns">
+                                        <fieldset className="large-4 columns">
                                             <legend>Project Code</legend>
                                             <hr/>
                                             <input type="text" name="project_code" placeholder="Project Code" />
                                         </fieldset>
 
-                                        <fieldset className="large-3 columns">
+                                        <fieldset className="large-4 columns">
                                             <legend>Project Name</legend>
                                             <hr/>
                                             <input type="text" name="project_name" placeholder="Project Name" />
                                         </fieldset>
 
-                                        <fieldset className="large-3 columns">
-                                            <legend>Project Status</legend>
-                                            <hr/>
-                                            <ul name="project-status-tags" className="column-list">
-												{/*{projectStatusTags}*/}
-                                            </ul>
-                                            <ul name="project-status-list" className="column-list">
-                                                {projectStatusBoxes}
-                                            </ul>
-                                        </fieldset>
                                     </div>
 
                                     <div className="row expanded">
-                                        <fieldset className="large-4 columns">
-                                            <legend>Project Manager</legend>
-                                            <hr/>
-
-                                            <ul className="column-list">
-                                                {projectManagerBoxes}
-                                            </ul>
-                                        </fieldset>
-
-                                        <fieldset className="large-4 columns">
-                                            <legend>Development Manager</legend>
-                                            <hr/>
-
-                                            <ul className="column-list">
-                                                {devManagerBoxes}
-                                            </ul>
-                                        </fieldset>
-
-                                        <fieldset className="large-4 columns">
-                                            <legend>Account Manager</legend>
-                                            <hr/>
-
-                                            <ul className="column-list">
-                                                {acctManagerBoxes}
-                                            </ul>
-                                        </fieldset>
-                                    </div>
-
-                                    <div className="row expanded">
-                                        <div id="tag-wrapper" className="large-12 columns" style={styles.pad}>
-                                            <legend>Search Tags</legend>
-                                            <div id="tag-container"></div>
+                                        <div className="large-12 columns tag-group animated fadeIn">
+                                            <fieldset className="fieldset large-12 columns">
+                                                <legend>Project Status</legend>
+                                                <ul id="status-tags" name="project-status-tags" className="column-list">
+                                                    {projectStatusTags}
+                                                </ul>
+                                            </fieldset>
                                         </div>
                                     </div>
 
-                                    <hr />
+                                    <div className="row expanded">
+                                        <div className="large-12 columns tag-group">
+                                            <fieldset className="fieldset large-12 columns">
+                                                <legend>Project Managers </legend>
+                                                <ul id="pm-tags" name="project-manager-tags" className="column-list">
+													{projectManagerTags}
+                                                </ul>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div className="row expanded">
+                                        <div className="large-12 columns tag-group">
+                                            <fieldset className="fieldset large-12 columns">
+                                                <legend>Development Managers </legend>
+                                                <ul id="dm-tags" name="development-manager-tags" className="column-list">
+													{developmentManagerTags}
+                                                </ul>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div className="row expanded">
+                                        <div className="large-12 columns tag-group">
+                                            <fieldset className="fieldset large-12 columns">
+                                                <legend>Account Managers </legend>
+                                                <ul id="am-tags" name="account-manager-tags" className="column-list">
+													{accountManagerTags}
+                                                </ul>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div id="search-tags" className="row expanded">
+                                        <div className="large-12 columns tag-group">
+                                            <fieldset className="fieldset large-12 columns">
+                                            <legend>Search Tags</legend>
+                                                <ul id="tag-container" className="column-list"></ul>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
                                     <div className="row expanded">
                                         <div className="large-12 columns text-center pad-box">
-                                            <button type="reset" className="button cancel-button">
+                                            <button id="clear-form" type="reset" className="button cancel-button" onClick={this.clearForm.bind(this)}>
                                                 <i className="fa fa-times" aria-hidden="true"></i> Clear Form
                                             </button>
 
@@ -214,10 +242,8 @@ class ResultFilter extends React.Component {
                                             </button>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>

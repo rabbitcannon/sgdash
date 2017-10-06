@@ -63811,6 +63811,10 @@ var Results = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this, props));
 
+		_this.componentDidUpdate = function () {
+			// this.hideSearchTagPanel();
+		};
+
 		_this.accordionPanel = function () {
 			(0, _jquery2.default)(document).ready(function () {
 				(0, _jquery2.default)('button#toggle-collapse').on('click', function () {
@@ -63822,13 +63826,21 @@ var Results = function (_React$Component) {
 			});
 		};
 
+		_this.hideSearchTagPanel = function () {
+			if ((0, _jquery2.default)("ul#tag-container li").length > 0) {
+				console.log('has lis');
+				(0, _jquery2.default)("div#search-tags").show();
+			} else {
+				console.log('no lis');
+				(0, _jquery2.default)("div#search-tags").hide();
+			}
+		};
+
 		_this.updateProjects = function (update_url, event) {
 			event.preventDefault();
 			event.stopPropagation();
 			var loader = (0, _jquery2.default)('#loader');
 			loader.show();
-
-			(0, _jquery2.default)('div#tag-container').find('.tag').remove();
 
 			var start_date = (0, _jquery2.default)('#creation-date-start').val();
 			var end_date = (0, _jquery2.default)('#creation-date-end').val();
@@ -63838,7 +63850,8 @@ var Results = function (_React$Component) {
 			var dev_managers = [];
 			var acct_managers = [];
 
-			(0, _jquery2.default)('input[type="checkbox"]:checked').each(function () {
+			(0, _jquery2.default)('ul#tag-container li').each(function () {
+				// $('input[type="checkbox"]:checked').each(function() {
 				var $this = (0, _jquery2.default)(this);
 				var $name = $this.attr('name');
 
@@ -63864,7 +63877,7 @@ var Results = function (_React$Component) {
 			// console.log(start_date);
 			// console.log(end_date);
 
-			_this.tagRunner();
+			// this.tagRunner();
 
 			_axios2.default.post(update_url, {
 				created_at: (0, _jquery2.default)('#creation-date-start').val(),
@@ -63896,28 +63909,85 @@ var Results = function (_React$Component) {
 			// }
 		};
 
-		_this.tagRunner = function () {
-			(0, _jquery2.default)('div#tag-wrapper').fadeIn(250);
+		_this.tagToggle = function () {
+			var $tags = (0, _jquery2.default)("ul#tag-container");
 
-			var start_date = (0, _jquery2.default)('#creation-date-start').val();
-			var end_date = (0, _jquery2.default)('#creation-date-end').val();
+			(0, _jquery2.default)('#status-tags').on('click', '.tag', function (event) {
+				event.preventDefault();
 
-			if (start_date) {
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + start_date + "</span>");
-			} else if (end_date) {
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + end_date + "</span>");
-			}
+				var $this = (0, _jquery2.default)(this);
+				var data_value = $this.attr('data-value');
+				var value = $this.val();
 
-			(0, _jquery2.default)('input[type="checkbox"]:checked').each(function () {
-				var tag_name = (0, _jquery2.default)(this).attr('data-value');
-				(0, _jquery2.default)("div#tag-container").append("<span class='tag selected'>" + tag_name + "</span>");
+				$this.remove();
+				$tags.append("<li class='tag selected' name='project_status[]' data-value=" + data_value + " value=" + value + ">" + $this.attr('data-value') + "</li>");
+			});
+
+			(0, _jquery2.default)('#pm-tags').on('click', '.tag', function (event) {
+				event.preventDefault();
+
+				var $this = (0, _jquery2.default)(this);
+				var data_value = $this.attr("data-value");
+				var value = $this.val();
+
+				$this.remove();
+				$tags.append("<li class='tag pm selected' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+			});
+
+			(0, _jquery2.default)('#dm-tags').on('click', '.tag', function (event) {
+				event.preventDefault();
+
+				var $this = (0, _jquery2.default)(this);
+				var data_value = $this.attr("data-value");
+				var value = $this.val();
+
+				$this.remove();
+				$tags.append("<li class='tag dm selected' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+			});
+
+			(0, _jquery2.default)('#am-tags').on('click', '.tag', function (event) {
+				event.preventDefault();
+
+				var $this = (0, _jquery2.default)(this);
+				var data_value = $this.attr("data-value");
+				var value = $this.val();
+
+				$this.remove();
+				$tags.append("<li class='tag am selected' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
 			});
 		};
 
 		_this.clearTagRunner = function () {
-			console.log('test');
-			(0, _jquery2.default)('div#tag-container').on('click', '.tag', function () {
-				(0, _jquery2.default)(this).remove();
+			(0, _jquery2.default)('ul#tag-container').on('click', '.tag ', function () {
+				var $this = (0, _jquery2.default)(this);
+
+				if ($this.attr('name') == "project_status[]") {
+					var data_value = (0, _jquery2.default)(this).attr("data-value");
+					var value = (0, _jquery2.default)(this).val();
+					$this.remove();
+					(0, _jquery2.default)("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" + $this.attr('data-value') + "</li>");
+				}
+
+				if ($this.attr('name') == "project_managers[]") {
+					var data_value = (0, _jquery2.default)(this).attr('data-value');
+					var value = (0, _jquery2.default)(this).val();
+					$this.remove();
+					(0, _jquery2.default)("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+				}
+
+				if ($this.attr('name') == "dev_managers[]") {
+					var data_value = (0, _jquery2.default)(this).attr('data-value');
+					var value = (0, _jquery2.default)(this).val();
+					$this.remove();
+					(0, _jquery2.default)("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+				}
+
+				if ($this.attr('name') == "acct_managers[]") {
+					var data_value = (0, _jquery2.default)(this).attr('data-value');
+					var value = (0, _jquery2.default)(this).val();
+					$this.remove();
+					(0, _jquery2.default)("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+				}
 			});
 		};
 
@@ -63934,6 +64004,7 @@ var Results = function (_React$Component) {
 		value: function componentDidMount() {
 			this.getProjects(url);
 			this.accordionPanel();
+			this.tagToggle();
 			this.clearTagRunner();
 			_toastr2.default.options.newestOnTop = true;
 			_toastr2.default.options.showMethod = 'slideDown';
@@ -68209,70 +68280,59 @@ var _ref2 = _jsx('i', {
     className: 'fa fa-angle-double-up override'
 });
 
-var _ref3 = _jsx('fieldset', {
-    className: 'large-3 columns'
+var _ref3 = _jsx('div', {
+    className: 'row expanded'
+}, void 0, _jsx('fieldset', {
+    className: 'large-4 columns'
 }, void 0, _jsx('legend', {}, void 0, 'Creation Date'), _jsx('hr', {}), _jsx('div', {
     className: 'text-center'
-}, void 0, _jsx(_datePickerStart2.default, {}), _jsx(_datePickerEnd2.default, {})));
-
-var _ref4 = _jsx('fieldset', {
-    className: 'large-3 columns'
+}, void 0, _jsx(_datePickerStart2.default, {}), _jsx(_datePickerEnd2.default, {}))), _jsx('fieldset', {
+    className: 'large-4 columns'
 }, void 0, _jsx('legend', {}, void 0, 'Project Code'), _jsx('hr', {}), _jsx('input', {
     type: 'text',
     name: 'project_code',
     placeholder: 'Project Code'
-}));
-
-var _ref5 = _jsx('fieldset', {
-    className: 'large-3 columns'
+})), _jsx('fieldset', {
+    className: 'large-4 columns'
 }, void 0, _jsx('legend', {}, void 0, 'Project Name'), _jsx('hr', {}), _jsx('input', {
     type: 'text',
     name: 'project_name',
     placeholder: 'Project Name'
-}));
+})));
 
-var _ref6 = _jsx('legend', {}, void 0, 'Project Status');
+var _ref4 = _jsx('legend', {}, void 0, 'Project Status');
 
-var _ref7 = _jsx('hr', {});
+var _ref5 = _jsx('legend', {}, void 0, 'Project Managers ');
 
-var _ref8 = _jsx('legend', {}, void 0, 'Project Manager');
+var _ref6 = _jsx('legend', {}, void 0, 'Development Managers ');
 
-var _ref9 = _jsx('hr', {});
+var _ref7 = _jsx('legend', {}, void 0, 'Account Managers ');
 
-var _ref10 = _jsx('legend', {}, void 0, 'Development Manager');
-
-var _ref11 = _jsx('hr', {});
-
-var _ref12 = _jsx('legend', {}, void 0, 'Account Manager');
-
-var _ref13 = _jsx('hr', {});
-
-var _ref14 = _jsx('legend', {}, void 0, 'Search Tags');
-
-var _ref15 = _jsx('div', {
-    id: 'tag-container'
-});
-
-var _ref16 = _jsx('hr', {});
-
-var _ref17 = _jsx('div', {
+var _ref8 = _jsx('div', {
+    id: 'search-tags',
     className: 'row expanded'
 }, void 0, _jsx('div', {
-    className: 'large-12 columns text-center pad-box'
-}, void 0, _jsx('button', {
-    type: 'reset',
-    className: 'button cancel-button'
-}, void 0, _jsx('i', {
+    className: 'large-12 columns tag-group'
+}, void 0, _jsx('fieldset', {
+    className: 'fieldset large-12 columns'
+}, void 0, _jsx('legend', {}, void 0, 'Search Tags'), _jsx('ul', {
+    id: 'tag-container',
+    className: 'column-list'
+}))));
+
+var _ref9 = _jsx('i', {
     className: 'fa fa-times',
     'aria-hidden': 'true'
-}), ' Clear Form'), _jsx('button', {
+});
+
+var _ref10 = _jsx('button', {
     id: 'search-btn',
     type: 'submit',
     className: 'button'
 }, void 0, _jsx('i', {
     className: 'fa fa-search',
     'aria-hidden': 'true'
-}), ' Search')));
+}), ' Search');
 
 var ResultFilter = function (_React$Component) {
     _inherits(ResultFilter, _React$Component);
@@ -68297,6 +68357,40 @@ var ResultFilter = function (_React$Component) {
                 });
             }.bind(_this))).catch(function (error) {
                 console.log(error);
+            });
+        };
+
+        _this.clearForm = function () {
+            $('ul#tag-container').find('.tag').each(function () {
+                var $this = $(this);
+
+                if ($this.attr('name') == "project_status[]") {
+                    var data_value = $(this).attr("data-value");
+                    var value = $(this).val();
+                    $this.remove();
+                    $("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" + $this.attr('data-value') + "</li>");
+                }
+
+                if ($this.attr('name') == "project_managers[]") {
+                    var data_value = $(this).attr('data-value');
+                    var value = $(this).val();
+                    $this.remove();
+                    $("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+                }
+
+                if ($this.attr('name') == "dev_managers[]") {
+                    var data_value = $(this).attr('data-value');
+                    var value = $(this).val();
+                    $this.remove();
+                    $("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+                }
+
+                if ($this.attr('name') == "acct_managers[]") {
+                    var data_value = $(this).attr('data-value');
+                    var value = $(this).val();
+                    $this.remove();
+                    $("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
+                }
             });
         };
 
@@ -68325,53 +68419,42 @@ var ResultFilter = function (_React$Component) {
                     display: 'none',
                     padding: 15
                 }
+            };
 
-                // let projectStatusTags = _.map(this.state.project_status, (status) => {
-                // 	return (
-                //        <li>
-                //            <span className="tag" name="project_status[]" key={status.id} data-value={status.name} defaultValue={status.id}>
-                //                {status.name}
-                //            </span>
-                //        </li>
-                // 	);
-                // });
-
-            };var projectStatusBoxes = _underscore2.default.map(this.state.project_status, function (status) {
-                return _jsx('li', {}, void 0, _jsx('input', {
-                    type: 'checkbox',
+            var projectStatusTags = _underscore2.default.map(this.state.project_status, function (status) {
+                return _jsx('li', {
+                    className: 'tag',
                     name: 'project_status[]',
                     'data-value': status.name,
-                    defaultValue: status.id
-                }, status.id), '\xA0', _jsx('label', {
-                    value: status.name
-                }, void 0, status.name));
+                    value: status.id
+                }, status.id, status.name);
             });
 
-            var projectManagerBoxes = _underscore2.default.map(this.state.project_managers, function (projectmanager) {
-                return _jsx('li', {}, void 0, _jsx('input', {
-                    type: 'checkbox',
+            var projectManagerTags = _underscore2.default.map(this.state.project_managers, function (projectmanager) {
+                return _jsx('li', {
+                    className: 'tag pm',
                     name: 'project_managers[]',
                     'data-value': projectmanager.first_name + " " + projectmanager.last_name,
-                    defaultValue: projectmanager.id
-                }, projectmanager.id), '\xA0', _jsx('label', {}, void 0, projectmanager.first_name, ' ', projectmanager.last_name));
+                    value: projectmanager.id
+                }, projectmanager.id, projectmanager.first_name, ' ', projectmanager.last_name);
             });
 
-            var devManagerBoxes = _underscore2.default.map(this.state.dev_managers, function (devmanager) {
-                return _jsx('li', {}, void 0, _jsx('input', {
-                    type: 'checkbox',
+            var developmentManagerTags = _underscore2.default.map(this.state.dev_managers, function (devmanager) {
+                return _jsx('li', {
+                    className: 'tag dm',
                     name: 'dev_managers[]',
                     'data-value': devmanager.first_name + " " + devmanager.last_name,
-                    defaultValue: devmanager.id
-                }, devmanager.id), '\xA0', _jsx('label', {}, void 0, devmanager.first_name, ' ', devmanager.last_name));
+                    value: devmanager.id
+                }, devmanager.id, devmanager.first_name, ' ', devmanager.last_name);
             });
 
-            var acctManagerBoxes = _underscore2.default.map(this.state.acct_managers, function (acctmanager) {
-                return _jsx('li', {}, void 0, _jsx('input', {
-                    type: 'checkbox',
+            var accountManagerTags = _underscore2.default.map(this.state.acct_managers, function (acctmanager) {
+                return _jsx('li', {
+                    className: 'tag am',
                     name: 'acct_managers[]',
                     'data-value': acctmanager.first_name + " " + acctmanager.last_name,
-                    defaultValue: acctmanager.id
-                }, acctmanager.id), '\xA0', _jsx('label', {}, void 0, acctmanager.first_name, ' ', acctmanager.last_name));
+                    value: acctmanager.id
+                }, acctmanager.id, acctmanager.first_name, ' ', acctmanager.last_name);
             });
 
             return _jsx('div', {
@@ -68397,37 +68480,56 @@ var ResultFilter = function (_React$Component) {
             }, void 0, _jsx('form', {
                 method: 'post',
                 onSubmit: this.props.updateProjects.bind(this, url)
-            }, void 0, _jsx('div', {
+            }, void 0, _ref3, _jsx('div', {
                 className: 'row expanded'
-            }, void 0, _ref3, _ref4, _ref5, _jsx('fieldset', {
-                className: 'large-3 columns'
-            }, void 0, _ref6, _ref7, _jsx('ul', {
+            }, void 0, _jsx('div', {
+                className: 'large-12 columns tag-group animated fadeIn'
+            }, void 0, _jsx('fieldset', {
+                className: 'fieldset large-12 columns'
+            }, void 0, _ref4, _jsx('ul', {
+                id: 'status-tags',
                 name: 'project-status-tags',
                 className: 'column-list'
-            }, void 0), _jsx('ul', {
-                name: 'project-status-list',
-                className: 'column-list'
-            }, void 0, projectStatusBoxes))), _jsx('div', {
-                className: 'row expanded'
-            }, void 0, _jsx('fieldset', {
-                className: 'large-4 columns'
-            }, void 0, _ref8, _ref9, _jsx('ul', {
-                className: 'column-list'
-            }, void 0, projectManagerBoxes)), _jsx('fieldset', {
-                className: 'large-4 columns'
-            }, void 0, _ref10, _ref11, _jsx('ul', {
-                className: 'column-list'
-            }, void 0, devManagerBoxes)), _jsx('fieldset', {
-                className: 'large-4 columns'
-            }, void 0, _ref12, _ref13, _jsx('ul', {
-                className: 'column-list'
-            }, void 0, acctManagerBoxes))), _jsx('div', {
+            }, void 0, projectStatusTags)))), _jsx('div', {
                 className: 'row expanded'
             }, void 0, _jsx('div', {
-                id: 'tag-wrapper',
-                className: 'large-12 columns',
-                style: styles.pad
-            }, void 0, _ref14, _ref15)), _ref16, _ref17))))));
+                className: 'large-12 columns tag-group'
+            }, void 0, _jsx('fieldset', {
+                className: 'fieldset large-12 columns'
+            }, void 0, _ref5, _jsx('ul', {
+                id: 'pm-tags',
+                name: 'project-manager-tags',
+                className: 'column-list'
+            }, void 0, projectManagerTags)))), _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _jsx('div', {
+                className: 'large-12 columns tag-group'
+            }, void 0, _jsx('fieldset', {
+                className: 'fieldset large-12 columns'
+            }, void 0, _ref6, _jsx('ul', {
+                id: 'dm-tags',
+                name: 'development-manager-tags',
+                className: 'column-list'
+            }, void 0, developmentManagerTags)))), _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _jsx('div', {
+                className: 'large-12 columns tag-group'
+            }, void 0, _jsx('fieldset', {
+                className: 'fieldset large-12 columns'
+            }, void 0, _ref7, _jsx('ul', {
+                id: 'am-tags',
+                name: 'account-manager-tags',
+                className: 'column-list'
+            }, void 0, accountManagerTags)))), _ref8, _jsx('div', {
+                className: 'row expanded'
+            }, void 0, _jsx('div', {
+                className: 'large-12 columns text-center pad-box'
+            }, void 0, _jsx('button', {
+                id: 'clear-form',
+                type: 'reset',
+                className: 'button cancel-button',
+                onClick: this.clearForm.bind(this)
+            }, void 0, _ref9, ' Clear Form'), _ref10))))))));
         }
     }]);
 

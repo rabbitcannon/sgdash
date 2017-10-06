@@ -24,9 +24,15 @@ class Results extends React.Component {
 	componentDidMount() {
 		this.getProjects(url);
 		this.accordionPanel();
+		this.tagToggle();
 		this.clearTagRunner();
 		toastr.options.newestOnTop = true;
 		toastr.options.showMethod = 'slideDown';
+	}
+
+	componentDidUpdate = () => {
+		// this.hideSearchTagPanel();
+		// easier to do this in state probably
 	}
 
 	accordionPanel = () => {
@@ -40,13 +46,22 @@ class Results extends React.Component {
 		});
 	}
 
+	hideSearchTagPanel = () => {
+		if($("ul#tag-container li").length > 0) {
+			console.log('has lis');
+			$("div#search-tags").show();
+		}
+		else {
+			console.log('no lis');
+			$("div#search-tags").hide();
+		}
+	}
+
 	updateProjects = (update_url, event) => {
 		event.preventDefault();
 		event.stopPropagation()
 		var loader = $('#loader');
 		loader.show();
-
-		$('div#tag-container').find('.tag').remove();
 
 		var start_date = $('#creation-date-start').val();
 		var end_date = $('#creation-date-end').val();
@@ -56,7 +71,8 @@ class Results extends React.Component {
 		var dev_managers = [];
 		var acct_managers = [];
 
-		$('input[type="checkbox"]:checked').each(function() {
+		$('ul#tag-container li').each(function() {
+		// $('input[type="checkbox"]:checked').each(function() {
 			var $this = $(this);
 			var $name = $this.attr('name');
 
@@ -82,7 +98,7 @@ class Results extends React.Component {
 		// console.log(start_date);
 		// console.log(end_date);
 
-		this.tagRunner();
+		// this.tagRunner();
 
 		Axios.post(update_url, {
 			created_at: $('#creation-date-start').val(),
@@ -114,29 +130,94 @@ class Results extends React.Component {
 		// }
 	}
 
-	tagRunner = () => {
-		$('div#tag-wrapper').fadeIn(250);
+	tagToggle = () => {
+		var $tags = $("ul#tag-container");
 
-		var start_date = $('#creation-date-start').val();
-		var end_date = $('#creation-date-end').val();
+		$('#status-tags').on('click', '.tag', function(event) {
+			event.preventDefault();
 
-		if(start_date) {
-			$("div#tag-container").append("<span class='tag selected'>" + start_date + "</span>");
-		}
-		else if(end_date) {
-			$("div#tag-container").append("<span class='tag selected'>" + end_date + "</span>");
-		}
+			var $this = $(this);
+			var data_value = $this.attr('data-value');
+			var value = $this.val();
 
-		$('input[type="checkbox"]:checked').each(function() {
-			let tag_name = $(this).attr('data-value');
-			$("div#tag-container").append("<span class='tag selected'>" + tag_name + "</span>");
+			$this.remove();
+			$tags.append("<li class='tag selected' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
+				$this.attr('data-value') + "</li>");
+		});
+
+		$('#pm-tags').on('click', '.tag', function(event) {
+			event.preventDefault();
+
+			var $this = $(this);
+			var data_value = $this.attr("data-value");
+			var value = $this.val();
+
+			$this.remove();
+			$tags.append("<li class='tag pm selected' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+				$this.attr('data-value') + "</li>");
+		});
+
+		$('#dm-tags').on('click', '.tag', function(event) {
+			event.preventDefault();
+
+			var $this = $(this);
+			var data_value = $this.attr("data-value");
+			var value = $this.val();
+
+			$this.remove();
+			$tags.append("<li class='tag dm selected' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+				$this.attr('data-value') + "</li>");
+		});
+
+		$('#am-tags').on('click', '.tag', function(event) {
+			event.preventDefault();
+
+			var $this = $(this);
+			var data_value = $this.attr("data-value");
+			var value = $this.val();
+
+			$this.remove();
+			$tags.append("<li class='tag am selected' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+				$this.attr('data-value') + "</li>");
 		});
 	}
 
 	clearTagRunner = () => {
-		$('div#tag-container').on('click', '.tag', function() {
-			$(this).remove();
-		})
+		$('ul#tag-container').on('click', '.tag ', function() {
+			var $this = $(this);
+
+			if($this.attr('name') == "project_status[]") {
+				var data_value = $(this).attr("data-value");
+				var value = $(this).val();
+				$this.remove();
+				$("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "project_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "dev_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+
+			if($this.attr('name') == "acct_managers[]") {
+				var data_value = $(this).attr('data-value');
+				var value = $(this).val();
+				$this.remove();
+				$("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+					$this.attr('data-value') + "</li>");
+			}
+		});
 	}
 
 	getProjects(url) {
