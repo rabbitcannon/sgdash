@@ -4,7 +4,6 @@
 @import "projects";
 @import "userpanel";
 @import "settings";
-
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,600);
 
 /**
@@ -23,7 +22,12 @@
 html, body {
   background-color: $light-gray;
   font-family: 'Roboto', sans-serif;
-  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: url('/images/page-bg.jpg');
+  background-size: 100% auto;
 }
 
 .button {
@@ -111,7 +115,8 @@ textarea {
   color: white;
   padding: 35px 50px 50px 50px;
   width: 100%;
-  top:50%; left: 50%;
+  top: 50%;
+  left: 50%;
   #logo-badge {
     background-color: $header-bg-blue;
     -webkit-border-radius: 50%;
@@ -169,6 +174,7 @@ textarea {
     margin-right: 10px;
   }
 }
+
 .data-hidden {
   display: none;
 }
@@ -273,7 +279,7 @@ textarea {
   background: -webkit-linear-gradient(#878787, white);
   background: -o-linear-gradient(#878787, white);
   background: -moz-linear-gradient(#878787, white);
-  background: linear-gradient(#878787 , white);
+  background: linear-gradient(#878787, white);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.48);
 
   @include border-radius(15px);
@@ -311,7 +317,6 @@ textarea {
     }
   }
 }
-
 
 /** CS04 Text Elements
  ===================== **/
@@ -360,19 +365,19 @@ textarea {
 
   .__success {
     background-color: $success-green;
-      @include border-radius(5px);
+    @include border-radius(5px);
 
   }
 
   .__warning {
     background-color: $warning-amber;
-      @include border-radius(5px);
+    @include border-radius(5px);
 
   }
 
   .__failure {
     background-color: $failure-red;
-      @include border-radius(5px);
+    @include border-radius(5px);
 
   }
 }

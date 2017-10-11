@@ -17,11 +17,11 @@ Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
 Route::post('/register', 'Auth\RegisterController@create');
 
-Route::get('/register/success', function () {
+Route::get('/register/success', function() {
     return view('layouts.auth.registered');
 })->name('registered');
 
-Route::get('/login', function () {
+Route::get('/login', function() {
     return view('layouts.auth.login');
 })->name('login');
 
@@ -29,16 +29,17 @@ Route::get('/login', function () {
 //==========================//
 
 //Route::group(['prefix' => 'admin'], function () {
-Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function() {
+    Route::get('/', 'ProjectController@index');
+//    Route::get('/', function() {
+//        return view('admin.index');
+//    });
 
-    Route::group(['prefix' => 'search'], function () {
+    Route::group(['prefix' => 'search'], function() {
         Route::post('/projects', 'SearchController@searchProjects');
     });
 
-    Route::group(['prefix' => 'projects'], function () {
+    Route::group(['prefix' => 'projects'], function() {
         Route::get('/', 'ProjectController@index');
     });
 //    // TEST URL
@@ -75,8 +76,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function 
 
 //-- Main Routes --//
 //=======================//
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', function() {
         return view('environments.index');
     });
 
@@ -115,7 +116,6 @@ Route::group(['middleware' => 'auth'], function () {
     //=======================//
     Route::get('/notifications/all', 'NotificationsController@index');
     Route::get('/notifications/{id}/read/{type}', 'NotificationsController@markAsRead');
-
 
 
     //-- Test Routes --//

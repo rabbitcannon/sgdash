@@ -6,9 +6,11 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import ResultItem from './result-item.jsx';
-import ResultFilter from './result-filter.jsx';
+import FilterTags from './filter-tags.jsx';
+import FilterForm from './filter-form.jsx';
 
 let url = window.location.origin + '/api/v1/projects';
+const update_url = '/admin/search/projects';
 
 class Results extends React.Component {
 	constructor(props) {
@@ -18,19 +20,20 @@ class Results extends React.Component {
 			projectResults: [],
 			project_name: '',
 			project_code: '',
+			tag_search: true
 		}
+
+		this.togglePanel = this.togglePanel.bind(this);
 	}
 
 	componentDidMount() {
 		this.getProjects(url);
 		this.accordionPanel();
-		this.tagToggle();
-		this.clearTagRunner();
 		toastr.options.newestOnTop = true;
 		toastr.options.showMethod = 'slideDown';
 	}
 
-	componentDidUpdate = () => {
+	componentWillUpdate = () => {
 		// this.hideSearchTagPanel();
 		// easier to do this in state probably
 	}
@@ -46,21 +49,12 @@ class Results extends React.Component {
 		});
 	}
 
-	hideSearchTagPanel = () => {
-		if($("ul#tag-container li").length > 0) {
-			console.log('has lis');
-			$("div#search-tags").show();
-		}
-		else {
-			console.log('no lis');
-			$("div#search-tags").hide();
-		}
-	}
-
-	updateProjects = (update_url, event) => {
+	// updateProjects = (update_url, event, searchType) => {
+	updateProjects = (searchType, event) => {
 		event.preventDefault();
 		event.stopPropagation()
 		var loader = $('#loader');
+		let $searcher;
 		loader.show();
 
 		var start_date = $('#creation-date-start').val();
@@ -71,8 +65,13 @@ class Results extends React.Component {
 		var dev_managers = [];
 		var acct_managers = [];
 
-		$('ul#tag-container li').each(function() {
-		// $('input[type="checkbox"]:checked').each(function() {
+		if (searchType == "checkboxes")
+			$searcher = $('input[type="checkbox"]:checked');
+		else
+			$searcher = $('ul#tag-container li');
+
+
+		$searcher.each(function() {
 			var $this = $(this);
 			var $name = $this.attr('name');
 
@@ -119,105 +118,6 @@ class Results extends React.Component {
 			console.log(error);
 			toastr.error('Unable to retrieve results, please try again.');
 		});
-
-		// var hidden = $('div#filter-form').is(':hidden');
-		//
-		// if(!hidden) {
-		// 	$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
-		//
-		// 	var $chevron = $('i#collapse-chevron');
-		// 	$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
-		// }
-	}
-
-	tagToggle = () => {
-		var $tags = $("ul#tag-container");
-
-		$('#status-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr('data-value');
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag selected' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-
-		$('#pm-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr("data-value");
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag pm selected' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-
-		$('#dm-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr("data-value");
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag dm selected' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-
-		$('#am-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr("data-value");
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag am selected' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-	}
-
-	clearTagRunner = () => {
-		$('ul#tag-container').on('click', '.tag ', function() {
-			var $this = $(this);
-
-			if($this.attr('name') == "project_status[]") {
-				var data_value = $(this).attr("data-value");
-				var value = $(this).val();
-				$this.remove();
-				$("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
-					$this.attr('data-value') + "</li>");
-			}
-
-			if($this.attr('name') == "project_managers[]") {
-				var data_value = $(this).attr('data-value');
-				var value = $(this).val();
-				$this.remove();
-				$("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-					$this.attr('data-value') + "</li>");
-			}
-
-			if($this.attr('name') == "dev_managers[]") {
-				var data_value = $(this).attr('data-value');
-				var value = $(this).val();
-				$this.remove();
-				$("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-					$this.attr('data-value') + "</li>");
-			}
-
-			if($this.attr('name') == "acct_managers[]") {
-				var data_value = $(this).attr('data-value');
-				var value = $(this).val();
-				$this.remove();
-				$("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-					$this.attr('data-value') + "</li>");
-			}
-		});
 	}
 
 	getProjects(url) {
@@ -235,21 +135,39 @@ class Results extends React.Component {
 		});
 	}
 
+	togglePanel = () => {
+		if (this.refs.rf) {
+			this.setState({
+				tag_search: !this.state.tag_search
+			});
+		}
+	}
+
 	render() {
 		let renderedResults;
+		let renderedFilter;
 
-		if(this.state.count > 0) {
+		if (this.state.tag_search) {
+			renderedFilter =
+				<FilterTags key="1" ref="rf" updateProjects={this.updateProjects} togglePanel={this.togglePanel}/>
+		}
+		else {
+			renderedFilter =
+				<FilterForm key="2" ref="rf" updateProjects={this.updateProjects} togglePanel={this.togglePanel}/>
+		}
+
+		if (this.state.count > 0) {
 			renderedResults = _.map(this.state.projectResults, (project) => {
 				return <ResultItem ref="results" key={project.id} comments={project.comments_count}
-						   id={project.id} name={project.name} code={project.code} status={project.status}
-						   acct_manager={project.acct_manager} dev_manager={project.dev_manager}
-						   project_manager={project.project_manager} trend={project.trend}
-						   req_eta={project.req_eta} req_status={project.req_status}
-						   dev_eta={project.dev_eta} dev_status={project.dev_status}
-						   qa_eta={project.qa_eta} qa_status={project.qa_status}
-						   uat_eta={project.uat_eta} uat_status={project.uat_status}
-						   prod_eta={project.prod_eta} prod_status={project.prod_status}
-						   created_at={project.created_at} />
+								   id={project.id} name={project.name} code={project.code} status={project.status}
+								   acct_manager={project.acct_manager} dev_manager={project.dev_manager}
+								   project_manager={project.project_manager} trend={project.trend}
+								   req_eta={project.req_eta} req_status={project.req_status}
+								   dev_eta={project.dev_eta} dev_status={project.dev_status}
+								   qa_eta={project.qa_eta} qa_status={project.qa_status}
+								   uat_eta={project.uat_eta} uat_status={project.uat_status}
+								   prod_eta={project.prod_eta} prod_status={project.prod_status}
+								   created_at={project.created_at}/>
 			});
 		}
 		else {
@@ -258,13 +176,27 @@ class Results extends React.Component {
 
 		return (
 			<div>
-				<ResultFilter updateProjects={this.updateProjects} />
+				<div className="row expanded">
+					<div id="toggle-filter" className="large-offset-5 large-2 columns">
+						<div className="can-toggle">
+							<input id="toggle-chk" type="checkbox"
+								   onChange={this.togglePanel}/>
+							<label htmlFor="toggle-chk">
+								<div className="can-toggle__switch" data-checked="Classic"
+									 data-unchecked="Tags"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				{renderedFilter}
 
 				<div className="data-table">
 					<div className="data-table-header">
 						<div className="row expanded">
 							<div className="large-10 columns">
-								<i className="fa fa-bar-chart"></i> Current projects: <span className="counter">{this.state.projectResults.length}</span>
+								<i className="fa fa-bar-chart"></i> Current projects: <span
+								className="counter">{this.state.projectResults.length}</span>
 							</div>
 							<div className="large-2 columns text-right">
 								<a className="no-smoothState" data-toggle="add-project-reveal">
@@ -292,7 +224,7 @@ class Results extends React.Component {
 							</thead>
 
 							<tbody>
-								{renderedResults}
+							{renderedResults}
 							</tbody>
 						</table>
 

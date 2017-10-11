@@ -1,4 +1,5 @@
 @import "modules/date-picker/datepicker";
+@import "modules/_toggle";
 
 /**
   Table of Contents
@@ -7,7 +8,7 @@
   CS02 - Filter Elements
   CS03 - Comments Elements
   CS04 - Toastr Elements
-  CS05- Tag Elements
+  CS05 - Filter Elements
 
 **/
 
@@ -44,6 +45,7 @@
 
   }
 }
+
 .column-list {
   list-style: none;
 
@@ -161,44 +163,50 @@
   padding-right: 0.5em;
   margin: auto 0.5em auto -1.5em;
 }
+
 #toast-container > .toast-warning:before {
   background-color: $warning-amber;
   content: "\f071";
 }
+
 #toast-container > .toast-error:before {
   background-color: $failure-red;
   content: "\f05e";
 }
+
 #toast-container > .toast-info:before {
   background-color: $blue-gray;
   content: "\f129";
 }
+
 #toast-container > .toast-success:before {
   background-color: $success-green;
   content: "\f00c";
 }
 
-/** CS05 Tag Elements
+/** CS05 Filter Elements
  ===================== **/
 .tag-group {
   padding: 0 20px;
+
+  fieldset {
+    padding: .25em;
+  }
 }
 
 ul {
-  //&#pm-tags li {
-  //  background-color: $light-blue;
-  //  &:hover {
-  //    background-color: $light-blue-hover;
-  //  }
-  //}
+  &.chks li {
+    width: 45%;
+  }
 
   li {
     &.tag {
       @include border-radius(5px);
       background-color: $dark-blue;
-      color: $silver;
-      font-weight: 500;
-      padding: 7px 12px;
+      color: $white;
+      //font-weight: 500;
+      //padding: 7px 12px;
+      padding: 0 4px;
       margin-bottom: 12px;
       margin-right: 12px;
 
@@ -228,7 +236,6 @@ ul {
       transition-timing-function: ease-in;
 
       &.selected:before {
-        color: $silver;
         content: "X | ";
       }
 

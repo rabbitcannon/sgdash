@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  background: url("assets/images/bgs/slots.jpg");
+  background: url("/assets/images/bgs/slots.jpg");
 }
 
 .button {
