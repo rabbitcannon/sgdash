@@ -49,10 +49,10 @@ class ResultFilter extends React.Component {
 	}
 
 	expandTags = () => {
-		$('.expandable').find('a[href="#"]').on('click', function(e) {
-			e.preventDefault();
+		$('.expandable').find('a[href="#"]').on('click', function(event) {
+			event.preventDefault();
 			this.expand = !this.expand;
-			$(this).text(this.expand ? "- less" : "+ more");
+			$(this).text(this.expand ? "[-] collapse" : "[+] expand");
 			$(this).closest('.expandable').find('.small-list, .big-list').toggleClass('small-list big-list');
 		});
 	}
@@ -284,70 +284,91 @@ class ResultFilter extends React.Component {
 
 									<div className="row expanded">
 										<div className="expandable large-12 columns tag-group" style={styles.hide}>
-											<fieldset className="fieldset large-12 columns">
-												<legend>Project Status</legend>
-												<ul id="status-tags" name="project-status-tags"
-													className="small-list column-list">
-													{projectStatusTags}
-												</ul>
-												<div>
-													<a href="#">+ more</a>
+											<div className="card">
+												<div className="card-divider">
+													<h6>Project Status
+														<small>
+															<a href="#">[+] expand</a>
+														</small>
+													</h6>
 												</div>
-											</fieldset>
+												<div className="card-section">
+													<ul id="status-tags" className="small-list column-list">
+														{projectStatusTags}
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
 
 									<div className="row expanded">
 										<div className="expandable large-12 columns tag-group" style={styles.hide}>
-											<fieldset className="fieldset large-12 columns">
-												<legend>Project Managers</legend>
-												<ul id="pm-tags" name="project-manager-tags"
-													className="small-list column-list">
-													{projectManagerTags}
-												</ul>
-												<div>
-													<a href="#">+ more</a>
+											<div className="card">
+												<div className="card-divider">
+													<h6>Project Managers
+														<small>
+															<a href="#">[+] expand</a>
+														</small>
+													</h6>
 												</div>
-											</fieldset>
+												<div className="card-section">
+													<ul id="pm-tags" className="small-list column-list">
+														{projectManagerTags}
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
 
 									<div className="row expanded">
 										<div className="expandable large-12 columns tag-group" style={styles.hide}>
-											<fieldset className="fieldset large-12 columns">
-												<legend>Development Managers</legend>
-												<ul id="dm-tags" name="development-manager-tags"
-													className="small-list column-list">
-													{developmentManagerTags}
-												</ul>
-												<div>
-													<a href="#">+ more</a>
+											<div className="card">
+												<div className="card-divider">
+													<h6>Development Managers
+														<small>
+															<a href="#">[+] expand</a>
+														</small>
+													</h6>
 												</div>
-											</fieldset>
+												<div className="card-section">
+													<ul id="dm-tags" className="small-list column-list">
+														{developmentManagerTags}
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
 
 									<div className="row expanded">
 										<div className="expandable large-12 columns tag-group" style={styles.hide}>
-											<fieldset className="fieldset large-12 columns">
-												<legend>Account Managers</legend>
-												<ul id="am-tags" name="account-manager-tags"
-													className="small-list column-list">
-													{accountManagerTags}
-												</ul>
-												<div>
-													<a href="#">+ more</a>
+											<div className="card">
+												<div className="card-divider">
+													<h6>Account Managers
+														<small>
+															<a href="#">[+] expand</a>
+														</small>
+													</h6>
 												</div>
-											</fieldset>
+												<div className="card-section">
+													<ul id="am-tags" name="account-manager-tags"
+														className="small-list column-list">
+														{accountManagerTags}
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
 
 									<div id="search-tags" className="row expanded">
 										<div className="expandable large-12 columns tag-group">
-											<fieldset className="fieldset large-12 columns">
-												<legend>Search Tags</legend>
-												<ul id="tag-container" className="small-list column-list"></ul>
-											</fieldset>
+											<div className="card">
+												<div className="card-divider">
+													<h6>Search Tags</h6>
+												</div>
+												<div className="card-section search-container">
+													<ul id="tag-container" className="small-list column-list"></ul>
+												</div>
+											</div>
 										</div>
 									</div>
 

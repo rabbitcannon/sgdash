@@ -68240,48 +68240,52 @@ var _ref3 = _jsx('div', {
 	placeholder: 'Project Name'
 })));
 
-var _ref4 = _jsx('legend', {}, void 0, 'Project Status');
-
-var _ref5 = _jsx('div', {}, void 0, _jsx('a', {
+var _ref4 = _jsx('div', {
+	className: 'card-divider'
+}, void 0, _jsx('h6', {}, void 0, 'Project Status', _jsx('small', {}, void 0, _jsx('a', {
 	href: '#'
-}, void 0, '+ more'));
+}, void 0, '[+] expand'))));
 
-var _ref6 = _jsx('legend', {}, void 0, 'Project Managers');
-
-var _ref7 = _jsx('div', {}, void 0, _jsx('a', {
+var _ref5 = _jsx('div', {
+	className: 'card-divider'
+}, void 0, _jsx('h6', {}, void 0, 'Project Managers', _jsx('small', {}, void 0, _jsx('a', {
 	href: '#'
-}, void 0, '+ more'));
+}, void 0, '[+] expand'))));
 
-var _ref8 = _jsx('legend', {}, void 0, 'Development Managers');
-
-var _ref9 = _jsx('div', {}, void 0, _jsx('a', {
+var _ref6 = _jsx('div', {
+	className: 'card-divider'
+}, void 0, _jsx('h6', {}, void 0, 'Development Managers', _jsx('small', {}, void 0, _jsx('a', {
 	href: '#'
-}, void 0, '+ more'));
+}, void 0, '[+] expand'))));
 
-var _ref10 = _jsx('legend', {}, void 0, 'Account Managers');
-
-var _ref11 = _jsx('div', {}, void 0, _jsx('a', {
+var _ref7 = _jsx('div', {
+	className: 'card-divider'
+}, void 0, _jsx('h6', {}, void 0, 'Account Managers', _jsx('small', {}, void 0, _jsx('a', {
 	href: '#'
-}, void 0, '+ more'));
+}, void 0, '[+] expand'))));
 
-var _ref12 = _jsx('div', {
+var _ref8 = _jsx('div', {
 	id: 'search-tags',
 	className: 'row expanded'
 }, void 0, _jsx('div', {
 	className: 'expandable large-12 columns tag-group'
-}, void 0, _jsx('fieldset', {
-	className: 'fieldset large-12 columns'
-}, void 0, _jsx('legend', {}, void 0, 'Search Tags'), _jsx('ul', {
+}, void 0, _jsx('div', {
+	className: 'card'
+}, void 0, _jsx('div', {
+	className: 'card-divider'
+}, void 0, _jsx('h6', {}, void 0, 'Search Tags')), _jsx('div', {
+	className: 'card-section search-container'
+}, void 0, _jsx('ul', {
 	id: 'tag-container',
 	className: 'small-list column-list'
-}))));
+})))));
 
-var _ref13 = _jsx('i', {
+var _ref9 = _jsx('i', {
 	className: 'fa fa-times',
 	'aria-hidden': 'true'
 });
 
-var _ref14 = _jsx('button', {
+var _ref10 = _jsx('button', {
 	id: 'search-btn',
 	type: 'submit',
 	className: 'button'
@@ -68318,10 +68322,10 @@ var ResultFilter = function (_React$Component) {
 		};
 
 		_this.expandTags = function () {
-			$('.expandable').find('a[href="#"]').on('click', function (e) {
-				e.preventDefault();
+			$('.expandable').find('a[href="#"]').on('click', function (event) {
+				event.preventDefault();
 				this.expand = !this.expand;
-				$(this).text(this.expand ? "- less" : "+ more");
+				$(this).text(this.expand ? "[-] collapse" : "[+] expand");
 				$(this).closest('.expandable').find('.small-list, .big-list').toggleClass('small-list big-list');
 			});
 		};
@@ -68537,46 +68541,51 @@ var ResultFilter = function (_React$Component) {
 			}, void 0, _jsx('div', {
 				className: 'expandable large-12 columns tag-group',
 				style: styles.hide
-			}, void 0, _jsx('fieldset', {
-				className: 'fieldset large-12 columns'
-			}, void 0, _ref4, _jsx('ul', {
+			}, void 0, _jsx('div', {
+				className: 'card'
+			}, void 0, _ref4, _jsx('div', {
+				className: 'card-section'
+			}, void 0, _jsx('ul', {
 				id: 'status-tags',
-				name: 'project-status-tags',
 				className: 'small-list column-list'
-			}, void 0, projectStatusTags), _ref5))), _jsx('div', {
+			}, void 0, projectStatusTags))))), _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'expandable large-12 columns tag-group',
 				style: styles.hide
-			}, void 0, _jsx('fieldset', {
-				className: 'fieldset large-12 columns'
-			}, void 0, _ref6, _jsx('ul', {
+			}, void 0, _jsx('div', {
+				className: 'card'
+			}, void 0, _ref5, _jsx('div', {
+				className: 'card-section'
+			}, void 0, _jsx('ul', {
 				id: 'pm-tags',
-				name: 'project-manager-tags',
 				className: 'small-list column-list'
-			}, void 0, projectManagerTags), _ref7))), _jsx('div', {
+			}, void 0, projectManagerTags))))), _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'expandable large-12 columns tag-group',
 				style: styles.hide
-			}, void 0, _jsx('fieldset', {
-				className: 'fieldset large-12 columns'
-			}, void 0, _ref8, _jsx('ul', {
+			}, void 0, _jsx('div', {
+				className: 'card'
+			}, void 0, _ref6, _jsx('div', {
+				className: 'card-section'
+			}, void 0, _jsx('ul', {
 				id: 'dm-tags',
-				name: 'development-manager-tags',
 				className: 'small-list column-list'
-			}, void 0, developmentManagerTags), _ref9))), _jsx('div', {
+			}, void 0, developmentManagerTags))))), _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'expandable large-12 columns tag-group',
 				style: styles.hide
-			}, void 0, _jsx('fieldset', {
-				className: 'fieldset large-12 columns'
-			}, void 0, _ref10, _jsx('ul', {
+			}, void 0, _jsx('div', {
+				className: 'card'
+			}, void 0, _ref7, _jsx('div', {
+				className: 'card-section'
+			}, void 0, _jsx('ul', {
 				id: 'am-tags',
 				name: 'account-manager-tags',
 				className: 'small-list column-list'
-			}, void 0, accountManagerTags), _ref11))), _ref12, _jsx('div', {
+			}, void 0, accountManagerTags))))), _ref8, _jsx('div', {
 				className: 'row expanded'
 			}, void 0, _jsx('div', {
 				className: 'large-12 columns text-center pad-box'
@@ -68585,7 +68594,7 @@ var ResultFilter = function (_React$Component) {
 				type: 'reset',
 				className: 'button cancel-button',
 				onClick: this.clearForm.bind(this)
-			}, void 0, _ref13, ' Clear Form'), _ref14))))))));
+			}, void 0, _ref9, ' Clear Form'), _ref10))))))));
 		}
 	}]);
 

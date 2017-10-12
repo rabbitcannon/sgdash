@@ -189,6 +189,42 @@
 .tag-group {
   padding: 0 20px;
 
+  &.expandable {
+
+    h6 {
+      small {
+        &:before {
+          content: "\00a0\00a0";
+        }
+      }
+    }
+
+    .small-list {
+      max-height: 25px;
+      overflow: hidden;
+
+      -webkit-transition: .45s ease;
+      -moz-transition: .45s ease;
+      -ms-transition: .45s ease;
+      -o-transition: .45s ease;
+      transition: .45s ease;
+    }
+
+    .big-list {
+      max-height: 65px;
+
+      -webkit-transition: .45s ease;
+      -moz-transition: .45s ease;
+      -ms-transition: .45s ease;
+      -o-transition: .45s ease;
+      transition: .45s ease;
+    }
+
+    .search-container {
+      background-color: $light-gray;
+    }
+  }
+
   fieldset {
     padding: .25em;
   }
@@ -204,9 +240,8 @@ ul {
       @include border-radius(5px);
       background-color: $dark-blue;
       color: $white;
-      //font-weight: 500;
-      //padding: 7px 12px;
-      padding: 0 4px;
+      font-size: .85em;
+      padding: 2px 5px;
       margin-bottom: 12px;
       margin-right: 12px;
 

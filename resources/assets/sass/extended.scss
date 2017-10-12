@@ -30,6 +30,19 @@ body {
   background-size: 100% auto;
 }
 
+.breadcrumbs {
+  font-size: 1.24em;
+  padding-top: 20px;
+
+  li {
+    color: $dark-blue;
+  }
+
+  a {
+    color: $darker-blue;
+  }
+}
+
 .button {
   @include border-radius(5px);
   background-color: $dark-blue;
@@ -90,10 +103,6 @@ a {
 
 textarea {
   resize: none;
-}
-
-.breadcrumbs {
-  padding-top: 20px;
 }
 
 /** CS03 Elements

@@ -5744,7 +5744,7 @@ select[multiple] {
 
 .breadcrumbs li {
   float: left;
-  font-size: 0.6875rem;
+  font-size: 1em;
   color: #0a0a0a;
   cursor: default;
   text-transform: uppercase;
@@ -9805,6 +9805,27 @@ button.toast-close-button {
   padding: 0 20px;
 }
 
+.tag-group.expandable h6 small:before {
+  content: "\A0\A0";
+}
+
+.tag-group.expandable .small-list {
+  max-height: 25px;
+  overflow: hidden;
+  -webkit-transition: .45s ease;
+  transition: .45s ease;
+}
+
+.tag-group.expandable .big-list {
+  max-height: 65px;
+  -webkit-transition: .45s ease;
+  transition: .45s ease;
+}
+
+.tag-group.expandable .search-container {
+  background-color: #CDCDCD;
+}
+
 .tag-group fieldset {
   padding: .25em;
 }
@@ -9818,7 +9839,8 @@ ul li.tag {
   background-clip: padding-box;
   background-color: #263238;
   color: #fefefe;
-  padding: 0 4px;
+  font-size: .85em;
+  padding: 2px 5px;
   margin-bottom: 12px;
   margin-right: 12px;
   -webkit-transition-duration: .5s;
@@ -10022,6 +10044,19 @@ body {
   background-size: 100% auto;
 }
 
+.breadcrumbs {
+  font-size: 1.24em;
+  padding-top: 20px;
+}
+
+.breadcrumbs li {
+  color: #263238;
+}
+
+.breadcrumbs a {
+  color: #054F7D;
+}
+
 .button {
   border-radius: 5px;
   background-clip: padding-box;
@@ -10088,10 +10123,6 @@ a:hover {
 
 textarea {
   resize: none;
-}
-
-.breadcrumbs {
-  padding-top: 20px;
 }
 
 /** CS03 Elements
