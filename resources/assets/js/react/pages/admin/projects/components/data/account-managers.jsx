@@ -8,23 +8,30 @@ class AccountManagers extends React.Component {
 
 		this.state = {
 			acctManagers: [],
+			value: this.props.current
 		}
+
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
 		this.getProjectStatus();
 	}
 
+	handleChange = () => {
+		this.setState({value: event.target.value});
+	}
+
 	getProjectStatus() {
-		if(this.state.acctManagers !== null) {
+		if (this.state.acctManagers !== null) {
 			var self = this;
-			Axios.get('/api/v1/controls/manager/account').then(function (response) {
+			Axios.get('/api/v1/controls/manager/account').then(function(response) {
 				self.setState({
 					count: response.data.length,
 					acctManagers: response.data
 				});
 
-			}.bind(this)).catch(function (error) {
+			}.bind(this)).catch(function(error) {
 				console.log(error);
 			});
 		}
@@ -37,8 +44,8 @@ class AccountManagers extends React.Component {
 
 		return (
 			<div>
-				<select name="acct_manager" defaultValue={this.props.current}>
-				  {managers}
+				<select name="acct_manager" value={this.props.current} onChange={this.handleChange}>
+					{managers}
 				</select>
 			</div>
 		)

@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+const {mix} = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ mix.sass('resources/assets/sass/app.scss', 'public/assets/css');
 mix.sass('resources/assets/sass/login/login.scss', 'public/assets/css/login/login.css');
 
 mix.styles([
-    'node_modules/animate.css/animate.min.css',
+	'node_modules/animate.css/animate.min.css',
 ], 'public/assets/css/animations.css');
 
 //--  Javascript Files --//
@@ -31,11 +31,11 @@ mix.js('resources/assets/js/pages/tickets.js', 'public/assets/js/pages/tickets.j
 //--  Combine Files --//
 // ========================= //
 mix.combine([
-    'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/foundation-sites/dist/js/foundation.min.js',
-    'node_modules/smoothstate/jquery.smoothState.min.js',
-    'resources/assets/js/foundation/foundation.reveal.min.js',
-    'resources/assets/js/animations.js'
+	'node_modules/jquery/dist/jquery.min.js',
+	'node_modules/foundation-sites/dist/js/foundation.min.js',
+	'node_modules/smoothstate/jquery.smoothState.min.js',
+	'resources/assets/js/foundation/foundation.reveal.min.js',
+	'resources/assets/js/animations.js'
 ], 'public/assets/js/app.js');
 
 
@@ -44,7 +44,7 @@ mix.combine([
 
 //-- Components --//
 mix.react([
-    'resources/assets/js/react/app.jsx',
+	'resources/assets/js/react/app.jsx',
 ], 'public/assets/js/react/app-components.js');
 
 //-- Admin --//

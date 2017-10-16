@@ -20,13 +20,13 @@
  ===================== **/
 
 html, body {
-  background-color: $light-gray;
   font-family: 'Roboto', sans-serif;
   min-height: 100%;
 }
 
 body {
   background: url('/images/page-bg.jpg');
+  background-color: $light-gray;
   background-size: 100% auto;
 }
 

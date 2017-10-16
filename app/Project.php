@@ -5,8 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
-{
+class Project extends Model {
     use SoftDeletes;
 
     /**
@@ -20,6 +19,10 @@ class Project extends Model
     protected $fillable = ['code', 'name', 'status', 'acct_manager', 'dev_manager', 'project_manager', 'trend',
         'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta', 'deleted_at'
     ];
+
+//    public function getCreatedAtAttribute($date) {
+//        return Carbon::parse($date, "d/m/Y");
+//    }
 
     /**
      * @param $id

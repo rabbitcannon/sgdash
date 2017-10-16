@@ -37,7 +37,7 @@ class ResultItem extends React.Component {
 	}
 
 	edit() {
-		if(this.state.editing === false) {
+		if (this.state.editing === false) {
 			this.setState({
 				editing: true,
 			});
@@ -70,12 +70,12 @@ class ResultItem extends React.Component {
 			uat_status: $('[name="uat_status"]').val(),
 			prod_eta: $('[name="prod_eta"]').val(),
 			prod_status: $('[name="prod_status"]').val(),
-		}).then(function () {
+		}).then(function() {
 			self.setState({
 				editing: false
 			});
 
-		}).catch(function (error) {
+		}).catch(function(error) {
 			console.log(error);
 		});
 
@@ -83,15 +83,15 @@ class ResultItem extends React.Component {
 	}
 
 	confirm(id) {
-		if(confirm('Are you sure you want to delete this project?')){
+		if (confirm('Are you sure you want to delete this project?')) {
 			let url = `/api/v1/project/delete/${id}`;
 			window.location = url;
 		}
 	}
 
 	dateFormatter(date, full) {
-		if(full) {
-			if(date) {
+		if (full) {
+			if (date) {
 				var newDate = Moment(date).format('MM/DD/YY');
 			}
 			else {
@@ -100,7 +100,7 @@ class ResultItem extends React.Component {
 			return newDate;
 		}
 		else {
-			if(date) {
+			if (date) {
 				var newDate = Moment(date).format('MM/DD');
 			}
 			else {
@@ -112,7 +112,7 @@ class ResultItem extends React.Component {
 
 	classSetter(status_id) {
 		let status_class = "";
-		switch(status_id) {
+		switch (status_id) {
 			case 1:
 				status_class = "on-track"
 				break;
@@ -130,7 +130,7 @@ class ResultItem extends React.Component {
 
 	classTrendSetter(trend) {
 		let status_class = "";
-		switch(trend) {
+		switch (trend) {
 			case "up":
 				status_class = "on-track"
 				break;
@@ -147,37 +147,37 @@ class ResultItem extends React.Component {
 	}
 
 	handleSelectChange(status_name, event) {
-		if(status_name === 'status') {
+		if (status_name === 'status') {
 			this.setState({
 				trend: event.target.value,
 			});
 		}
-		if(status_name === 'req_status') {
+		if (status_name === 'req_status') {
 			this.setState({
 				req_status: event.target.value,
 			});
 		}
-		if(status_name === 'dev_status') {
+		if (status_name === 'dev_status') {
 			this.setState({
 				dev_status: event.target.value,
 			});
 		}
-		if(status_name === 'qa_status') {
+		if (status_name === 'qa_status') {
 			this.setState({
 				qa_status: event.target.value,
 			});
 		}
-		if(status_name === 'uat_status') {
+		if (status_name === 'uat_status') {
 			this.setState({
 				uat_status: event.target.value,
 			});
 		}
-		if(status_name === 'prod_status') {
+		if (status_name === 'prod_status') {
 			this.setState({
 				prod_status: event.target.value,
 			});
 		}
-		if(status_name === 'trend') {
+		if (status_name === 'trend') {
 			this.setState({
 				trend: event.target.value,
 			});
@@ -195,7 +195,7 @@ class ResultItem extends React.Component {
 						{this.props.name}
 					</div>
 					<div>
-						 <Comments key={this.props.id} project_id={this.props.id} count={this.props.comments} />
+						<Comments key={this.props.id} project_id={this.props.id} count={this.props.comments}/>
 					</div>
 				</td>
 				<td>
@@ -269,7 +269,8 @@ class ResultItem extends React.Component {
 
 					<div className="text-left">
 						<h3>
-							Details<small> - {this.dateFormatter(this.props.created_at, full)}</small>
+							Details
+							<small> - {this.dateFormatter(this.props.created_at, full)}</small>
 						</h3>
 					</div>
 
@@ -279,7 +280,7 @@ class ResultItem extends React.Component {
 							<div className="row">
 								<div className="large-12 columns">
 									<label>Project Code
-										<input type="text" name="edit_project_code" defaultValue={this.props.code} />
+										<input type="text" name="edit_project_code" defaultValue={this.props.code}/>
 									</label>
 								</div>
 							</div>
@@ -287,7 +288,7 @@ class ResultItem extends React.Component {
 							<div className="row">
 								<div className="large-12 columns">
 									<label>Project Name
-										<input type="text" name="edit_project_name" defaultValue={this.props.name} />
+										<input type="text" name="edit_project_name" defaultValue={this.props.name}/>
 									</label>
 								</div>
 							</div>
@@ -296,7 +297,8 @@ class ResultItem extends React.Component {
 						<div className="large-3 columns">
 							<div>
 								<label>Current Project Trend
-									<select name="trend" defaultValue={this.props.trend} onChange={this.handleSelectChange.bind(this, 'trend')}>
+									<select name="trend" defaultValue={this.props.trend}
+											onChange={this.handleSelectChange.bind(this, 'trend')}>
 										<option style={styles.onTrack} value="up">Up</option>
 										<option style={styles.caution} value="right">No Movement</option>
 										<option style={styles.risk} value="down">Down</option>
@@ -307,19 +309,19 @@ class ResultItem extends React.Component {
 
 						<div className="large-3 columns">
 							<label>Project Status
-								<ProjectStatusControl current={this.props.status} />
+								<ProjectStatusControl current={this.props.status}/>
 							</label>
 						</div>
 
 						<div className="large-3 columns">
-							<label>Project Manager
-								<ProjectManagers current={this.props.project_manager} />
+							<label>Project Manager {this.props.project_manager}
+								<ProjectManagers current={this.props.project_manager}/>
 							</label>
 							<label>Development Manager
-								<DevelopmentManagers current={this.props.dev_manager} />
+								<DevelopmentManagers current={this.props.dev_manager}/>
 							</label>
 							<label>Account Manager
-								<AccountManagers current={this.props.acct_manager} />
+								<AccountManagers current={this.props.acct_manager}/>
 							</label>
 						</div>
 					</div>
@@ -336,12 +338,14 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>REQ
-								 			<input type="text" name="req_eta" defaultValue={this.dateFormatter(this.props.req_eta, full)} />
+											<input type="text" name="req_eta"
+												   defaultValue={this.dateFormatter(this.props.req_eta, full)}/>
 										</label>
 									</div>
 									<div>
 										<label>Status
-											<select name="req_status" defaultValue={this.props.req_status} onChange={this.handleSelectChange.bind(this, 'req_status')}>
+											<select name="req_status" defaultValue={this.props.req_status}
+													onChange={this.handleSelectChange.bind(this, 'req_status')}>
 												<option style={styles.onTrack} value="1">On-Track</option>
 												<option style={styles.caution} value="2">Caution</option>
 												<option style={styles.risk} value="3">At-Risk</option>
@@ -353,12 +357,14 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>DEV
-											<input type="text" name="dev_eta" defaultValue={this.dateFormatter(this.props.dev_eta, full)} />
+											<input type="text" name="dev_eta"
+												   defaultValue={this.dateFormatter(this.props.dev_eta, full)}/>
 										</label>
 									</div>
 									<div>
 										<label>Status
-											<select name="dev_status" defaultValue={this.props.dev_status} onChange={this.handleSelectChange.bind(this, 'dev_status')}>
+											<select name="dev_status" defaultValue={this.props.dev_status}
+													onChange={this.handleSelectChange.bind(this, 'dev_status')}>
 												<option style={styles.onTrack} value="1">On-Track</option>
 												<option style={styles.caution} value="2">Caution</option>
 												<option style={styles.risk} value="3">At-Risk</option>
@@ -370,12 +376,14 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>QA
-											<input type="text" name="qa_eta" defaultValue={this.dateFormatter(this.props.qa_eta, full)} />
+											<input type="text" name="qa_eta"
+												   defaultValue={this.dateFormatter(this.props.qa_eta, full)}/>
 										</label>
 									</div>
 									<div>
 										<label>Status
-											<select name="qa_status" defaultValue={this.props.qa_status} onChange={this.handleSelectChange.bind(this, 'qa_status')}>
+											<select name="qa_status" defaultValue={this.props.qa_status}
+													onChange={this.handleSelectChange.bind(this, 'qa_status')}>
 												<option style={styles.onTrack} value="1">On-Track</option>
 												<option style={styles.caution} value="2">Caution</option>
 												<option style={styles.risk} value="3">At-Risk</option>
@@ -387,12 +395,14 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>UAT
-											<input type="text" name="uat_eta" defaultValue={this.dateFormatter(this.props.uat_eta, full)} />
+											<input type="text" name="uat_eta"
+												   defaultValue={this.dateFormatter(this.props.uat_eta, full)}/>
 										</label>
 									</div>
 									<div>
 										<label>Status
-											<select name="uat_status" defaultValue={this.props.uat_status} onChange={this.handleSelectChange.bind(this, 'uat_status')}>
+											<select name="uat_status" defaultValue={this.props.uat_status}
+													onChange={this.handleSelectChange.bind(this, 'uat_status')}>
 												<option style={styles.onTrack} value="1">On-Track</option>
 												<option style={styles.caution} value="2">Caution</option>
 												<option style={styles.risk} value="3">At-Risk</option>
@@ -404,12 +414,14 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>PROD
-											<input type="text" name="prod_eta" defaultValue={this.dateFormatter(this.props.prod_eta, full)} />
+											<input type="text" name="prod_eta"
+												   defaultValue={this.dateFormatter(this.props.prod_eta, full)}/>
 										</label>
 									</div>
 									<div>
 										<label>Status
-											<select name="prod_status" defaultValue={this.props.prod_status} onChange={this.handleSelectChange.bind(this, 'prod_status')}>
+											<select name="prod_status" defaultValue={this.props.prod_status}
+													onChange={this.handleSelectChange.bind(this, 'prod_status')}>
 												<option style={styles.onTrack} value="1">On-Track</option>
 												<option style={styles.caution} value="2">Caution</option>
 												<option style={styles.risk} value="3">At-Risk</option>
@@ -423,7 +435,9 @@ class ResultItem extends React.Component {
 
 					<div className="row expanded">
 						<div className="large-12 columns">
-							<button onClick={() => {this.confirm(this.props.id)}} style={styles.main} className="button">
+							<button onClick={() => {
+								this.confirm(this.props.id)
+							}} style={styles.main} className="button">
 								<i className="fa fa-trash"></i> Delete
 							</button>
 							&nbsp;
@@ -431,7 +445,9 @@ class ResultItem extends React.Component {
 								<i className="fa fa-ban"></i> Cancel
 							</button>
 							&nbsp;
-							<button onClick={() => {this.save(this.props.id)}} style={styles.main} className="success button">
+							<button onClick={() => {
+								this.save(this.props.id)
+							}} style={styles.main} className="success button">
 								<i className="fa fa-save"></i> Save
 							</button>
 						</div>
@@ -442,7 +458,7 @@ class ResultItem extends React.Component {
 	}
 
 	render() {
-		if(this.state.editing === false) {
+		if (this.state.editing === false) {
 			return this.renderStaticDisplay();
 		}
 		else {

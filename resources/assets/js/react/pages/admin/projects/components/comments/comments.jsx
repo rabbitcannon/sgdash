@@ -6,15 +6,16 @@ import CommentItem from './comment-item.jsx';
 
 const add_comment = '/admin/comment/add';
 const user_id = $('input[name=user_id]').val();
+
 // const add_comment = '/api/v1/comment/add';
 
 class Comments extends React.Component {
-    constructor(props) {
-    	super(props);
+	constructor(props) {
+		super(props);
 
-    	this.state = {
-    		user_id: user_id,
-    		comments: [],
+		this.state = {
+			user_id: user_id,
+			comments: [],
 			count: '',
 			project_id: this.props.project_id,
 			comment_text: '',
@@ -26,7 +27,7 @@ class Comments extends React.Component {
 
 	componentDidMount() {
 		$(document).ready(function() {
-			$('.comment-link').on('click', function (event) {
+			$('.comment-link').on('click', function(event) {
 				event.preventDefault();
 			});
 
@@ -114,22 +115,27 @@ class Comments extends React.Component {
 		});
 	}
 
-    render() {
+	render() {
 		var commentItems = _.map(this.state.comments, (comment, index) => {
-			return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id} poster_id={comment.user.id}
-								text={comment.comment} first_name={comment.user.first_name} last_name={comment.user.last_name}
-								date={comment.created_at} project_id={comment.project_id} updated_at={comment.updated_at} />
+			return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id}
+								poster_id={comment.user.id}
+								text={comment.comment} first_name={comment.user.first_name}
+								last_name={comment.user.last_name}
+								date={comment.created_at} project_id={comment.project_id}
+								updated_at={comment.updated_at}/>
 		});
 
-    	return (
+		return (
 			<div className="comment-container">
-				<a className="comment-link" onClick={this.commentLoader.bind(this, this.props.project_id)}>
+				<a className="comment-link no-smoothState"
+				   onClick={this.commentLoader.bind(this, this.props.project_id)}>
 					<small><i className="fa fa-comments"></i> comments: {this.props.count}</small>
 				</a>
 
-				<div id={this.props.project_id} className="comment-slider" data-id={this.props.project_id} data-state="closed">
+				<div id={this.props.project_id} className="comment-slider" data-id={this.props.project_id}
+					 data-state="closed">
 					<div className="comment-loader">
-						<img src="/images/preloaders/loader.svg" />
+						<img src="/images/preloaders/loader.svg"/>
 					</div>
 					<div className="comment-close">
 						<i className="fa fa-times fa-2x"></i>
@@ -142,16 +148,21 @@ class Comments extends React.Component {
 									<i className="fa fa-comments"></i> Comments
 								</div>
 
-								<div id={"inner-comments-id-" + this.props.project_id} className="data-content comments-inner">
+								<div id={"inner-comments-id-" + this.props.project_id}
+									 className="data-content comments-inner">
 									{commentItems}
 
-									<form method="post" id={"form-id-" + this.props.project_id} data-form-id={this.props.project_id}>
+									<form method="post" id={"form-id-" + this.props.project_id}
+										  data-form-id={this.props.project_id}>
 										<div className="row">
 											<div className="large-12 columns text-left">
 												<label>Comment
-													<textarea id={"comment-text-" + this.props.project_id} rows="5" defaultValue={this.state.comment_text} name="comment"
-															  placeholder="Post a comment..." onChange={this.handleChange.bind(this)} />
-													<input type="hidden" name="project_id" value={this.props.project_id} />
+													<textarea id={"comment-text-" + this.props.project_id} rows="5"
+															  defaultValue={this.state.comment_text} name="comment"
+															  placeholder="Post a comment..."
+															  onChange={this.handleChange.bind(this)}/>
+													<input type="hidden" name="project_id"
+														   value={this.props.project_id}/>
 												</label>
 											</div>
 										</div>
@@ -162,7 +173,8 @@ class Comments extends React.Component {
 													<i className="fa fa-ban" aria-hidden="true"></i> Reset
 												</button>
 
-												<button id={"add-comment-btn-" + this.props.project_id} className="button" onClick={this.handleSubmit.bind(this)} >
+												<button id={"add-comment-btn-" + this.props.project_id}
+														className="button" onClick={this.handleSubmit.bind(this)}>
 													<i className="fa fa-comment"></i> Add Comment
 												</button>
 											</div>
@@ -175,7 +187,7 @@ class Comments extends React.Component {
 				</div>
 			</div>
 		)
-    }
+	}
 }
 
 export default Comments;

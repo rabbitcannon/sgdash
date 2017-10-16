@@ -67208,7 +67208,7 @@ var ResultItem = function (_React$Component) {
 				current: this.props.status
 			}))), _jsx('div', {
 				className: 'large-3 columns'
-			}, void 0, _jsx('label', {}, void 0, 'Project Manager', _jsx(_projectManagers2.default, {
+			}, void 0, _jsx('label', {}, void 0, 'Project Manager ', this.props.project_manager, _jsx(_projectManagers2.default, {
 				current: this.props.project_manager
 			})), _jsx('label', {}, void 0, 'Development Manager', _jsx(_developmentManagers2.default, {
 				current: this.props.dev_manager
@@ -67397,8 +67397,11 @@ var ProjectStatusControl = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (ProjectStatusControl.__proto__ || Object.getPrototypeOf(ProjectStatusControl)).call(this, props));
 
 		_this.state = {
-			projectStatus: []
+			projectStatus: [],
+			value: _this.props.current
 		};
+
+		_this.handleChange = _this.handleChange.bind(_this);
 		return _this;
 	}
 
@@ -67406,6 +67409,11 @@ var ProjectStatusControl = function (_React$Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			this.getProjectStatus();
+		}
+	}, {
+		key: 'handleChange',
+		value: function handleChange(event) {
+			this.setState({ value: event.target.value });
 		}
 	}, {
 		key: 'getProjectStatus',
@@ -67426,14 +67434,20 @@ var ProjectStatusControl = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			var statuses = _underscore2.default.map(this.state.projectStatus, function (status) {
+				// if (status.id === this.props.current) {
+				// 	return <option key={status.id} value={status.id} selected>{status.name}</option>
+				// }
+				// else {
 				return _jsx('option', {
 					value: status.id
 				}, status.id, status.name);
+				// }
 			});
 
 			return _jsx('div', {}, void 0, _jsx('select', {
 				name: 'status',
-				defaultValue: this.props.current
+				value: this.props.current,
+				onChange: this.handleChange
 			}, void 0, statuses));
 		}
 	}]);
@@ -67487,8 +67501,11 @@ var ProjectManagers = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (ProjectManagers.__proto__ || Object.getPrototypeOf(ProjectManagers)).call(this, props));
 
 		_this.state = {
-			projectManagers: []
+			projectManagers: [],
+			value: _this.props.current
 		};
+
+		_this.handleChange = _this.handleChange.bind(_this);
 		return _this;
 	}
 
@@ -67496,6 +67513,11 @@ var ProjectManagers = function (_React$Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			this.getProjectStatus();
+		}
+	}, {
+		key: 'handleChange',
+		value: function handleChange(event) {
+			this.setState({ value: event.target.value });
 		}
 	}, {
 		key: 'getProjectStatus',
@@ -67523,7 +67545,8 @@ var ProjectManagers = function (_React$Component) {
 
 			return _jsx('div', {}, void 0, _jsx('select', {
 				name: 'project_manager',
-				defaultValue: this.props.current
+				value: this.props.current,
+				onChange: this.handleChange
 			}, void 0, managers));
 		}
 	}]);
@@ -67577,8 +67600,11 @@ var DevelopmentManagers = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (DevelopmentManagers.__proto__ || Object.getPrototypeOf(DevelopmentManagers)).call(this, props));
 
 		_this.state = {
-			devManagers: []
+			devManagers: [],
+			value: _this.props.current
 		};
+
+		_this.handleChange = _this.handleChange.bind(_this);
 		return _this;
 	}
 
@@ -67586,6 +67612,11 @@ var DevelopmentManagers = function (_React$Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			this.getProjectStatus();
+		}
+	}, {
+		key: 'handleChange',
+		value: function handleChange(event) {
+			this.setState({ value: event.target.value });
 		}
 	}, {
 		key: 'getProjectStatus',
@@ -67613,7 +67644,8 @@ var DevelopmentManagers = function (_React$Component) {
 
 			return _jsx('div', {}, void 0, _jsx('select', {
 				name: 'dev_manager',
-				defaultValue: this.props.current
+				value: this.props.current,
+				onChange: this.handleChange
 			}, void 0, managers));
 		}
 	}]);
@@ -67666,9 +67698,16 @@ var AccountManagers = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (AccountManagers.__proto__ || Object.getPrototypeOf(AccountManagers)).call(this, props));
 
-		_this.state = {
-			acctManagers: []
+		_this.handleChange = function () {
+			_this.setState({ value: event.target.value });
 		};
+
+		_this.state = {
+			acctManagers: [],
+			value: _this.props.current
+		};
+
+		_this.handleChange = _this.handleChange.bind(_this);
 		return _this;
 	}
 
@@ -67703,7 +67742,8 @@ var AccountManagers = function (_React$Component) {
 
 			return _jsx('div', {}, void 0, _jsx('select', {
 				name: 'acct_manager',
-				defaultValue: this.props.current
+				value: this.props.current,
+				onChange: this.handleChange
 			}, void 0, managers));
 		}
 	}]);
@@ -67754,6 +67794,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var add_comment = '/admin/comment/add';
 var user_id = $('input[name=user_id]').val();
+
 // const add_comment = '/api/v1/comment/add';
 
 var _ref = _jsx('i', {
@@ -67914,15 +67955,18 @@ var Comments = function (_React$Component) {
 			var _this3 = this;
 
 			var commentItems = _underscore2.default.map(this.state.comments, function (comment, index) {
-				return _react2.default.createElement(_commentItem2.default, { ref: 'comments', key: index, id: comment.id, user_id: _this3.state.user_id, poster_id: comment.user.id,
-					text: comment.comment, first_name: comment.user.first_name, last_name: comment.user.last_name,
-					date: comment.created_at, project_id: comment.project_id, updated_at: comment.updated_at });
+				return _react2.default.createElement(_commentItem2.default, { ref: 'comments', key: index, id: comment.id, user_id: _this3.state.user_id,
+					poster_id: comment.user.id,
+					text: comment.comment, first_name: comment.user.first_name,
+					last_name: comment.user.last_name,
+					date: comment.created_at, project_id: comment.project_id,
+					updated_at: comment.updated_at });
 			});
 
 			return _jsx('div', {
 				className: 'comment-container'
 			}, void 0, _jsx('a', {
-				className: 'comment-link',
+				className: 'comment-link no-smoothState',
 				onClick: this.commentLoader.bind(this, this.props.project_id)
 			}, void 0, _jsx('small', {}, void 0, _ref, ' comments: ', this.props.count)), _jsx('div', {
 				id: this.props.project_id,
@@ -68062,7 +68106,7 @@ var CommentItem = function (_React$Component) {
 		_this.handleChange = function (event) {
 			_this.setState({
 				comment: event.target.value
-			}, console.log(_this.state.comment));
+			});
 		};
 
 		_this.handleFormSubmit = function (id) {
@@ -68122,7 +68166,7 @@ var CommentItem = function (_React$Component) {
 				className: 'large-9 columns text-left'
 			}, void 0, _jsx('div', {}, void 0, _jsx('span', {
 				className: 'comment-date'
-			}, void 0, _this.dateFormatter(_this.props.date, 'full'), ' - ', _jsx('i', {}, void 0, _this.dateFormatter(_this.props.date, 'compact')))), _jsx('p', {}, void 0, _this.state.comment), _jsx('div', {}, void 0, _this.defineEditState()), _jsx('div', {}, void 0, _jsx('small', {}, void 0, edited_date)))), _ref5);
+			}, void 0, _this.dateFormatter(_this.props.date, 'full'), '- ', _jsx('i', {}, void 0, _this.dateFormatter(_this.props.date, 'compact')))), _jsx('p', {}, void 0, _this.state.comment), _jsx('div', {}, void 0, _this.defineEditState()), _jsx('div', {}, void 0, _jsx('small', {}, void 0, edited_date)))), _ref5);
 		};
 
 		_this.renderEditOutput = function () {
@@ -68134,7 +68178,7 @@ var CommentItem = function (_React$Component) {
 				className: 'large-9 columns text-left'
 			}, void 0, _jsx('div', {}, void 0, _jsx('span', {
 				className: 'comment-date'
-			}, void 0, _this.dateFormatter(_this.props.date, 'full'), ' - ', _jsx('i', {}, void 0, _this.dateFormatter(_this.props.date, 'compact')))), _jsx('p', {}, void 0, _jsx('textarea', {
+			}, void 0, _this.dateFormatter(_this.props.date, 'full'), '- ', _jsx('i', {}, void 0, _this.dateFormatter(_this.props.date, 'compact')))), _jsx('p', {}, void 0, _jsx('textarea', {
 				rows: '3',
 				name: "comment-edit-" + _this.props.id,
 				onChange: _this.handleChange.bind(_this),
@@ -68381,68 +68425,68 @@ var ResultFilter = function (_React$Component) {
 		_this.clearTag = function () {
 			$('ul#tag-container').on('click', '.tag ', function () {
 				var $this = $(this);
+				var $this_name = $this.attr('name');
+				var data_value = $this.attr("data-value");
+				var value = $this.val();
+				var $container;
+				var tag_class;
 
-				if ($this.attr('name') == "project_status[]") {
-					var data_value = $(this).attr("data-value");
-					var value = $(this).val();
-					$this.remove();
-					$("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" + $this.attr('data-value') + "</li>");
+				switch ($this_name) {
+					case "project_status[]":
+						$container = $("ul#status-tags");
+						tag_class = "tag";
+						break;
+					case "project_managers[]":
+						$container = $("ul#pm-tags");
+						tag_class = "tag pm";
+						break;
+					case "dev_managers[]":
+						$container = $("ul#dm-tags");
+						tag_class = "tag dm";
+						break;
+					case "acct_managers[]":
+						$container = $("ul#am-tags");
+						tag_class = "tag am";
+						break;
 				}
 
-				if ($this.attr('name') == "project_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
+				$this.remove();
 
-				if ($this.attr('name') == "dev_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
-
-				if ($this.attr('name') == "acct_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
+				$container.append("<li class=\"" + tag_class + "\" name='" + $this_name + "' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
 			});
 		};
 
 		_this.clearForm = function () {
 			$('ul#tag-container').find('.tag').each(function () {
 				var $this = $(this);
+				var $this_name = $this.attr('name');
+				var data_value = $this.attr("data-value");
+				var value = $this.val();
+				var $container;
+				var tag_class;
 
-				if ($this.attr('name') == "project_status[]") {
-					var data_value = $(this).attr("data-value");
-					var value = $(this).val();
-					$this.remove();
-					$("ul#status-tags").append("<li class='tag' name='project_status[]' data-value=" + data_value + " value=" + value + ">" + $this.attr('data-value') + "</li>");
+				switch ($this_name) {
+					case "project_status[]":
+						$container = $("ul#status-tags");
+						tag_class = "tag";
+						break;
+					case "project_managers[]":
+						$container = $("ul#pm-tags");
+						tag_class = "tag pm";
+						break;
+					case "dev_managers[]":
+						$container = $("ul#dm-tags");
+						tag_class = "tag dm";
+						break;
+					case "acct_managers[]":
+						$container = $("ul#am-tags");
+						tag_class = "tag am";
+						break;
 				}
 
-				if ($this.attr('name') == "project_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#pm-tags").append("<li class='tag pm' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
+				$this.remove();
 
-				if ($this.attr('name') == "dev_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#dm-tags").append("<li class='tag dm' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
-
-				if ($this.attr('name') == "acct_managers[]") {
-					var data_value = $(this).attr('data-value');
-					var value = $(this).val();
-					$this.remove();
-					$("ul#am-tags").append("<li class='tag am' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
-				}
+				$container.append("<li class=\"" + tag_class + "\" name='" + $this_name + "' data-value=\"" + data_value + "\" value=" + value + ">" + $this.attr('data-value') + "</li>");
 			});
 		};
 

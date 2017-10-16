@@ -13,6 +13,7 @@ html, body {
 
 body {
   background: url("/assets/images/bgs/slots.jpg");
+  background-size: 100% auto;
 }
 
 .button {

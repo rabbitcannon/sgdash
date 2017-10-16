@@ -8,22 +8,29 @@ class ProjectManagers extends React.Component {
 
 		this.state = {
 			projectManagers: [],
+			value: this.props.current
 		}
+
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
 		this.getProjectStatus();
 	}
 
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
 	getProjectStatus() {
-		if(this.state.projectManagers !== null) {
+		if (this.state.projectManagers !== null) {
 			var self = this;
-			Axios.get('/api/v1/controls/manager/project').then(function (response) {
+			Axios.get('/api/v1/controls/manager/project').then(function(response) {
 				self.setState({
 					count: response.data.length,
 					projectManagers: response.data
 				});
-			}.bind(this)).catch(function (error) {
+			}.bind(this)).catch(function(error) {
 				console.log(error);
 			});
 		}
@@ -36,8 +43,8 @@ class ProjectManagers extends React.Component {
 
 		return (
 			<div>
-				<select name="project_manager" defaultValue={this.props.current}>
-				  {managers}
+				<select name="project_manager" value={this.props.current} onChange={this.handleChange}>
+					{managers}
 				</select>
 			</div>
 		)
