@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Axios from 'axios';
 import _ from 'underscore';
+import RenderHTML from 'react-render-html';
 
 import CommentItem from './comment-item.jsx';
 
@@ -58,6 +59,7 @@ class Comments extends React.Component {
 		$loader.show();
 		Axios.get(url).then(function(response) {
 			this.setState({
+				count: response.data.length,
 				comments: response.data
 			});
 			$loader.hide();
@@ -116,14 +118,22 @@ class Comments extends React.Component {
 	}
 
 	render() {
-		var commentItems = _.map(this.state.comments, (comment, index) => {
-			return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id}
-								poster_id={comment.user.id}
-								text={comment.comment} first_name={comment.user.first_name}
-								last_name={comment.user.last_name}
-								date={comment.created_at} project_id={comment.project_id}
-								updated_at={comment.updated_at}/>
-		});
+		var commentItems;
+
+		if(this.state.count > 0) {
+
+			commentItems = _.map(this.state.comments, (comment, index) => {
+				return <CommentItem ref="comments" key={index} id={comment.id} user_id={this.state.user_id}
+									poster_id={comment.user.id}
+									text={comment.comment} first_name={comment.user.first_name}
+									last_name={comment.user.last_name}
+									date={comment.created_at} project_id={comment.project_id}
+									updated_at={comment.updated_at}/>
+			});
+		}
+		else {
+			commentItems = RenderHTML("<div>Sorry, no results found.</div>");
+		}
 
 		return (
 			<div className="comment-container">

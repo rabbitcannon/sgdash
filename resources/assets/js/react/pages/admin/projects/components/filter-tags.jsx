@@ -22,6 +22,18 @@ class ResultFilter extends React.Component {
 		this.tagToggle();
 		this.clearTag();
 		this.expandTags();
+		this.accordionPanel();
+	}
+
+	accordionPanel = () => {
+		$(document).ready(function() {
+			$('button#toggle-collapse').on('click', function() {
+				$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
+
+				var $chevron = $('i#collapse-chevron');
+				$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+			});
+		});
 	}
 
 	removeDates = () => {
@@ -58,53 +70,32 @@ class ResultFilter extends React.Component {
 	}
 
 	tagToggle = () => {
-		var $tags = $("ul#tag-container");
-
-		$('#status-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
+		$('ul').on('click', '.tag ', function() {
 			var $this = $(this);
-			var data_value = $this.attr('data-value');
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag selected' name='project_status[]' data-value=" + data_value + " value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-
-		$('#pm-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
+			var $this_name = $this.attr('name');
 			var data_value = $this.attr("data-value");
 			var value = $this.val();
+			var $container = $("ul#tag-container");
+			var tag_class;
+
+			switch ($this_name) {
+				case "project_status[]":
+					tag_class = "tag selected";
+					break;
+				case "project_managers[]":
+					tag_class = "tag pm selected";
+					break;
+				case "dev_managers[]":
+					tag_class = "tag dm selected";
+					break;
+				case "acct_managers[]":
+					tag_class = "tag am selected";
+					break;
+			}
 
 			$this.remove();
-			$tags.append("<li class='tag pm selected' name='project_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
 
-		$('#dm-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr("data-value");
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag dm selected' name='dev_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
-				$this.attr('data-value') + "</li>");
-		});
-
-		$('#am-tags').on('click', '.tag', function(event) {
-			event.preventDefault();
-
-			var $this = $(this);
-			var data_value = $this.attr("data-value");
-			var value = $this.val();
-
-			$this.remove();
-			$tags.append("<li class='tag am selected' name='acct_managers[]' data-value=\"" + data_value + "\" value=" + value + ">" +
+			$container.append("<li class=\"" + tag_class + "\" name='" + $this_name + "' data-value=\"" + data_value + "\" value=" + value + ">" +
 				$this.attr('data-value') + "</li>");
 		});
 	}

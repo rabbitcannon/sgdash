@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -11,7 +12,9 @@ class Project extends Model {
     /**
      * @var array
      */
-    protected $dates = ['req_eta', 'dev_eta', 'qa_eta', 'uat_eta', 'prod_eta', 'deleted_at'];
+    protected $dates = [
+        'req_eta', 'dev_eta', 'qa_eta', 'uat_eta', 'prod_eta', 'deleted_at'
+    ];
 
     /**
      * @var array
@@ -20,9 +23,53 @@ class Project extends Model {
         'req_status', 'req_eta', 'dev_status', 'dev_eta', 'qa_status', 'qa_eta', 'uat_status', 'uat_eta', 'prod_status', 'prod_eta', 'deleted_at'
     ];
 
-//    public function getCreatedAtAttribute($date) {
-//        return Carbon::parse($date, "d/m/Y");
-//    }
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getCreatedAtAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
+
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getReqEtaAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
+
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getDevEtaAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
+
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getQaEtaAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
+
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getUatEtaAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
+
+    /**
+     * @param $date
+     * @return string
+     */
+    public function getProdEtaAttribute($date) {
+        return Carbon::parse($date)->format("m/d/Y");
+    }
 
     /**
      * @param $id

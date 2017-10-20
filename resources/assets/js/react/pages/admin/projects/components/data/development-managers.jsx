@@ -8,18 +8,11 @@ class DevelopmentManagers extends React.Component {
 
 		this.state = {
 			devManagers: [],
-			value: this.props.current
 		}
-
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
 		this.getProjectStatus();
-	}
-
-	handleChange(event) {
-		this.setState({value: event.target.value});
 	}
 
 	getProjectStatus() {
@@ -38,12 +31,17 @@ class DevelopmentManagers extends React.Component {
 
 	render() {
 		let managers = _.map(this.state.devManagers, (user) => {
-			return <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>
+			let select;
+			if (user.id === this.props.current) {
+				select = "true";
+			}
+
+			return <option key={user.id} value={user.id} selected={select}>{user.first_name} {user.last_name}</option>
 		});
 
 		return (
 			<div>
-				<select name="dev_manager" value={this.props.current} onChange={this.handleChange}>
+				<select name="dev_manager">
 					{managers}
 				</select>
 			</div>

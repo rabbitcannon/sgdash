@@ -9118,6 +9118,7 @@ button.toast-close-button {
 
 .react-datepicker__navigation--previous {
   left: 10px;
+  display: none !important;
   border-right-color: #ccc;
 }
 
@@ -9127,6 +9128,7 @@ button.toast-close-button {
 
 .react-datepicker__navigation--next {
   right: 10px;
+  display: none !important;
   border-left-color: #ccc;
 }
 
@@ -9810,6 +9812,14 @@ button.toast-close-button {
 
 /** CS05 Filter Elements
  ===================== **/
+.creation-width {
+  width: 26em;
+}
+
+.edit-dates {
+  width: 14.75em;
+}
+
 .tag-group {
   padding: 0 20px;
 }

@@ -3,6 +3,7 @@
     "/assets/js/react/pages/admin/projects.js": "/assets/js/react/pages/admin/projects.js",
     "/assets/js/react/pages/admin/users.js": "/assets/js/react/pages/admin/users.js",
     "/assets/js/react/pages/public/projects.js": "/assets/js/react/pages/public/projects.js",
+    "/assets/js/react/components/date-controls.js": "/assets/js/react/components/date-controls.js",
     "/assets/js/pages/tickets.js": "/assets/js/pages/tickets.js",
     "/assets/css/app.css": "/assets/css/app.css",
     "/assets/css/login/login.css": "/assets/css/login/login.css",

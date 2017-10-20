@@ -1,38 +1,41 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import ReactDatePicker from 'react-datepicker';
-// import Moment from 'moment';
 
 class DatePickerStart extends React.Component {
-    constructor() {
-        super();
+	constructor() {
+		super();
 
-        this.state = {
-            date: ''
-            // date: Moment()
-        }
+		this.state = {
+			date: ''
+		}
 
 		this.handleChange = this.handleChange.bind(this);
-    }
+	}
 
-    handleChange(new_date) {
+	componentDidMount = () => {
+		// $('#creation-date-start').css('width', '26em');
+	}
+
+	handleChange(new_date) {
 		this.setState({
 			date: new_date
 		});
-    }
+	}
 
-    render() {
-        return (
-            <ReactDatePicker
+	render() {
+		return (
+			<ReactDatePicker
 				id="creation-date-start"
 				name="creation-date-start"
+				className="creation-width"
 				showMonthDropdown
 				showYearDropdown
+				placeholderText="End Date"
 				selected={this.state.date}
 				onChange={this.handleChange}
-            />
-        );
-    }
+			/>
+		);
+	}
 }
 
 export default DatePickerStart;

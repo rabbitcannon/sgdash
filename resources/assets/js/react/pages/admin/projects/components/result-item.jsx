@@ -2,10 +2,11 @@ import React from 'react';
 import Moment from 'moment';
 import Axios from 'axios';
 import $ from 'jquery';
+import ReactDatePicker from 'react-datepicker';
 
 const save_url = window.location.origin + '/api/v1/project/update/';
 
-import ProjectStatusControl from "./data/project-status-control.jsx";
+import ProjectStatus from "./data/project-status.jsx";
 import ProjectManagers from "./data/project-managers.jsx";
 import DevelopmentManagers from "./data/development-managers.jsx";
 import AccountManagers from "./data/account-managers.jsx";
@@ -19,12 +20,17 @@ class ResultItem extends React.Component {
 			comment_id: '',
 			editing: false,
 			status: this.props.status,
+			req_eta: this.props.req_eta,
 			req_status: this.props.req_status,
+			dev_eta: this.props.dev_eta,
 			dev_status: this.props.dev_status,
+			qa_eta: this.props.qa_eta,
 			qa_status: this.props.qa_status,
+			uat_eta: this.props.uat_eta,
 			uat_status: this.props.uat_status,
+			prod_eta: this.props.prod_eta,
 			prod_status: this.props.prod_status,
-			trend: this.props.trend
+			trend: this.props.trend,
 		}
 	}
 
@@ -37,7 +43,7 @@ class ResultItem extends React.Component {
 	}
 
 	edit() {
-		if (this.state.editing === false) {
+		if(this.state.editing === false) {
 			this.setState({
 				editing: true,
 			});
@@ -83,36 +89,51 @@ class ResultItem extends React.Component {
 	}
 
 	confirm(id) {
-		if (confirm('Are you sure you want to delete this project?')) {
+		if(confirm('Are you sure you want to delete this project?')) {
 			let url = `/api/v1/project/delete/${id}`;
 			window.location = url;
 		}
 	}
 
-	dateFormatter(date, full) {
-		if (full) {
-			if (date) {
-				var newDate = Moment(date).format('MM/DD/YY');
-			}
-			else {
-				var newDate = "N/A";
-			}
-			return newDate;
-		}
-		else {
-			if (date) {
-				var newDate = Moment(date).format('MM/DD');
-			}
-			else {
-				var newDate = "N/A";
-			}
-			return newDate;
-		}
+	dateFormatter(date) {
+		var date_fix = new Date(date);
+		var newDate = Moment(date_fix).format('MM/DD');
+		return newDate;
+	}
+
+	handleReqChange = (date) => {
+		this.setState({
+			req_eta: date
+		});
+	}
+
+	handleDevChange = (date) => {
+		this.setState({
+			dev_eta: date
+		});
+	}
+
+	handleQaChange = (date) => {
+		this.setState({
+			qa_eta: date
+		});
+	}
+
+	handleUatChange = (date) => {
+		this.setState({
+			uat_eta: date
+		});
+	}
+
+	handleProdChange = (date) => {
+		this.setState({
+			prod_eta: date
+		});
 	}
 
 	classSetter(status_id) {
 		let status_class = "";
-		switch (status_id) {
+		switch(status_id) {
 			case 1:
 				status_class = "on-track"
 				break;
@@ -130,7 +151,7 @@ class ResultItem extends React.Component {
 
 	classTrendSetter(trend) {
 		let status_class = "";
-		switch (trend) {
+		switch(trend) {
 			case "up":
 				status_class = "on-track"
 				break;
@@ -147,37 +168,37 @@ class ResultItem extends React.Component {
 	}
 
 	handleSelectChange(status_name, event) {
-		if (status_name === 'status') {
+		if(status_name === 'status') {
 			this.setState({
 				trend: event.target.value,
 			});
 		}
-		if (status_name === 'req_status') {
+		if(status_name === 'req_status') {
 			this.setState({
 				req_status: event.target.value,
 			});
 		}
-		if (status_name === 'dev_status') {
+		if(status_name === 'dev_status') {
 			this.setState({
 				dev_status: event.target.value,
 			});
 		}
-		if (status_name === 'qa_status') {
+		if(status_name === 'qa_status') {
 			this.setState({
 				qa_status: event.target.value,
 			});
 		}
-		if (status_name === 'uat_status') {
+		if(status_name === 'uat_status') {
 			this.setState({
 				uat_status: event.target.value,
 			});
 		}
-		if (status_name === 'prod_status') {
+		if(status_name === 'prod_status') {
 			this.setState({
 				prod_status: event.target.value,
 			});
 		}
-		if (status_name === 'trend') {
+		if(status_name === 'trend') {
 			this.setState({
 				trend: event.target.value,
 			});
@@ -186,7 +207,7 @@ class ResultItem extends React.Component {
 
 	renderStaticDisplay() {
 		return (
-			<tr id="row-static">
+			<tr>
 				<td>
 					{this.props.code}
 				</td>
@@ -229,7 +250,7 @@ class ResultItem extends React.Component {
 					</span>
 				</td>
 				<td width="50" className="text-center">
-					<button id="initiate-edit" onClick={this.edit.bind(this)}>
+					<button className="initiate-edit" onClick={this.edit.bind(this)}>
 						<i className="fa fa-pencil-square-o fa-2x"></i>
 					</button>
 				</td>
@@ -238,8 +259,6 @@ class ResultItem extends React.Component {
 	}
 
 	renderEditForm() {
-		var full = 'full';
-
 		const styles = {
 			main: {
 				padding: 15,
@@ -264,13 +283,13 @@ class ResultItem extends React.Component {
 		}
 
 		return (
-			<tr id="row-edit" className="row-edit" style={styles.editRow}>
+			<tr className="row-edit" style={styles.editRow}>
 				<td colSpan={10}>
 
 					<div className="text-left">
 						<h3>
 							Details
-							<small> - {this.dateFormatter(this.props.created_at, full)}</small>
+							<small> - {this.props.created_at}</small>
 						</h3>
 					</div>
 
@@ -309,12 +328,12 @@ class ResultItem extends React.Component {
 
 						<div className="large-3 columns">
 							<label>Project Status
-								<ProjectStatusControl current={this.props.status}/>
+								<ProjectStatus current={this.props.status}/>
 							</label>
 						</div>
 
 						<div className="large-3 columns">
-							<label>Project Manager {this.props.project_manager}
+							<label>Project Manager
 								<ProjectManagers current={this.props.project_manager}/>
 							</label>
 							<label>Development Manager
@@ -338,8 +357,15 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>REQ
-											<input type="text" name="req_eta"
-												   defaultValue={this.dateFormatter(this.props.req_eta, full)}/>
+											<ReactDatePicker
+												name="req_eta"
+												className="edit-dates"
+												showMonthDropdown
+												showYearDropdown
+												yearDropdownItemNumber={5}
+												selected={Moment(this.state.req_eta, "MM/DD/YYYY")}
+												onChange={this.handleReqChange}
+											/>
 										</label>
 									</div>
 									<div>
@@ -357,8 +383,15 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>DEV
-											<input type="text" name="dev_eta"
-												   defaultValue={this.dateFormatter(this.props.dev_eta, full)}/>
+											<ReactDatePicker
+												name="dev_eta"
+												className="edit-dates"
+												showMonthDropdown
+												showYearDropdown
+												yearDropdownItemNumber={5}
+												selected={Moment(this.state.dev_eta, "MM/DD/YYYY")}
+												onChange={this.handleDevChange}
+											/>
 										</label>
 									</div>
 									<div>
@@ -376,8 +409,15 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>QA
-											<input type="text" name="qa_eta"
-												   defaultValue={this.dateFormatter(this.props.qa_eta, full)}/>
+											<ReactDatePicker
+												name="qa_eta"
+												className="edit-dates"
+												showMonthDropdown
+												showYearDropdown
+												yearDropdownItemNumber={5}
+												selected={Moment(this.state.qa_eta, "MM/DD/YYYY")}
+												onChange={this.handleQaChange}
+											/>
 										</label>
 									</div>
 									<div>
@@ -395,8 +435,15 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>UAT
-											<input type="text" name="uat_eta"
-												   defaultValue={this.dateFormatter(this.props.uat_eta, full)}/>
+											<ReactDatePicker
+												name="uat_eta"
+												className="edit-dates"
+												showMonthDropdown
+												showYearDropdown
+												yearDropdownItemNumber={5}
+												selected={Moment(this.state.uat_eta, "MM/DD/YYYY")}
+												onChange={this.handleUatChange}
+											/>
 										</label>
 									</div>
 									<div>
@@ -414,8 +461,15 @@ class ResultItem extends React.Component {
 								<div className="columns">
 									<div>
 										<label>PROD
-											<input type="text" name="prod_eta"
-												   defaultValue={this.dateFormatter(this.props.prod_eta, full)}/>
+											<ReactDatePicker
+												name="prod_eta"
+												className="edit-dates"
+												showMonthDropdown
+												showYearDropdown
+												yearDropdownItemNumber={10}
+												selected={Moment(this.state.prod_eta, "MM/DD/YYYY")}
+												onChange={this.handleProdChange}
+											/>
 										</label>
 									</div>
 									<div>
@@ -454,11 +508,12 @@ class ResultItem extends React.Component {
 					</div>
 				</td>
 			</tr>
-		);
+		)
+			;
 	}
 
 	render() {
-		if (this.state.editing === false) {
+		if(this.state.editing === false) {
 			return this.renderStaticDisplay();
 		}
 		else {

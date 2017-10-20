@@ -31,7 +31,7 @@
     "animate.css": "^3.5.2",
     "hideshowpassword": "^2.1.1",
     "jquery": "^3.2.1",
-    "moment": "^2.18.1",
+    "moment": "^2.19.1",
     "react-datepicker": "^0.55.0",
     "react-transition-group": "^2.2.1",
     "toastr": "^2.1.2"

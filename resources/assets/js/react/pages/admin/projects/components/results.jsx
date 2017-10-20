@@ -28,28 +28,10 @@ class Results extends React.Component {
 
 	componentDidMount() {
 		this.getProjects(url);
-		this.accordionPanel();
 		toastr.options.newestOnTop = true;
 		toastr.options.showMethod = 'slideDown';
 	}
 
-	componentWillUpdate = () => {
-		// this.hideSearchTagPanel();
-		// easier to do this in state probably
-	}
-
-	accordionPanel = () => {
-		$(document).ready(function() {
-			$('button#toggle-collapse').on('click', function() {
-				$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
-
-				var $chevron = $('i#collapse-chevron');
-				$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
-			});
-		});
-	}
-
-	// updateProjects = (update_url, event, searchType) => {
 	updateProjects = (searchType, event) => {
 		event.preventDefault();
 		event.stopPropagation()

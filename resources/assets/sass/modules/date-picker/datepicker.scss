@@ -96,6 +96,7 @@
 
   &--previous {
     left: 10px;
+    display: none !important;
     border-right-color: $datepicker__muted-color;
 
     &:hover {
@@ -105,6 +106,7 @@
 
   &--next {
     right: 10px;
+    display: none !important;
     border-left-color: $datepicker__muted-color;
 
     &:hover {
@@ -401,7 +403,7 @@
   }
 
   // Resize for small screens
-  @media (max-width: 400px), (max-height: 550px)  {
+  @media (max-width: 400px), (max-height: 550px) {
     .react-datepicker__day-name,
     .react-datepicker__day {
       width: 2rem;

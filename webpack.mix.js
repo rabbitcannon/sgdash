@@ -41,6 +41,14 @@ mix.combine([
 
 //--  React Files --//
 // ========================= //
+//-- Date Controls --//
+mix.react([
+	'resources/assets/js/react/components/dates/req-eta.jsx',
+	'resources/assets/js/react/components/dates/dev-eta.jsx',
+	'resources/assets/js/react/components/dates/qa-eta.jsx',
+	'resources/assets/js/react/components/dates/uat-eta.jsx',
+	'resources/assets/js/react/components/dates/prod-eta.jsx',
+], 'public/assets/js/react/components/date-controls.js');
 
 //-- Components --//
 mix.react([

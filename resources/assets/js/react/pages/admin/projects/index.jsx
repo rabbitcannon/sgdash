@@ -5,13 +5,13 @@ import Results from './components/results.jsx';
 
 class Projects extends React.Component {
 
-    render() {
-        return (
-            <div>
-                <Results />
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div>
+				<Results/>
+			</div>
+		);
+	}
 }
 
-ReactDOM.render(<Projects />, document.getElementById("project-list"));
+ReactDOM.render(<Projects/>, document.getElementById("project-list"));

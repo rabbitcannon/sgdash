@@ -2,16 +2,13 @@ import React from 'react';
 import Axios from 'axios';
 import _ from 'underscore';
 
-class ProjectStatusControl extends React.Component {
+class ProjectStatus extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			projectStatus: [],
-			value: this.props.current
 		}
-
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -38,17 +35,17 @@ class ProjectStatusControl extends React.Component {
 
 	render() {
 		let statuses = _.map(this.state.projectStatus, (status) => {
-			// if (status.id === this.props.current) {
-			// 	return <option key={status.id} value={status.id} selected>{status.name}</option>
-			// }
-			// else {
-			return <option key={status.id} value={status.id}>{status.name}</option>
-			// }
+			let select;
+			if (status.id === this.props.current) {
+				select = "true";
+			}
+
+			return <option key={status.id} value={status.id} selected={select}>{status.name}</option>
 		});
 
 		return (
 			<div>
-				<select name="status" value={this.props.current} onChange={this.handleChange}>
+				<select name="status">
 					{statuses}
 				</select>
 			</div>
@@ -56,4 +53,4 @@ class ProjectStatusControl extends React.Component {
 	}
 }
 
-export default ProjectStatusControl;
+export default ProjectStatus;

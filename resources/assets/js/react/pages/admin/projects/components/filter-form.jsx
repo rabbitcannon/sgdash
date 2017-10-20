@@ -18,7 +18,18 @@ class FilterForm extends React.Component {
 	}
 
 	componentDidMount() {
-		this.getControlData();
+		this.accordionPanel();
+	}
+
+	accordionPanel = () => {
+		$(document).ready(function() {
+			$('button#toggle-collapse').on('click', function() {
+				$('div#filter-form').animate({opacity: 'toggle', height: 'toggle'}, 250, "linear");
+
+				var $chevron = $('i#collapse-chevron');
+				$chevron.toggleClass('fa-angle-double-up fa-angle-double-down');
+			});
+		});
 	}
 
 	removeDates = () => {
